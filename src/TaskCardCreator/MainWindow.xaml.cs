@@ -135,7 +135,7 @@ namespace TaskCardCreator
     private void SubmitBugButtonClick(object sender, RoutedEventArgs e)
     {
       Logger.Write("Entering SubmitBugButtonClick method");
-      Process.Start(new ProcessStartInfo(@"http://taskcardcreator.codeplex.com/workitem/list/advanced"));
+      Process.Start(new ProcessStartInfo(@"https://github.com/frederiksen/Task-Card-Creator/issues"));
     }
 
     private void HelpButtonClick(object sender, RoutedEventArgs e)
