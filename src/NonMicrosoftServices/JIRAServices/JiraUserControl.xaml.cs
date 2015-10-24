@@ -96,7 +96,7 @@ namespace JIRAServices
       DataContext = this;
 
       ProjectUrl = "https://jira.atlassian.com";
-      Jql = "project = TST";
+      Jql = "project = DEMO";
       Reports = new ObservableCollection<IReport>(reports);
       SelectedReport = Reports.First();
 

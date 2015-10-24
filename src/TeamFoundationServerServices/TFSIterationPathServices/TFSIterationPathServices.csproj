@@ -280,7 +280,7 @@
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <PropertyGroup>
-    <PostBuildEvent>copy "$(TargetDir)*.dll" "$(SolutionDir)\TaskCardCreator\bin\$(ConfigurationName)"</PostBuildEvent>
+    <PostBuildEvent>xcopy /r /y "$(TargetDir)*.dll" "$(SolutionDir)\TaskCardCreator\bin\$(ConfigurationName)\TFSIterationPathServices\"</PostBuildEvent>
   </PropertyGroup>
   <Import Project="..\..\packages\Microsoft.TeamFoundationServer.ExtendedClient.14.83.2\build\Microsoft.TeamFoundationServer.ExtendedClient.targets" Condition="Exists('..\..\packages\Microsoft.TeamFoundationServer.ExtendedClient.14.83.2\build\Microsoft.TeamFoundationServer.ExtendedClient.targets')" />
   <Target Name="EnsureNuGetPackageBuildImports" BeforeTargets="PrepareForBuild">

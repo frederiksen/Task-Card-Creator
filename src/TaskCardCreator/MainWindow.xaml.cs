@@ -63,12 +63,14 @@ namespace TaskCardCreator
 
       // An aggregate catalog that combines multiple catalogs
       var catalog = new AggregateCatalog();
-      // Adds all the parts found in all assemblies in 
-      // the same directory as the executing program
-      catalog.Catalogs.Add(
-       new DirectoryCatalog(
-        Path.GetDirectoryName(
-         Assembly.GetExecutingAssembly().Location)));
+
+      // Adds all the parts found in all assemblies in subfolders
+      var exePath = Path.GetDirectoryName(Assembly.GetExecutingAssembly().Location);
+      foreach (var path in Directory.EnumerateDirectories(exePath, "*", SearchOption.TopDirectoryOnly))
+      {
+        AppDomain.CurrentDomain.AppendPrivatePath(path);
+        catalog.Catalogs.Add(new DirectoryCatalog(path));
+      }
 
       // Create the CompositionContainer with the parts in the catalog
       var container = new CompositionContainer(catalog);
