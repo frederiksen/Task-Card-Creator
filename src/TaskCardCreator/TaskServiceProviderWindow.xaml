@@ -29,10 +29,10 @@
             </StackPanel.ToolTip>
             <TextBlock TextDecorations="Underline" FontSize="18" Text="{Binding Name}"/>
             <TextBlock FontSize="14" Text="{Binding ShortDescription}"/>
-            <StackPanel Orientation="Horizontal">
-              <TextBlock Text="Ready: "/>
-              <TextBlock Text="{Binding IsInstalled}"/>
-            </StackPanel>
+<!--            <StackPanel Orientation="Horizontal">-->
+<!--              <TextBlock Text="Ready: "/>-->
+<!--              <TextBlock Text="{Binding IsInstalled}"/>-->
+<!--            </StackPanel>-->
           </StackPanel>
         </DataTemplate>
       </ListBox.ItemTemplate>
