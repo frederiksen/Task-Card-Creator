@@ -12,7 +12,7 @@ using System.Windows;
 [assembly: AssemblyConfiguration("")]
 [assembly: AssemblyCompany("mrtn")]
 [assembly: AssemblyProduct("TaskCardCreator")]
-[assembly: AssemblyCopyright("Copyright © mrtn 2014")]
+[assembly: AssemblyCopyright("Copyright © mrtn 2015")]
 [assembly: AssemblyTrademark("")]
 [assembly: AssemblyCulture("")]
 
