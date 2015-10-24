@@ -1,0 +1,93 @@
+﻿<!--
+// This source is subject to Microsoft Public License (Ms-PL).
+// Please see http://taskcardcreator.codeplex.com for details.
+// All other rights reserved.
+-->
+<RibbonWindow x:Class="TaskCardCreator.MainWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        Title="Task Card Creator 7.8" Icon="Resources\TaskCardCreator.ico" 
+        Height="700" Width="500"
+        MinHeight="300" MinWidth="300"
+        ResizeMode="CanResize">
+  <Grid>
+    <Grid.RowDefinitions>
+      <RowDefinition Height="Auto" />
+      <RowDefinition Height="*" />
+    </Grid.RowDefinitions>
+    <Ribbon x:Name="Ribbon" Grid.Row="0" Background="LightBlue">
+      <Ribbon.HelpPaneContent>
+        <StackPanel Orientation="Horizontal">
+          <RibbonButton SmallImageSource="Resources\Help.png" Click="HelpButtonClick" ToolTipTitle="Help" ToolTipDescription="I need help!" KeyTipService.KeyTip="E"/>
+        </StackPanel>
+      </Ribbon.HelpPaneContent>
+      <Ribbon.ApplicationMenu>
+        <RibbonApplicationMenu KeyTipService.KeyTip="F" SmallImageSource="Resources\FileIcon.png">
+          <RibbonApplicationMenuItem Header="_Log files" Click="RibbonLogClick"/>
+          <RibbonApplicationMenuItem Header="E_xit" ImageSource="Resources\Exit.png" Click="ExitButtonClick"/>
+        </RibbonApplicationMenu>
+      </Ribbon.ApplicationMenu>
+      <RibbonTab x:Name="HomeTab" Header="Start" KeyTipService.KeyTip="S">
+        <RibbonGroup Header="Project">
+          <RibbonButton Label="Connect" 
+                               Click="SelectProjectButtonClick" LargeImageSource="Resources/SelectProject.png" KeyTipService.KeyTip="T"
+                               ToolTipTitle="Select Team Foundation Server Team Project"
+                               ToolTipDescription="Allows you to select a Team Foundation Server Team Project. After the selection you can create task cards."                               
+                               ToolTipImageSource="Resources\TeamFoundationServer2010ToolTip.png"
+                               />
+        </RibbonGroup>
+        <RibbonGroup Header="Help" SmallImageSource="Resources\GoTo.png">
+          <RibbonButton SmallImageSource="Resources\GoTo.png" Label="Visit project site" 
+                               Click="GoToWebSiteButtonClick" KeyTipService.KeyTip="W"
+                               ToolTipTitle="Codeplex project site"
+                               ToolTipDescription="Allows you to go to the CodePlex project site"/>
+          <RibbonButton SmallImageSource="Resources\Warning.png" Label="Report a bug" Click="SubmitBugButtonClick" 
+                               KeyTipService.KeyTip="B"
+                               ToolTipTitle="Found a bug?"
+                               ToolTipDescription="Allows you to submit a bug"/>
+          <RibbonButton SmallImageSource="Resources\Update.png" 
+                               Label="Check for updates" Click="CheckForUpdatesButtonClick" KeyTipService.KeyTip="C"
+                               ToolTipTitle="Check for updates"
+                               ToolTipDescription="Allows you to check for a newer version"/>
+        </RibbonGroup>
+      </RibbonTab>
+      <RibbonTab Name="TaskCardTab" Header="Report" ContextualTabGroupHeader="Project" KeyTipService.KeyTip="R">
+        <RibbonGroup Header="Report">
+          <RibbonButton Name="CreateButton" LargeImageSource="Resources\Report.png" Label="Create" Click="CreateButtonClick" 
+                               KeyTipService.KeyTip="C"
+                               ToolTipTitle="Create"
+                               ToolTipDescription="Create a report based on the selected options"/>
+          <RibbonButton Name="PrintButton" LargeImageSource="Resources\Printer.png" IsEnabled="False" Label="Print" Click="PrintButtonClick" 
+                               KeyTipService.KeyTip="P"
+                               ToolTipTitle="Print"
+                               ToolTipDescription="Send report to a printer"/>
+        </RibbonGroup>
+        <RibbonGroup Header="View" >
+          <RibbonButton Name="ZoomIn" LargeImageSource="Resources\Plus.png" Label="Zoom in" Click="ZoomInButtonClick" 
+                               KeyTipService.KeyTip="I"
+                               ToolTipTitle="Zoom in"
+                               ToolTipDescription="Increase the size of the content"/>
+          <RibbonButton Name="ZoomOut" LargeImageSource="Resources\Minus.png" Label="Zoom out" Click="ZoomOutButtonClick" 
+                               KeyTipService.KeyTip="O"
+                               ToolTipTitle="Zoom out"
+                               ToolTipDescription="Decrease the size of the content"/>
+        </RibbonGroup>
+      </RibbonTab>
+      <Ribbon.ContextualTabGroups>
+        <RibbonContextualTabGroup Name="TaskCardContextualTab" Header="Project" Background="Green" />
+      </Ribbon.ContextualTabGroups>
+    </Ribbon>
+
+    <Grid Grid.Row="1" Background="GhostWhite">
+      <TabControl Margin="10" Name="TabControl" SelectionChanged="TabSelectionChanged">
+        <TabControl.Effect>
+          <DropShadowEffect />
+        </TabControl.Effect>
+        <TabItem Name="IntroTab" Header="Introduction">
+          <WebBrowser Source="https://taskcardcreator.codeplex.com/wikipage?title=Introduction"></WebBrowser>          
+        </TabItem>
+
+      </TabControl>
+    </Grid>
+  </Grid>
+</RibbonWindow>

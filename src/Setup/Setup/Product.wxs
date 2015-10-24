@@ -1,0 +1,175 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!--
+// This source is subject to Microsoft Public License (Ms-PL).
+// Please see http://taskcardcreator.codeplex.com for details.
+// All other rights reserved.
+-->
+<Wix xmlns="http://schemas.microsoft.com/wix/2006/wi"
+     xmlns:netfx="http://schemas.microsoft.com/wix/NetFxExtension">
+	<Product Id="*" Name="Task Card Creator" Language="1033" Version="7.8.0.0" Manufacturer="mrtn" UpgradeCode="d0170198-6c4d-477d-955e-2be40034a0bb">
+		<Package InstallerVersion="200" Compressed="yes" InstallScope="perMachine"/>
+
+		<Media Id="1" Cabinet="media.cab" EmbedCab="yes" />
+
+    <MajorUpgrade DowngradeErrorMessage="You can not downgrade!" />
+
+    <Directory Id="TARGETDIR" Name="SourceDir">
+      <Directory Id="ProgramMenuFolder">
+        <Directory Id="ApplicationProgramsFolder" Name="Task Card Creator"/>
+      </Directory>
+      <Directory Id="ProgramFilesFolder">
+				<Directory Id="INSTALLLOCATION" Name="Task Card Creator">
+          <Component Id="TaskCardCreator.exe" Guid="*">
+            <File Id="TaskCardCreator.exe" Name="TaskCardCreator.exe" Source="$(var.TaskCardCreator.TargetPath)" />
+          </Component>
+          <Component Id="Tools.dll" Guid="*">
+            <File Id="Tools.dll" Name="Tools.dll" Source="$(var.Tools.TargetPath)" />
+          </Component>
+          <Component Id="TaskServerServiceInterface.dll" Guid="*">
+            <File Id="TaskServerServiceInterface.dll" Name="TaskServerServiceInterface.dll" Source="$(var.TaskServerServiceInterface.TargetPath)" />
+          </Component>
+          <Component Id="JIRAServices.dll" Guid="*">
+            <File Id="JIRAServices.dll" Name="JIRAServices.dll" Source="$(var.JIRAServices.TargetPath)" />
+          </Component>
+          <Component Id="JiraRestClientDotNet.dll" Guid="*">
+            <File Id="JiraRestClientDotNet.dll" Name="JiraRestClientDotNet.dll" Source="$(var.SolutionDir)\TaskCardCreator\bin\$(var.Configuration)\JiraRestClientDotNet.dll" />
+          </Component>
+          <Component Id="ServiceStack.Common.dll" Guid="*">
+            <File Id="ServiceStack.Common.dll" Name="ServiceStack.Common.dll" Source="$(var.SolutionDir)\TaskCardCreator\bin\$(var.Configuration)\ServiceStack.Common.dll" />
+          </Component>
+          <Component Id="ServiceStack.Interfaces.dll" Guid="*">
+            <File Id="ServiceStack.Interfaces.dll" Name="ServiceStack.Interfaces.dll" Source="$(var.SolutionDir)\TaskCardCreator\bin\$(var.Configuration)\ServiceStack.Interfaces.dll" />
+          </Component>
+          <Component Id="ServiceStack.Text.dll" Guid="*">
+            <File Id="ServiceStack.Text.dll" Name="ServiceStack.Text.dll" Source="$(var.SolutionDir)\TaskCardCreator\bin\$(var.Configuration)\ServiceStack.Text.dll" />
+          </Component>
+          <Component Id="TeamFoundationServer2010Services.dll" Guid="*">
+            <File Id="TeamFoundationServer2010Services.dll" Name="TeamFoundationServer2010Services.dll" Source="$(var.TeamFoundationServer2010Services.TargetPath)" />
+          </Component>
+          <Component Id="TeamFoundationServer2012Services.dll" Guid="*">
+            <File Id="TeamFoundationServer2012Services.dll" Name="TeamFoundationServer2012Services.dll" Source="$(var.TeamFoundationServer2012Services.TargetPath)" />
+          </Component>
+          <Component Id="TeamFoundationServer2013Services.dll" Guid="*">
+            <File Id="TeamFoundationServer2013Services.dll" Name="TeamFoundationServer2013Services.dll" Source="$(var.TeamFoundationServer2013Services.TargetPath)" />
+          </Component>          
+          <Component Id="TaskCardCreator.exe.config" Guid="*">
+            <File Id="TaskCardCreator.exe.config" Name="TaskCardCreator.exe.config" Source="$(var.TaskCardCreator.TargetDir)\TaskCardCreator.exe.config" />
+          </Component>
+          <Component Id="Microsoft.Practices.EnterpriseLibrary.Common.dll" Guid="*">
+            <File Id="Microsoft.Practices.EnterpriseLibrary.Common.dll" Name="Microsoft.Practices.EnterpriseLibrary.Common.dll" Source="$(var.SolutionDir)\TaskCardCreator\bin\$(var.Configuration)\Microsoft.Practices.EnterpriseLibrary.Common.dll" />
+          </Component>
+          <Component Id="Microsoft.Practices.EnterpriseLibrary.Logging.dll" Guid="*">
+            <File Id="Microsoft.Practices.EnterpriseLibrary.Logging.dll" Name="Microsoft.Practices.EnterpriseLibrary.Logging.dll" Source="$(var.SolutionDir)\TaskCardCreator\bin\$(var.Configuration)\Microsoft.Practices.EnterpriseLibrary.Logging.dll" />
+          </Component>          
+          <Component Id="GoogleAnalyticsTracker.Core.dll" Guid="*">
+            <File Id="GoogleAnalyticsTracker.Core.dll" Name="GoogleAnalyticsTracker.Core.dll" Source="$(var.SolutionDir)\TaskCardCreator\bin\$(var.Configuration)\GoogleAnalyticsTracker.Core.dll" />
+          </Component>
+          <Component Id="GoogleAnalyticsTracker.Simple.dll" Guid="*">
+            <File Id="GoogleAnalyticsTracker.Simple.dll" Name="GoogleAnalyticsTracker.Simple.dll" Source="$(var.SolutionDir)\TaskCardCreator\bin\$(var.Configuration)\GoogleAnalyticsTracker.Simple.dll" />
+          </Component>          
+          <Component Id="ReportingFramework.dll" Guid="*">
+            <File Id="ReportingFramework.dll" Name="ReportingFramework.dll" Source="$(var.ReportingFramework.TargetPath)" />
+          </Component>
+          <Component Id="ReportInterface.dll" Guid="*">
+            <File Id="ReportInterface.dll" Name="ReportInterface.dll" Source="$(var.ReportInterface.TargetPath)" />
+          </Component>
+          <Component Id="ScrumBasic.dll" Guid="*">
+            <File Id="ScrumBasic.dll" Name="ScrumBasic.dll" Source="$(var.ScrumBasic.TargetPath)" />
+          </Component>
+          <Component Id="ScrumCompact.dll" Guid="*">
+            <File Id="ScrumCompact.dll" Name="ScrumCompact.dll" Source="$(var.ScrumCompact.TargetPath)" />
+          </Component>
+          <Component Id="ScrumDetailed.dll" Guid="*">
+            <File Id="ScrumDetailed.dll" Name="ScrumDetailed.dll" Source="$(var.ScrumDetailed.TargetPath)" />
+          </Component>
+          <Component Id="ScrumDescription.dll" Guid="*">
+            <File Id="ScrumDescription.dll" Name="ScrumDescription.dll" Source="$(var.ScrumDescription.TargetPath)" />
+          </Component>
+          <Component Id="ScrumIndexCard3x5.dll" Guid="*">
+            <File Id="ScrumIndexCard3x5.dll" Name="ScrumIndexCard3x5.dll" Source="$(var.ScrumIndexCard3x5.TargetPath)" />
+          </Component>
+          <Component Id="UserDefinedReport.dll" Guid="*">
+            <File Id="UserDefinedReport.dll" Name="UserDefinedReport.dll" Source="$(var.UserDefinedReport.TargetPath)" />
+          </Component>
+          <Component Id="MSFforAgile.dll" Guid="*">
+            <File Id="MSFforAgile.dll" Name="MSFforAgile.dll" Source="$(var.MSFforAgile.TargetPath)" />
+          </Component>
+          <Component Id="MSFforAgileBasic.dll" Guid="*">
+            <File Id="MSFforAgileBasic.dll" Name="MSFforAgileBasic.dll" Source="$(var.MSFforAgileBasic.TargetPath)" />
+          </Component>
+          <Component Id="Generic.dll" Guid="*">
+            <File Id="Generic.dll" Name="Generic.dll" Source="$(var.Generic.TargetPath)" />
+          </Component>
+          <Component Id="License.rtf" Guid="*">
+            <File Id="License.rtf" Name="License.rtf" Source="$(var.SolutionDir)\License.rtf" />
+          </Component>
+        </Directory>
+			</Directory>
+		</Directory>
+
+    <DirectoryRef Id="ApplicationProgramsFolder">
+      <Component Id="ApplicationShortcut" Guid="*">
+        <Shortcut Id="ApplicationStartMenuShortcut"
+                  Name="Task Card Creator 7.7"
+                  Description="Task Card Creator 7.7"
+                  Target="[INSTALLLOCATION]TaskCardCreator.exe"
+                  WorkingDirectory="INSTALLLOCATION"/>
+        <Shortcut Id="LicenseStartMenuShortcut"
+                  Name="License"
+                  Description="License"
+                  Target="[INSTALLLOCATION]License.rtf"
+                  WorkingDirectory="INSTALLLOCATION"/>
+        <RemoveFolder Id="ApplicationProgramsFolder" On="uninstall"/>
+        <RegistryValue Root="HKCU" Key="Software\TaskCardCreator" Name="installed" Type="integer" Value="1" KeyPath="yes"/>
+      </Component>
+    </DirectoryRef>
+
+    <Feature Id="ProductFeature" Title="Task Card Creator" Description="Task Card Creator" Level="1" Absent="disallow" AllowAdvertise="no">
+			<ComponentRef Id="TaskCardCreator.exe" />
+      <ComponentRef Id="TaskCardCreator.exe.config" />
+      <ComponentRef Id="Tools.dll" />
+      <ComponentRef Id="TaskServerServiceInterface.dll" />
+      <ComponentRef Id="JIRAServices.dll" />
+      <ComponentRef Id="JiraRestClientDotNet.dll" />
+      <ComponentRef Id="ServiceStack.Common.dll" />
+      <ComponentRef Id="ServiceStack.Interfaces.dll" />
+      <ComponentRef Id="ServiceStack.Text.dll" />
+      <ComponentRef Id="TeamFoundationServer2010Services.dll" />
+			<ComponentRef Id="TeamFoundationServer2012Services.dll" />
+			<ComponentRef Id="TeamFoundationServer2013Services.dll" />      
+      <ComponentRef Id="Microsoft.Practices.EnterpriseLibrary.Common.dll" />
+      <ComponentRef Id="Microsoft.Practices.EnterpriseLibrary.Logging.dll" />
+      <ComponentRef Id="GoogleAnalyticsTracker.Core.dll" />
+      <ComponentRef Id="GoogleAnalyticsTracker.Simple.dll" />
+      <ComponentRef Id="ReportingFramework.dll" />
+      <ComponentRef Id="ReportInterface.dll" />      
+      <ComponentRef Id="License.rtf" />
+    </Feature>
+    
+    <Feature Id="VisualStudioScrum" Title="Visual Studio Scrum report templates" Description="Visual Studio Scrum report templates" Level="1" Absent="allow" AllowAdvertise="no">
+      <ComponentRef Id="ScrumBasic.dll" />
+      <ComponentRef Id="ScrumCompact.dll" />
+      <ComponentRef Id="ScrumDetailed.dll" />
+      <ComponentRef Id="ScrumDescription.dll" />
+      <ComponentRef Id="ScrumIndexCard3x5.dll" />
+    </Feature>
+
+    <Feature Id="MSFforAgileSoftwareDevelopment" Title="MSF for Agile Software Development report templates" Description="MSF for Agile Software Development report templates" Level="1" Absent="allow" AllowAdvertise="no">
+      <ComponentRef Id="MSFforAgile.dll" />
+      <ComponentRef Id="MSFforAgileBasic.dll" />
+    </Feature>
+
+    <Feature Id="Generic" Title="Generic report templates" Description="Generic report templates" Level="1" Absent="allow" AllowAdvertise="no">
+      <ComponentRef Id="Generic.dll" />
+    </Feature>
+
+    <Feature Id="UserDefined" Title="UserDefined report templates" Description="UserDefined report templates" Level="1" Absent="allow" AllowAdvertise="no">
+      <ComponentRef Id="UserDefinedReport.dll" />
+    </Feature>
+
+    <Feature Id="ShortcutFeature" Title="Shortcut on Start menu" Description="Shortcut on Start menu" Level="1" Absent="allow" AllowAdvertise="no">
+      <ComponentRef Id="ApplicationShortcut" />
+    </Feature>
+
+  </Product>
+</Wix>

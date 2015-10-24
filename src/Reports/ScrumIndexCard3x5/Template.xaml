@@ -1,0 +1,130 @@
+﻿<!--
+// This source is subject to Microsoft Public License (Ms-PL).
+// Please see http://taskcardcreator.codeplex.com for details.
+// All other rights reserved.
+-->
+<framework:ReportFromTemplate 
+  x:Class="ScrumIndexCard3x5.Template"
+  xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+  xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+  xmlns:framework="clr-namespace:ReportingFramework;assembly=ReportingFramework"
+  xmlns:scrumIndexCard3X5="clr-namespace:ScrumIndexCard3x5"
+  xmlns:converters="clr-namespace:ScrumIndexCard3x5.Converters">
+  <framework:ReportFromTemplate.Resources>
+    <!-- 
+          Converters
+    -->
+    <converters:FinalEffortConverter x:Key="finalEffortConverter"/>
+    <converters:FeatureTypeConverter x:Key="featureTypeConverter"/>
+    <converters:IterationPathConverter x:Key="iterationPathConverter"/>
+    <converters:AreaPathConverter x:Key="areaPathConverter"/>
+
+    <!-- 
+          This template defines how each page is rendered.
+    -->
+    <ControlTemplate x:Key="Report.Frame" TargetType="ContentControl">
+      <Grid Margin="20" Grid.IsSharedSizeScope="True">
+        <Grid.RowDefinitions>
+          <RowDefinition Height="*" />
+        </Grid.RowDefinitions>
+
+        <!-- Page Body -->
+        <Border Grid.Row="0" BorderBrush="LightGray" BorderThickness="2">
+          <DockPanel>
+            <!-- Records -->
+            <ContentPresenter />
+          </DockPanel>
+        </Border>
+
+      </Grid>
+    </ControlTemplate>
+
+    <DataTemplate DataType="{x:Type scrumIndexCard3X5:NonProductBacklogItemCardRow}">
+      <Grid Margin="0" HorizontalAlignment="Center" VerticalAlignment="Center">
+        <Grid.ColumnDefinitions>
+          <ColumnDefinition Width="90" />
+          <ColumnDefinition Width="180" />
+        </Grid.ColumnDefinitions>
+        <Border Grid.Column="0" Height="435">
+          <TextBlock Margin="20" Text="{Binding Path=WorkItem.Id, StringFormat={}#{0}}" FontSize="24pt" VerticalAlignment="Bottom" HorizontalAlignment="Left" TextTrimming="CharacterEllipsis">
+            <TextBlock.LayoutTransform>
+              <RotateTransform Angle="90" />
+            </TextBlock.LayoutTransform>
+          </TextBlock>
+        </Border>
+        <Border Grid.Column="1" Height="435">
+          <TextBlock Text="{Binding Path=WorkItem.Title}" FontSize="23pt" VerticalAlignment="Center" HorizontalAlignment="Center" TextTrimming="CharacterEllipsis" TextWrapping="Wrap">
+            <TextBlock.LayoutTransform>
+              <RotateTransform Angle="90" />
+            </TextBlock.LayoutTransform>
+          </TextBlock>
+        </Border>
+      </Grid>
+    </DataTemplate>
+
+    <DataTemplate DataType="{x:Type scrumIndexCard3X5:ProductBacklogItemCardRow}">
+      <Grid Margin="0" HorizontalAlignment="Center" VerticalAlignment="Center">
+        <Grid.ColumnDefinitions>
+          <ColumnDefinition Width="90" />
+          <ColumnDefinition Width="180" />
+        </Grid.ColumnDefinitions>
+        <Border Grid.Column="0" Height="435">
+          <Grid>
+            <Grid.RowDefinitions>
+              <RowDefinition Height="75" />
+              <RowDefinition Height="*" />
+              <RowDefinition Height="*" />
+            </Grid.RowDefinitions>
+            <Grid Grid.Row="0" Background="WhiteSmoke">
+              <TextBlock Margin="5" Text="{Binding Path=WorkItem, Converter={StaticResource finalEffortConverter}}" FontSize="20pt" VerticalAlignment="Center" HorizontalAlignment="Center" TextTrimming="CharacterEllipsis">
+                <TextBlock.LayoutTransform>
+                  <RotateTransform Angle="90" />
+                </TextBlock.LayoutTransform>
+              </TextBlock>
+            </Grid>
+            <Grid Grid.Row="1">
+              <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="*" />
+                <ColumnDefinition Width="*" />
+              </Grid.ColumnDefinitions>
+              <TextBlock Grid.Column="0" Margin="5" Text="{Binding Path=WorkItem, Converter={StaticResource areaPathConverter}}" FontSize="8pt" VerticalAlignment="Center" HorizontalAlignment="Center" TextTrimming="CharacterEllipsis">
+                <TextBlock.LayoutTransform>
+                  <RotateTransform Angle="90" />
+                </TextBlock.LayoutTransform>
+              </TextBlock>
+              <TextBlock Grid.Column="1" Margin="5" Text="{Binding Path=WorkItem, Converter={StaticResource featureTypeConverter}}" FontSize="8pt" VerticalAlignment="Center" HorizontalAlignment="Center" TextTrimming="CharacterEllipsis">
+                <TextBlock.LayoutTransform>
+                  <RotateTransform Angle="90" />
+                </TextBlock.LayoutTransform>
+              </TextBlock>
+            </Grid>
+            <Grid Grid.Row="2">
+              <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="*" />
+                <ColumnDefinition Width="*" />
+              </Grid.ColumnDefinitions>
+              <TextBlock Grid.Column="0" Margin="5" Text="{Binding Path=WorkItem, Converter={StaticResource iterationPathConverter}}" FontSize="8pt" VerticalAlignment="Bottom" HorizontalAlignment="Center" TextTrimming="CharacterEllipsis">
+                <TextBlock.LayoutTransform>
+                  <RotateTransform Angle="90" />
+                </TextBlock.LayoutTransform>
+              </TextBlock>
+              <TextBlock Grid.Column="1" Margin="5" Text="{Binding Path=WorkItem.Id, StringFormat={}#{0}}" FontSize="24pt" VerticalAlignment="Bottom" HorizontalAlignment="Center" TextTrimming="CharacterEllipsis">
+                <TextBlock.LayoutTransform>
+                  <RotateTransform Angle="90" />
+                </TextBlock.LayoutTransform>
+              </TextBlock>
+            </Grid>
+          </Grid>
+        </Border>
+        <Border Grid.Column="1" Height="435">
+          <TextBlock Text="{Binding Path=WorkItem.Title}" FontSize="23pt" VerticalAlignment="Center" HorizontalAlignment="Center" TextTrimming="CharacterEllipsis" TextWrapping="Wrap">
+            <TextBlock.LayoutTransform>
+              <RotateTransform Angle="90" />
+            </TextBlock.LayoutTransform>
+          </TextBlock>
+        </Border>
+      </Grid>
+    </DataTemplate>
+
+  </framework:ReportFromTemplate.Resources>
+</framework:ReportFromTemplate>

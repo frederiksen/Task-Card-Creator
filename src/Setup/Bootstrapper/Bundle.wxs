@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!--
+// This source is subject to Microsoft Public License (Ms-PL).
+// Please see http://taskcardcreator.codeplex.com for details.
+// All other rights reserved.
+-->
+<Wix xmlns="http://schemas.microsoft.com/wix/2006/wi" xmlns:bal="http://schemas.microsoft.com/wix/BalExtension">
+	<Bundle Name="Task Card Creator 7.8" Version="7.8.0.0" Manufacturer="mrtn" UpgradeCode="0a6eb0c9-563f-47ac-a726-8176636d1169" IconSourceFile="res/TaskCardCreator.ico">
+    <BootstrapperApplicationRef Id="WixStandardBootstrapperApplication.HyperlinkLicense" >
+      <bal:WixStandardBootstrapperApplication
+        LogoFile="res/banner.png"
+        ThemeFile="res/ClassicTheme.xml"
+        LocalizationFile="res/ClassicTheme.wxl"
+        LicenseUrl="http://taskcardcreator.codeplex.com/license" />
+    </BootstrapperApplicationRef>
+    <Variable Name="LaunchTarget" Value="[ProgramFilesFolder]\Task Card Creator\TaskCardCreator.exe"/>
+		<Chain>
+      <PackageGroupRef Id="NetFx45Web"/>
+      <RollbackBoundary />
+      <MsiPackage SourceFile="$(var.SolutionDir)\Setup\Setup\bin\$(var.Configuration)\TaskCardCreator.msi" Vital="yes">
+        <MsiProperty Name="ARPSYSTEMCOMPONENT" Value="1"/>
+      </MsiPackage>
+		</Chain>
+	</Bundle>
+</Wix>
