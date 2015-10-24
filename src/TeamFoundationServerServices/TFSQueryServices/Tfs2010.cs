@@ -15,7 +15,9 @@ namespace TeamFoundationServer2010Services
   [Export(typeof(ITaskServerService))]
   public class Tfs2012 : ITaskServerService
   {
-    public string Name { get { return "Team Foundation Server 2010"; } }
+    public string Name { get { return "Team Foundation Server"; } }
+
+    public string ShortDescription { get { return "Using work-item queries"; } }
 
     public string Description { get { return "Select this if you want to connect to a Team Foundation Server (2010/2012/2013) and select workitems based on queries. You need to have either Visual Studio 2010 or Team Foundation Server 2010 Object Model installed."; } }
 

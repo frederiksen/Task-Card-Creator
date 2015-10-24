@@ -87,6 +87,7 @@
     <None Include="packages.config" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+  <Import Project="$(MSBuildBinPath)\Microsoft.WinFX.targets" />
   <PropertyGroup>
     <PostBuildEvent>copy "$(TargetDir)*.dll" "$(SolutionDir)\TaskCardCreator\bin\$(ConfigurationName)"</PostBuildEvent>
   </PropertyGroup>

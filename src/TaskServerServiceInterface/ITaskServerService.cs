@@ -10,6 +10,7 @@ namespace TaskServerServiceInterface
   {
     string Name { get; }
     string Description { get; }
+    string ShortDescription { get; }
     bool IsInstalled { get; }
     ITaskProject ConnectToProject(Window window);
   }

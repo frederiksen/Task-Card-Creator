@@ -28,6 +28,7 @@
               </StackPanel>              
             </StackPanel.ToolTip>
             <TextBlock FontSize="18" Text="{Binding Name}"/>
+            <TextBlock FontSize="14" Text="{Binding ShortDescription}"/>
             <StackPanel Orientation="Horizontal">
               <TextBlock Text="Connectivity ready: "/>
               <TextBlock Text="{Binding IsInstalled}"/>

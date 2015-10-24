@@ -16,7 +16,9 @@ namespace TeamFoundationServer2015Services
   [Export(typeof(ITaskServerService))]
   public class Tfs2015 : ITaskServerService
   {
-    public string Name { get { return "Team Foundation Server 2015"; } }
+    public string Name { get { return "Team Foundation Server"; } }
+
+    public string ShortDescription { get { return "Using team/iteration path"; } }
 
     public string Description { get { return "Select this if you want to connect to a Team Foundation Server (2015) and select workitems based on team and iteration path. You need to have either Visual Studio 2015 or Team Foundation Server 2015 Object Model installed."; } }
 

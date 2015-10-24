@@ -13,6 +13,7 @@ namespace DemoServices
   {
     public string Name { get { return "Demo data"; } }
     public string Description { get { return "Demo data"; } }
+    public string ShortDescription { get { return "Dev demo data"; } }
     public bool IsInstalled { get { return true; } }
     public ITaskProject ConnectToProject(Window window)
     {
