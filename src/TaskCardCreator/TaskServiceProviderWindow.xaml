@@ -15,7 +15,7 @@
         <Hyperlink NavigateUri="http://taskcardcreator.codeplex.com/wikipage?title=ServiceProvider" RequestNavigate="HyperlinkRequestNavigate">Learn more...</Hyperlink>
       </TextBlock>
     </DockPanel>
-    <ListBox Margin="10" Height="230" Width="430" ItemsSource="{Binding TaskServerServices}" SelectedItem="{Binding SelectedTaskServerService}" ScrollViewer.VerticalScrollBarVisibility="Visible">
+    <ListBox Margin="10" Height="230" Width="400" ItemsSource="{Binding TaskServerServices}" SelectedItem="{Binding SelectedTaskServerService}" ScrollViewer.VerticalScrollBarVisibility="Visible">
       <ListBox.ItemTemplate>
         <DataTemplate>
           <StackPanel ToolTipService.ShowDuration="12000">
@@ -27,8 +27,8 @@
                 <TextBlock Text="{Binding Description}" TextWrapping="Wrap"/>                
               </StackPanel>              
             </StackPanel.ToolTip>
-            <TextBlock TextDecorations="Underline" FontSize="18" Text="{Binding Name}"/>
-            <TextBlock FontSize="14" Text="{Binding ShortDescription}"/>
+            <TextBlock FontSize="16" Text="{Binding Name}"/>
+            <TextBlock FontSize="12" Text="{Binding ShortDescription}"/>
 <!--            <StackPanel Orientation="Horizontal">-->
 <!--              <TextBlock Text="Ready: "/>-->
 <!--              <TextBlock Text="{Binding IsInstalled}"/>-->
