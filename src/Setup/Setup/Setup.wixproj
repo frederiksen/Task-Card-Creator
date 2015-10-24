@@ -140,6 +140,22 @@
       <RefProjectOutputGroups>Binaries;Content;Satellites</RefProjectOutputGroups>
       <RefTargetDir>INSTALLFOLDER</RefTargetDir>
     </ProjectReference>
+    <ProjectReference Include="..\..\TeamFoundationServerServices\TFSIterationPathServices\TFSIterationPathServices.csproj">
+      <Name>TFSIterationPathServices</Name>
+      <Project>{d4dcf801-f0a1-4759-ac29-25a95106fb57}</Project>
+      <Private>True</Private>
+      <DoNotHarvest>True</DoNotHarvest>
+      <RefProjectOutputGroups>Binaries;Content;Satellites</RefProjectOutputGroups>
+      <RefTargetDir>INSTALLFOLDER</RefTargetDir>
+    </ProjectReference>
+    <ProjectReference Include="..\..\TeamFoundationServerServices\TFSQueryServices\TFSQueryServices.csproj">
+      <Name>TFSQueryServices</Name>
+      <Project>{5e001aa0-4a67-4abe-8380-14f8e6264df5}</Project>
+      <Private>True</Private>
+      <DoNotHarvest>True</DoNotHarvest>
+      <RefProjectOutputGroups>Binaries;Content;Satellites</RefProjectOutputGroups>
+      <RefTargetDir>INSTALLFOLDER</RefTargetDir>
+    </ProjectReference>
     <ProjectReference Include="..\..\TeamFoundationServerServices\Tools\Tools.csproj">
       <Name>Tools</Name>
       <Project>{b0735a7a-ff2a-46d9-ac27-a0f38fe3a8e7}</Project>
