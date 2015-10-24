@@ -10,10 +10,10 @@ using Microsoft.TeamFoundation.WorkItemTracking.Client;
 using System.ComponentModel.Composition;
 using TaskServerServiceInterface;
 
-namespace TeamFoundationServer2010Services
+namespace TFSQueryServices
 {
   [Export(typeof(ITaskServerService))]
-  public class Tfs2012 : ITaskServerService
+  public class Tfs : ITaskServerService
   {
     public string Name { get { return "Team Foundation Server"; } }
 
@@ -25,15 +25,7 @@ namespace TeamFoundationServer2010Services
     {
       get
       {
-        try
-        {
-          PrerequisitesChecker.CheckPrerequisites();
-          return true;
-        }
-        catch (Exception)
-        {
-        }
-        return false;
+        return true;
       }
     }
 
@@ -45,7 +37,7 @@ namespace TeamFoundationServer2010Services
         var result = tpp.ShowDialog(windowWrapper);
         if (result == DialogResult.OK)
         {
-          var tfs2010Project = new Tfs2010Project();
+          var tfs2010Project = new TfsProject();
           tfs2010Project.projInfo = tpp.SelectedProjects[0];
           tfs2010Project.workItemStoreService = tpp.SelectedTeamProjectCollection.GetService<WorkItemStore>();
           // Get work item types

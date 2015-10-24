@@ -7,8 +7,8 @@
     <ProjectGuid>{D4DCF801-F0A1-4759-AC29-25A95106FB57}</ProjectGuid>
     <OutputType>Library</OutputType>
     <AppDesignerFolder>Properties</AppDesignerFolder>
-    <RootNamespace>TeamFoundationServer2015Services</RootNamespace>
-    <AssemblyName>TeamFoundationServer2015Services</AssemblyName>
+    <RootNamespace>TFSIterationPathServices</RootNamespace>
+    <AssemblyName>TFSIterationPathServices</AssemblyName>
     <TargetFrameworkVersion>v4.5</TargetFrameworkVersion>
     <FileAlignment>512</FileAlignment>
     <SccProjectName>SAK</SccProjectName>
@@ -239,12 +239,11 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Converters\PaperTextConverter.cs" />
-    <Compile Include="PrerequisitesChecker.cs" />
-    <Compile Include="Tfs2015.cs" />
+    <Compile Include="Tfs.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <Compile Include="Tfs2015Project.cs" />
-    <Compile Include="Tfs2015UserControl.xaml.cs">
-      <DependentUpon>Tfs2015UserControl.xaml</DependentUpon>
+    <Compile Include="TfsProject.cs" />
+    <Compile Include="TfsUserControl.xaml.cs">
+      <DependentUpon>TfsUserControl.xaml</DependentUpon>
     </Compile>
     <Compile Include="WindowWrapper.cs" />
   </ItemGroup>
@@ -270,7 +269,7 @@
     <Resource Include="Resources\Paper.png" />
   </ItemGroup>
   <ItemGroup>
-    <Page Include="Tfs2015UserControl.xaml">
+    <Page Include="TfsUserControl.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>

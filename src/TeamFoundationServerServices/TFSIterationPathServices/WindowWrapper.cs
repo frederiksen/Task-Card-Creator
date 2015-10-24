@@ -4,7 +4,7 @@
 
 using System;
 
-namespace TeamFoundationServer2015Services
+namespace TFSIterationPathServices
 {
   /// <summary>
   /// http://stackoverflow.com/a/10296513/600559

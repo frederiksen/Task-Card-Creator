@@ -5,11 +5,11 @@ using System.Runtime.InteropServices;
 // General Information about an assembly is controlled through the following 
 // set of attributes. Change these attribute values to modify the information
 // associated with an assembly.
-[assembly: AssemblyTitle("TeamFoundationServer2015Services")]
+[assembly: AssemblyTitle("TFSIterationPathServices")]
 [assembly: AssemblyDescription("")]
 [assembly: AssemblyConfiguration("")]
 [assembly: AssemblyCompany("mrtn")]
-[assembly: AssemblyProduct("TeamFoundationServer2015Services")]
+[assembly: AssemblyProduct("TFSIterationPathServices")]
 [assembly: AssemblyCopyright("Copyright © mrtn 2015")]
 [assembly: AssemblyTrademark("")]
 [assembly: AssemblyCulture("")]

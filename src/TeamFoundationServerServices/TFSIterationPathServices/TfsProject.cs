@@ -5,26 +5,38 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Windows.Controls;
+using Microsoft.TeamFoundation.ProcessConfiguration.Client;
 using Microsoft.TeamFoundation.Server;
 using Microsoft.TeamFoundation.WorkItemTracking.Client;
 using ReportInterface;
 using TaskServerServiceInterface;
 using Tools;
+using Field = Microsoft.TeamFoundation.WorkItemTracking.Client.Field;
 
-namespace TeamFoundationServer2010Services
+namespace TFSIterationPathServices
 {
-  public class Tfs2010Project : ITaskProject
+  public class TfsProject : ITaskProject
   {
     internal ProjectInfo projInfo;
     internal WorkItemStore workItemStoreService;
     internal WorkItemTypeCollection wiTypes;
-    internal Tfs2010UserControl uc;
+    internal TeamSettingsConfigurationService teamConfig;
+    internal TfsUserControl uc;
 
     public UserControl CreateUserControl(IEnumerable<IReport> reports)
     {
-      uc = new Tfs2010UserControl(reports);
-      uc.BuildQueryTree(workItemStoreService.Projects[projInfo.Name].QueryHierarchy, projInfo.Name);
+      uc = new TfsUserControl(reports);
+      foreach (var teamConfiguration in teamConfig.GetTeamConfigurationsForUser(new[] { projInfo.Uri }))
+      {
+        uc.Teams.Add(teamConfiguration);
+        if (teamConfiguration.IsDefaultTeam)
+        {
+          uc.SelectedTeam = teamConfiguration;
+          uc.SelectedIterationPath = teamConfiguration.TeamSettings.CurrentIterationPath;
+        }
+      }
       uc.workItemStoreService = workItemStoreService;
+
       return uc;
     }
 

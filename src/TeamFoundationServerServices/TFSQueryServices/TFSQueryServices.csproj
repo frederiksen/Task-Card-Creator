@@ -7,8 +7,8 @@
     <ProjectGuid>{5E001AA0-4A67-4ABE-8380-14F8E6264DF5}</ProjectGuid>
     <OutputType>Library</OutputType>
     <AppDesignerFolder>Properties</AppDesignerFolder>
-    <RootNamespace>TeamFoundationServer2010Services</RootNamespace>
-    <AssemblyName>TeamFoundationServer2010Services</AssemblyName>
+    <RootNamespace>TFSQueryServices</RootNamespace>
+    <AssemblyName>TFSQueryServices</AssemblyName>
     <TargetFrameworkVersion>v4.5</TargetFrameworkVersion>
     <FileAlignment>512</FileAlignment>
     <SccProjectName>SAK</SccProjectName>
@@ -241,17 +241,16 @@
   <ItemGroup>
     <Compile Include="Converters\PaperTextConverter.cs" />
     <Compile Include="DisplayImage.cs" />
-    <Compile Include="PrerequisitesChecker.cs" />
     <Compile Include="Properties\Resources.Designer.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
       <DependentUpon>Resources.resx</DependentUpon>
     </Compile>
-    <Compile Include="Tfs2010.cs" />
+    <Compile Include="Tfs.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <Compile Include="Tfs2010Project.cs" />
-    <Compile Include="Tfs2010UserControl.xaml.cs">
-      <DependentUpon>Tfs2010UserControl.xaml</DependentUpon>
+    <Compile Include="TfsProject.cs" />
+    <Compile Include="TfsUserControl.xaml.cs">
+      <DependentUpon>TfsUserControl.xaml</DependentUpon>
     </Compile>
     <Compile Include="WindowWrapper.cs" />
   </ItemGroup>
@@ -270,7 +269,7 @@
     </ProjectReference>
   </ItemGroup>
   <ItemGroup>
-    <Page Include="Tfs2010UserControl.xaml">
+    <Page Include="TfsUserControl.xaml">
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </Page>

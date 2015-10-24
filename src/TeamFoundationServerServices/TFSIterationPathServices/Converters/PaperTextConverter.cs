@@ -6,7 +6,7 @@ using System;
 using System.Windows;
 using System.Windows.Data;
 
-namespace TeamFoundationServer2015Services.Converters
+namespace TFSIterationPathServices.Converters
 {
   public class PaperTextConverter : IValueConverter
   {

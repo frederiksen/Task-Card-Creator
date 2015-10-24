@@ -8,7 +8,7 @@ using System.Windows;
 using System.Windows.Interop;
 using System.Windows.Media.Imaging;
 
-namespace TeamFoundationServer2010Services
+namespace TFSQueryServices
 {
   public static class DisplayImage
   {

@@ -11,10 +11,10 @@ using Microsoft.TeamFoundation.ProcessConfiguration.Client;
 using Microsoft.TeamFoundation.WorkItemTracking.Client;
 using TaskServerServiceInterface;
 
-namespace TeamFoundationServer2015Services
+namespace TFSIterationPathServices
 {
   [Export(typeof(ITaskServerService))]
-  public class Tfs2015 : ITaskServerService
+  public class Tfs : ITaskServerService
   {
     public string Name { get { return "Team Foundation Server"; } }
 
@@ -22,21 +22,7 @@ namespace TeamFoundationServer2015Services
 
     public string Description { get { return "Select this if you want to connect to a Team Foundation Server (2015) and select workitems based on team and iteration path. You need to have either Visual Studio 2015 or Team Foundation Server 2015 Object Model installed."; } }
 
-    public bool IsInstalled
-    {
-      get
-      {
-        try
-        {
-          PrerequisitesChecker.CheckPrerequisites();
-          return true;
-        }
-        catch (Exception)
-        {
-        }
-        return false;
-      }
-    }
+    public bool IsInstalled => true;
 
     public ITaskProject ConnectToProject(Window window)
     {
@@ -46,7 +32,7 @@ namespace TeamFoundationServer2015Services
         var result = tpp.ShowDialog(windowWrapper);
         if (result == DialogResult.OK)
         {
-          var tfs2015Project = new Tfs2015Project();
+          var tfs2015Project = new TfsProject();
           tfs2015Project.projInfo = tpp.SelectedProjects[0];
           tfs2015Project.teamConfig = tpp.SelectedTeamProjectCollection.GetService<TeamSettingsConfigurationService>();
           tfs2015Project.workItemStoreService = tpp.SelectedTeamProjectCollection.GetService<WorkItemStore>();

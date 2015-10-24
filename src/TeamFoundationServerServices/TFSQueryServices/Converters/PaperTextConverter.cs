@@ -6,7 +6,7 @@ using System;
 using System.Windows;
 using System.Windows.Data;
 
-namespace TeamFoundationServer2010Services.Converters
+namespace TFSQueryServices.Converters
 {
   public class PaperTextConverter : IValueConverter
   {

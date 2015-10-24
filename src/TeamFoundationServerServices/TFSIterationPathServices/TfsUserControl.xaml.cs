@@ -10,16 +10,16 @@ using System.Runtime.CompilerServices;
 using System.Windows;
 using System.Windows.Controls;
 using System.Windows.Navigation;
-using Microsoft.TeamFoundation.WorkItemTracking.Client;
 using Microsoft.TeamFoundation.ProcessConfiguration.Client;
+using Microsoft.TeamFoundation.WorkItemTracking.Client;
 using ReportInterface;
 
-namespace TeamFoundationServer2015Services
+namespace TFSIterationPathServices
 {
   /// <summary>
-  /// Interaction logic for Tfs2015.xaml
+  /// Interaction logic for Tfs.xaml
   /// </summary>
-  public partial class Tfs2015UserControl : UserControl, INotifyPropertyChanged
+  public partial class TfsUserControl : UserControl, INotifyPropertyChanged
   {
     #region Private fields
 
@@ -86,7 +86,7 @@ namespace TeamFoundationServer2015Services
       }
     }
 
-    public Tfs2015UserControl(IEnumerable<IReport> reports)
+    public TfsUserControl(IEnumerable<IReport> reports)
     {
       DataContext = this;
 

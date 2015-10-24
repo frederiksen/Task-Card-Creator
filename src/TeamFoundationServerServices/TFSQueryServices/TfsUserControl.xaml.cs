@@ -14,12 +14,12 @@ using System.Windows.Navigation;
 using Microsoft.TeamFoundation.WorkItemTracking.Client;
 using ReportInterface;
 
-namespace TeamFoundationServer2010Services
+namespace TFSQueryServices
 {
   /// <summary>
   /// Interaction logic for Tfs2010UserControl
   /// </summary>
-  public partial class Tfs2010UserControl : UserControl, INotifyPropertyChanged
+  public partial class TfsUserControl : UserControl, INotifyPropertyChanged
   {
     #region Private fields
 
@@ -53,7 +53,7 @@ namespace TeamFoundationServer2010Services
 
     #region Constructors
 
-    public Tfs2010UserControl(IEnumerable<IReport> reports)
+    public TfsUserControl(IEnumerable<IReport> reports)
     {
       DataContext = this;
 

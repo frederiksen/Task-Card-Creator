@@ -4,7 +4,7 @@
 
 using System;
 
-namespace TeamFoundationServer2010Services
+namespace TFSQueryServices
 {
   /// <summary>
   /// http://stackoverflow.com/a/10296513/600559
