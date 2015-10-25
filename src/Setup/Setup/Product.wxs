@@ -198,8 +198,8 @@
     <DirectoryRef Id="ApplicationProgramsFolder">
       <Component Id="ApplicationShortcut" Guid="*">
         <Shortcut Id="ApplicationStartMenuShortcut"
-                  Name="Task Card Creator 7.7"
-                  Description="Task Card Creator 7.7"
+                  Name="Task Card Creator 7.8"
+                  Description="Task Card Creator 7.8"
                   Target="[INSTALLLOCATION]TaskCardCreator.exe"
                   WorkingDirectory="INSTALLLOCATION"/>
         <Shortcut Id="LicenseStartMenuShortcut"
