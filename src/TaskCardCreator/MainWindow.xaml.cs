@@ -87,7 +87,7 @@ namespace TaskCardCreator
       foreach (var s in teamFoundationServerServices)
       {
         dlg.TaskServerServices.Add(s);
-        if (s.IsInstalled)
+        if (s.IsInstalled && dlg.SelectedTaskServerService == null)
           dlg.SelectedTaskServerService = s;
       }
 
