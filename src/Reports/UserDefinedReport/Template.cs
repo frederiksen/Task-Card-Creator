@@ -44,7 +44,7 @@ namespace UserDefinedReport
         {
         }
 
-        return "User Defined Report";
+        return "User Defined Report (currently undefined)";
       }
     }
 
@@ -81,6 +81,33 @@ namespace UserDefinedReport
     {
       get
       {
+        try
+        {
+          var fileName = FileName(string.Format("UserDefinedReport.xml"));
+          if (File.Exists(fileName))
+          {
+            var doc = new XmlDocument();
+            doc.Load(fileName);
+            var root = doc.DocumentElement;
+            var leftmargin = root.Attributes["leftmargin"].Value;
+            var rightmargin = root.Attributes["rightmargin"].Value;
+            var topmargin = root.Attributes["topmargin"].Value;
+            var bottommargin = root.Attributes["bottommargin"].Value;
+            if (leftmargin != null && rightmargin != null && topmargin != null && bottommargin != null)
+            {
+              return new Margins(
+                Convert.ToInt32(leftmargin), 
+                Convert.ToInt32(rightmargin),
+                Convert.ToInt32(topmargin),
+                Convert.ToInt32(bottommargin)
+                );
+            }
+          }
+        }
+        catch (Exception exception)
+        {
+        }
+
         return new Margins(0, 0, 0, 0);
       }
     }
