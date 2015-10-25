@@ -10,7 +10,6 @@ using Microsoft.TeamFoundation.Server;
 using Microsoft.TeamFoundation.WorkItemTracking.Client;
 using ReportInterface;
 using TaskServerServiceInterface;
-using Tools;
 using Field = Microsoft.TeamFoundation.WorkItemTracking.Client.Field;
 
 namespace TFSIterationPathServices

@@ -135,7 +135,6 @@
               <File Id="Newtonsoft.Json" Source="$(var.TFSIterationPathServices.TargetDir)\Newtonsoft.Json.dll" />
               <File Id="System.IdentityModel.Tokens.Jwt" Source="$(var.TFSIterationPathServices.TargetDir)\System.IdentityModel.Tokens.Jwt.dll" />
               <File Id="System.Net.Http.Formatting" Source="$(var.TFSIterationPathServices.TargetDir)\System.Net.Http.Formatting.dll" />
-              <File Id="Tools" Source="$(var.TFSIterationPathServices.TargetDir)\Tools.dll" />
             </Component>
           </Directory>                    
 				  <Directory Id="TFSQueryServices" Name="TFSQueryServices">
@@ -188,7 +187,6 @@
               <File Id="_Newtonsoft.Json" Source="$(var.TFSQueryServices.TargetDir)\Newtonsoft.Json.dll" />
               <File Id="_System.IdentityModel.Tokens.Jwt" Source="$(var.TFSQueryServices.TargetDir)\System.IdentityModel.Tokens.Jwt.dll" />
               <File Id="_System.Net.Http.Formatting" Source="$(var.TFSQueryServices.TargetDir)\System.Net.Http.Formatting.dll" />
-              <File Id="_Tools" Source="$(var.TFSQueryServices.TargetDir)\Tools.dll" />
             </Component>          
           </Directory>                   
         </Directory>

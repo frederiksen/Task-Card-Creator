@@ -225,6 +225,7 @@
     </Reference>
     <Reference Include="System.Runtime.Serialization" />
     <Reference Include="System.ServiceModel" />
+    <Reference Include="System.Web" />
     <Reference Include="System.Web.Http, Version=5.2.2.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
       <HintPath>..\..\packages\Microsoft.AspNet.WebApi.Core.5.2.2\lib\net45\System.Web.Http.dll</HintPath>
       <Private>True</Private>
@@ -241,6 +242,7 @@
   <ItemGroup>
     <Compile Include="Converters\PaperTextConverter.cs" />
     <Compile Include="DisplayImage.cs" />
+    <Compile Include="HtmlRemoval.cs" />
     <Compile Include="Properties\Resources.Designer.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
@@ -262,10 +264,6 @@
     <ProjectReference Include="..\..\TaskServerServiceInterface\TaskServerServiceInterface.csproj">
       <Project>{8f858d2a-8036-405a-9657-e2dc0f8ee198}</Project>
       <Name>TaskServerServiceInterface</Name>
-    </ProjectReference>
-    <ProjectReference Include="..\Tools\Tools.csproj">
-      <Project>{b0735a7a-ff2a-46d9-ac27-a0f38fe3a8e7}</Project>
-      <Name>Tools</Name>
     </ProjectReference>
   </ItemGroup>
   <ItemGroup>

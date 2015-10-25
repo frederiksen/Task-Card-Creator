@@ -6,7 +6,7 @@ using System;
 using System.Text.RegularExpressions;
 using System.Web;
 
-namespace Tools
+namespace TFSIterationPathServices
 {
   /// <summary>
   /// Methods to remove HTML from strings.

@@ -9,7 +9,6 @@ using Microsoft.TeamFoundation.Server;
 using Microsoft.TeamFoundation.WorkItemTracking.Client;
 using ReportInterface;
 using TaskServerServiceInterface;
-using Tools;
 
 namespace TFSQueryServices
 {
