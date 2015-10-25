@@ -1,4 +1,8 @@
-﻿using System;
+﻿// This source is subject to Microsoft Public License (Ms-PL).
+// Please see http://taskcardcreator.codeplex.com for details.
+// All other rights reserved.
+
+using System;
 using System.Collections.Generic;
 using System.ComponentModel.Composition;
 using System.Drawing.Printing;
@@ -131,28 +135,28 @@ namespace UserDefinedReport
           if (xaml != null)
           {
             var idTextBlock = xaml.FindName("Id") as TextBlock;
-            if (idTextBlock != null) idTextBlock.Text = string.Format("{0}", workItem.Id);
+            if (idTextBlock != null) idTextBlock.Text = string.Format("{0}", workItem.Id).DashIfEmpty();
 
             var parentIdTextBlock = xaml.FindName("ParentId") as TextBlock;
-            if (parentIdTextBlock != null) parentIdTextBlock.Text = string.Format("{0}", workItem.ParentId);
+            if (parentIdTextBlock != null) parentIdTextBlock.Text = string.Format("{0}", workItem.ParentId).DashIfEmpty();
 
             var titleTextBlock = xaml.FindName("Title") as TextBlock;
-            if (titleTextBlock != null) titleTextBlock.Text = string.Format("{0}", workItem.Title);
+            if (titleTextBlock != null) titleTextBlock.Text = string.Format("{0}", workItem.Title).DashIfEmpty();
 
             var typeTextBlock = xaml.FindName("Type") as TextBlock;
-            if (typeTextBlock != null) typeTextBlock.Text = string.Format("{0}", workItem.Type);
+            if (typeTextBlock != null) typeTextBlock.Text = string.Format("{0}", workItem.Type).DashIfEmpty();
 
             var stateTextBlock = xaml.FindName("State") as TextBlock;
-            if (stateTextBlock != null) stateTextBlock.Text = string.Format("{0}", workItem.State);
+            if (stateTextBlock != null) stateTextBlock.Text = string.Format("{0}", workItem.State).DashIfEmpty();
 
             var descriptionTextBlock = xaml.FindName("Description") as TextBlock;
-            if (descriptionTextBlock != null) descriptionTextBlock.Text = string.Format("{0}", workItem.Description);
+            if (descriptionTextBlock != null) descriptionTextBlock.Text = string.Format("{0}", workItem.Description).DashIfEmpty();
 
             foreach (var field in workItem.Fields)
             {
               var name = ("Field_" + field.Key).Replace(" ", "_");
               var fieldTextBlock = xaml.FindName(name) as TextBlock;
-              if (fieldTextBlock != null) fieldTextBlock.Text = string.Format("{0}", field.Value);
+              if (fieldTextBlock != null) fieldTextBlock.Text = string.Format("{0}", field.Value).DashIfEmpty();
             }
 
             rows.Add(xaml);
