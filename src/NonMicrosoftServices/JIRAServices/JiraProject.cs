@@ -13,21 +13,15 @@ namespace JIRAServices
   {
     internal JiraUserControl uc;
 
-    public UserControl CreateUserControl(IEnumerable<IReport> reports)
+    public UserControl CreateUserControl(IEnumerable<IReport> supportedReports, IEnumerable<IReport> allReports)
     {
-      uc = new JiraUserControl(reports);
+      uc = new JiraUserControl(supportedReports, allReports);
       return uc;
     }
 
-    public IReport SelectedReport { get { return uc.SelectedReport; } }
+    public IReport SelectedReport => uc.SelectedReport;
 
-    public IEnumerable<string> WorkItemTypeCollection
-    {
-      get
-      {
-        return new List<string>();
-      }
-    }
+    public IEnumerable<string> WorkItemTypeCollection => new List<string>();
 
     public List<ReportItem> WorkItems
     {

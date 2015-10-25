@@ -12,9 +12,9 @@ namespace DemoServices
 {
   public class DemoProject : ITaskProject
   {
-    public UserControl CreateUserControl(IEnumerable<IReport> reports)
+    public UserControl CreateUserControl(IEnumerable<IReport> supportedReports, IEnumerable<IReport> allReports)
     {
-      SelectedReport = reports.First();
+      SelectedReport = supportedReports.First();
 
       return new DemoUserControl();
     }

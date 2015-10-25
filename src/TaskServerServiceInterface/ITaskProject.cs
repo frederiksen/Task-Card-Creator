@@ -10,7 +10,7 @@ namespace TaskServerServiceInterface
 {
   public interface ITaskProject
   {
-    UserControl CreateUserControl(IEnumerable<IReport> reports);
+    UserControl CreateUserControl(IEnumerable<IReport> supportedReports, IEnumerable<IReport> allReports);
     IEnumerable<string> WorkItemTypeCollection { get; }
     List<ReportItem> WorkItems { get; }
     IReport SelectedReport { get; }

@@ -22,9 +22,9 @@ namespace TFSIterationPathServices
     internal TeamSettingsConfigurationService teamConfig;
     internal TfsUserControl uc;
 
-    public UserControl CreateUserControl(IEnumerable<IReport> reports)
+    public UserControl CreateUserControl(IEnumerable<IReport> supportedReports, IEnumerable<IReport> allReports)
     {
-      uc = new TfsUserControl(reports);
+      uc = new TfsUserControl(supportedReports, allReports);
       foreach (var teamConfiguration in teamConfig.GetTeamConfigurationsForUser(new[] { projInfo.Uri }))
       {
         uc.Teams.Add(teamConfiguration);

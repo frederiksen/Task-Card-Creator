@@ -22,9 +22,22 @@ namespace JIRAServices
   public partial class JiraUserControl : UserControl, INotifyPropertyChanged
   {
     private SearchResult searchResult;
+    private IEnumerable<IReport> supportedReports;
+    private IEnumerable<IReport> allReports;
+
 
     public ObservableCollection<IReport> Reports { get; set; }
-    public IReport SelectedReport { get; set; }
+
+    private IReport selectedReport;
+    public IReport SelectedReport
+    {
+      get { return selectedReport; }
+      set
+      {
+        selectedReport = value;
+        OnPropertyChanged("SelectedReport");
+      }
+    }
     public IEnumerable<Issue> Issues {
       get
       {
@@ -91,13 +104,46 @@ namespace JIRAServices
       }
     }
 
-    public JiraUserControl(IEnumerable<IReport> reports)
+    private bool showAll = false;
+    public bool ShowAll
+    {
+      get { return showAll; }
+      set
+      {
+        showAll = value;
+
+        Reports.Clear();
+        if (showAll)
+        {
+          foreach (var report in allReports)
+          {
+            Reports.Add(report);
+          }          
+        }
+        else
+        {
+          foreach (var report in supportedReports)
+          {
+            Reports.Add(report);
+          }
+        }
+        SelectedReport = Reports.FirstOrDefault();
+
+        OnPropertyChanged("ShowAll");
+      }
+    }
+
+
+    public JiraUserControl(IEnumerable<IReport> supportedReports, IEnumerable<IReport> allReports)
     {
       DataContext = this;
 
+      this.supportedReports = supportedReports;
+      this.allReports = allReports;
+
       ProjectUrl = "https://jira.atlassian.com";
       Jql = "project = DEMO";
-      Reports = new ObservableCollection<IReport>(reports);
+      Reports = new ObservableCollection<IReport>(supportedReports);
       SelectedReport = Reports.First();
 
       InitializeComponent();

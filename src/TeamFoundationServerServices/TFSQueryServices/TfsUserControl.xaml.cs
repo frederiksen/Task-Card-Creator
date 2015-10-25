@@ -27,6 +27,8 @@ namespace TFSQueryServices
     private BackgroundWorker worker;
     private string pendingRequest = string.Empty;
     private IReport selectedReport;
+    private IEnumerable<IReport> supportedReports;
+    private IEnumerable<IReport> allReports;
 
     #endregion
 
@@ -51,14 +53,46 @@ namespace TFSQueryServices
 
     #endregion
 
+    private bool showAll = false;
+    public bool ShowAll
+    {
+      get { return showAll; }
+      set
+      {
+        showAll = value;
+
+        Reports.Clear();
+        if (showAll)
+        {
+          foreach (var report in allReports)
+          {
+            Reports.Add(report);
+          }
+        }
+        else
+        {
+          foreach (var report in supportedReports)
+          {
+            Reports.Add(report);
+          }
+        }
+        SelectedReport = Reports.FirstOrDefault();
+
+        OnPropertyChanged("ShowAll");
+      }
+    }
+
     #region Constructors
 
-    public TfsUserControl(IEnumerable<IReport> reports)
+    public TfsUserControl(IEnumerable<IReport> supportedReports, IEnumerable<IReport> allReports)
     {
       DataContext = this;
 
+      this.supportedReports = supportedReports;
+      this.allReports = allReports;
+
       WorkItems = new ObservableCollection<WorkItem>();
-      Reports = new ObservableCollection<IReport>(reports);
+      Reports = new ObservableCollection<IReport>(supportedReports);
 
       SelectedReport = Reports.First();
 

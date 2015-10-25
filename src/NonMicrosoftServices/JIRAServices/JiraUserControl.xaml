@@ -15,6 +15,7 @@
   </UserControl.Resources>
   <StackPanel>
     <TextBlock Margin="10,10,10,0">Report template:</TextBlock>
+    <CheckBox Margin="10,10,10,0" Content="Show all" IsChecked="{Binding ShowAll}"></CheckBox>
     <ListBox Margin="10,10,10,0" Height="100" ItemsSource="{Binding Reports}" SelectedItem="{Binding SelectedReport}" ItemTemplate="{StaticResource ReportTemplate}"></ListBox>
 
     <StackPanel Orientation="Horizontal">

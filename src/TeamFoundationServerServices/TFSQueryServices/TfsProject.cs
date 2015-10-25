@@ -19,9 +19,9 @@ namespace TFSQueryServices
     internal WorkItemTypeCollection wiTypes;
     internal TfsUserControl uc;
 
-    public UserControl CreateUserControl(IEnumerable<IReport> reports)
+    public UserControl CreateUserControl(IEnumerable<IReport> supportedReports, IEnumerable<IReport> allReports)
     {
-      uc = new TfsUserControl(reports);
+      uc = new TfsUserControl(supportedReports, allReports);
       uc.BuildQueryTree(workItemStoreService.Projects[projInfo.Name].QueryHierarchy, projInfo.Name);
       uc.workItemStoreService = workItemStoreService;
       return uc;

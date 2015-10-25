@@ -110,7 +110,7 @@ namespace TaskCardCreator
                                    select rep;
 
             // Create tab
-            var uc = project.CreateUserControl(supportedReports);
+            var uc = project.CreateUserControl(supportedReports, reports);
             var tab = new TabItem { Header = string.Format("Report #{0}", reportNumber), Content = uc };
             reportNumber++;
             TabControl.Items.Insert(1, tab);
