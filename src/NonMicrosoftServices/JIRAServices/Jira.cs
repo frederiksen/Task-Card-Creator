@@ -11,10 +11,11 @@ namespace JIRAServices
   [Export(typeof(ITaskServerService))]
   public class Jira : ITaskServerService
   {
-    public string Name { get { return "Atlassian JIRA (Experimental)"; } }
-    public string Description { get { return "Experimental implementation"; } }
-    public string ShortDescription { get { return "Experimental implementation"; } }
-    public bool IsInstalled { get { return true; } }
+    public string Name => "Atlassian JIRA";
+    public string Description => "Experimental implementation";
+    public string ShortDescription => "Experimental implementation";
+    public bool IsInstalled => true;
+
     public ITaskProject ConnectToProject(Window window)
     {
       return new JiraProject();

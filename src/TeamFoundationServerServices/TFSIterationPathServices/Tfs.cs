@@ -16,11 +16,11 @@ namespace TFSIterationPathServices
   [Export(typeof(ITaskServerService))]
   public class Tfs : ITaskServerService
   {
-    public string Name { get { return "Team Foundation Server/Visual Studio Online"; } }
+    public string Name => "Team Foundation Server or Visual Studio Online";
 
-    public string ShortDescription { get { return "Using iteration paths/teams"; } }
+    public string ShortDescription => "Using iteration paths and teams";
 
-    public string Description { get { return "Select this if you want to connect to a Team Foundation Server (2015) and select workitems based on team and iteration path. You need to have either Visual Studio 2015 or Team Foundation Server 2015 Object Model installed."; } }
+    public string Description => "Select this provider, if your workmode has iterations or sprints.";
 
     public bool IsInstalled => true;
 

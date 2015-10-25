@@ -11,10 +11,11 @@ namespace DemoServices
   [Export(typeof(ITaskServerService))]
   public class Demo : ITaskServerService
   {
-    public string Name { get { return "Demo data"; } }
-    public string Description { get { return "Demo data"; } }
-    public string ShortDescription { get { return "Dev demo data"; } }
-    public bool IsInstalled { get { return true; } }
+    public string Name => "Demo data";
+    public string Description => "Demo data";
+    public string ShortDescription => "Dev demo data";
+    public bool IsInstalled => true;
+
     public ITaskProject ConnectToProject(Window window)
     {
       return new DemoProject();
