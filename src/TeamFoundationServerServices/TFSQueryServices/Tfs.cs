@@ -15,7 +15,7 @@ namespace TFSQueryServices
   [Export(typeof(ITaskServerService))]
   public class Tfs : ITaskServerService
   {
-    public string Name => "Team Foundation Server or Visual Studio Online";
+    public string Name => "Team Foundation Server or Visual Studio Team Services";
 
     public string ShortDescription => "Using work-item queries";
 
