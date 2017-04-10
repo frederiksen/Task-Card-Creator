@@ -15,7 +15,7 @@
     </BootstrapperApplicationRef>
     <Variable Name="LaunchTarget" Value="[ProgramFilesFolder]\Task Card Creator\TaskCardCreator.exe"/>
 		<Chain>
-      <PackageGroupRef Id="NetFx45Web"/>
+      <PackageGroupRef Id="NetFx461Web"/>
       <RollbackBoundary />
       <MsiPackage SourceFile="$(var.SolutionDir)\Setup\Setup\bin\$(var.Configuration)\TaskCardCreator.msi" Vital="yes">
         <MsiProperty Name="ARPSYSTEMCOMPONENT" Value="1"/>
