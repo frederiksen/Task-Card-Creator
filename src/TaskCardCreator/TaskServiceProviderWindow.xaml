@@ -12,10 +12,10 @@
     <DockPanel LastChildFill="True">
       <TextBlock DockPanel.Dock="Left" Margin="10,10,10,0" Text="Select desired service provider:"/>
       <TextBlock Margin="10,10,10,0" HorizontalAlignment="Right" TextTrimming="CharacterEllipsis">
-        <Hyperlink NavigateUri="http://taskcardcreator.codeplex.com/wikipage?title=ServiceProvider" RequestNavigate="HyperlinkRequestNavigate">Learn more...</Hyperlink>
+        <Hyperlink NavigateUri="https://github.com/frederiksen/Task-Card-Creator" RequestNavigate="HyperlinkRequestNavigate">Learn more...</Hyperlink>
       </TextBlock>
     </DockPanel>
-    <ListBox Margin="10" Height="230" Width="400" ItemsSource="{Binding TaskServerServices}" SelectedItem="{Binding SelectedTaskServerService}" ScrollViewer.VerticalScrollBarVisibility="Visible">
+    <ListBox Margin="10" Height="230" Width="470" ItemsSource="{Binding TaskServerServices}" SelectedItem="{Binding SelectedTaskServerService}" ScrollViewer.VerticalScrollBarVisibility="Visible">
       <ListBox.ItemTemplate>
         <DataTemplate>
           <StackPanel ToolTipService.ShowDuration="12000">
