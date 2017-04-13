@@ -125,13 +125,13 @@ namespace TaskCardCreator
     private void GoToWebSiteButtonClick(object sender, RoutedEventArgs e)
     {
       Logger.Write("Entering GoToWebSiteButtonClick method");
-      Process.Start(new ProcessStartInfo(@"http://taskcardcreator.codeplex.com"));
+      Process.Start(new ProcessStartInfo(@"https://github.com/frederiksen/Task-Card-Creator"));
     }
 
     private void CheckForUpdatesButtonClick(object sender, RoutedEventArgs e)
     {
       Logger.Write("Entering CheckForUpdatesButtonClick method");
-      Process.Start(new ProcessStartInfo(@"http://taskcardcreator.codeplex.com/releases"));
+      Process.Start(new ProcessStartInfo(@"https://github.com/frederiksen/Task-Card-Creator/releases/latest"));
     }
 
     private void SubmitBugButtonClick(object sender, RoutedEventArgs e)
@@ -143,7 +143,7 @@ namespace TaskCardCreator
     private void HelpButtonClick(object sender, RoutedEventArgs e)
     {
       Logger.Write("Entering HelpButtonClick method");
-      Process.Start(new ProcessStartInfo(@"http://taskcardcreator.codeplex.com"));
+      Process.Start(new ProcessStartInfo(@"https://github.com/frederiksen/Task-Card-Creator"));
     }
 
     private void RibbonLogClick(object sender, RoutedEventArgs e)
