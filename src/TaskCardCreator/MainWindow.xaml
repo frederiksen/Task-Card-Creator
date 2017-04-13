@@ -39,8 +39,8 @@
         <RibbonGroup Header="Help" SmallImageSource="Resources\GoTo.png">
           <RibbonButton SmallImageSource="Resources\GoTo.png" Label="Visit project site" 
                                Click="GoToWebSiteButtonClick" KeyTipService.KeyTip="W"
-                               ToolTipTitle="Codeplex project site"
-                               ToolTipDescription="Allows you to go to the CodePlex project site"/>
+                               ToolTipTitle="GitHub project site"
+                               ToolTipDescription="Allows you to go to the GitHub project site"/>
           <RibbonButton SmallImageSource="Resources\Warning.png" Label="Report a bug" Click="SubmitBugButtonClick" 
                                KeyTipService.KeyTip="B"
                                ToolTipTitle="Found a bug?"
@@ -84,7 +84,7 @@
           <DropShadowEffect />
         </TabControl.Effect>
         <TabItem Name="IntroTab" Header="Introduction">
-          <WebBrowser Source="https://taskcardcreator.codeplex.com/wikipage?title=Introduction"></WebBrowser>          
+                    <WebBrowser Source="https://github.com/frederiksen/Task-Card-Creator"></WebBrowser>          
         </TabItem>
 
       </TabControl>
