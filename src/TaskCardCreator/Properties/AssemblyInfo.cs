@@ -12,7 +12,7 @@ using System.Windows;
 [assembly: AssemblyConfiguration("")]
 [assembly: AssemblyCompany("mrtn")]
 [assembly: AssemblyProduct("TaskCardCreator")]
-[assembly: AssemblyCopyright("Copyright © mrtn 2015")]
+[assembly: AssemblyCopyright("Copyright © mrtn 2017")]
 [assembly: AssemblyTrademark("")]
 [assembly: AssemblyCulture("")]
 
@@ -51,5 +51,5 @@ using System.Windows;
 // You can specify all the values or you can default the Build and Revision Numbers 
 // by using the '*' as shown below:
 // [assembly: AssemblyVersion("1.0.*")]
-[assembly: AssemblyVersion("7.8.0.0")]
-[assembly: AssemblyFileVersion("7.8.0.0")]
+[assembly: AssemblyVersion("8.0.0.0")]
+[assembly: AssemblyFileVersion("8.0.0.0")]
