@@ -1,14 +1,14 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!--
 // This source is subject to Microsoft Public License (Ms-PL).
-// Please see http://taskcardcreator.codeplex.com for details.
+// Please see https://raw.githubusercontent.com/frederiksen/Task-Card-Creator/master/src/License.txt for details.
 // All other rights reserved.
 -->
 <Wix xmlns="http://schemas.microsoft.com/wix/2006/wi">
-	<Product Id="*" Name="Task Card Creator" Language="1033" Version="7.8.0.0" Manufacturer="mrtn" UpgradeCode="d0170198-6c4d-477d-955e-2be40034a0bb">
+	<Product Id="*" Name="Task Card Creator" Language="1033" Version="8.0.0.0" Manufacturer="mrtn" UpgradeCode="d0170198-6c4d-477d-955e-2be40034a0bb">
 		<Package InstallerVersion="200" Compressed="yes" InstallScope="perMachine"/>
 
-		<Media Id="1" Cabinet="media.cab" EmbedCab="yes" />
+		<Media Id="1" Cabinet="media.cab" EmbedCab="yes" CompressionLevel="high" />
 
     <MajorUpgrade DowngradeErrorMessage="You can not downgrade!" />
 
@@ -88,7 +88,9 @@
             <Component Id="TFSIterationPathServices.dll" Guid="493C879A-D50E-4CDD-AAAC-AE208057C02F">
               <File Id="TFSIterationPathServices" Source="$(var.TFSIterationPathServices.TargetPath)" />
               <File Id="Microsoft.IdentityModel.Clients.ActiveDirectory" Source="$(var.TFSIterationPathServices.TargetDir)\Microsoft.IdentityModel.Clients.ActiveDirectory.dll" />
-              <File Id="Microsoft.IdentityModel.Clients.ActiveDirectory.WindowsForms" Source="$(var.TFSIterationPathServices.TargetDir)\Microsoft.IdentityModel.Clients.ActiveDirectory.WindowsForms.dll" />
+              <File Id="Microsoft.IdentityModel.Clients.ActiveDirectory.Platform" Source="$(var.TFSIterationPathServices.TargetDir)\Microsoft.IdentityModel.Clients.ActiveDirectory.Platform.dll" />
+              <File Id="Microsoft.IdentityModel.Logging" Source="$(var.TFSIterationPathServices.TargetDir)\Microsoft.IdentityModel.Logging.dll" />
+              <File Id="Microsoft.IdentityModel.Tokens" Source="$(var.TFSIterationPathServices.TargetDir)\Microsoft.IdentityModel.Tokens.dll" />
               <File Id="Microsoft.ServiceBus" Source="$(var.TFSIterationPathServices.TargetDir)\Microsoft.ServiceBus.dll" />
               <File Id="Microsoft.TeamFoundation.Build.Client" Source="$(var.TFSIterationPathServices.TargetDir)\Microsoft.TeamFoundation.Build.Client.dll" />
               <File Id="Microsoft.TeamFoundation.Build.Common" Source="$(var.TFSIterationPathServices.TargetDir)\Microsoft.TeamFoundation.Build.Common.dll" />
@@ -97,10 +99,11 @@
               <File Id="Microsoft.TeamFoundation.Client" Source="$(var.TFSIterationPathServices.TargetDir)\Microsoft.TeamFoundation.Client.dll" />
               <File Id="Microsoft.TeamFoundation.Common" Source="$(var.TFSIterationPathServices.TargetDir)\Microsoft.TeamFoundation.Common.dll" />
               <File Id="Microsoft.TeamFoundation.Core.WebApi" Source="$(var.TFSIterationPathServices.TargetDir)\Microsoft.TeamFoundation.Core.WebApi.dll" />
+              <File Id="Microsoft.TeamFoundation.Dashboards.WebApi" Source="$(var.TFSIterationPathServices.TargetDir)\Microsoft.TeamFoundation.Dashboards.WebApi.dll" />
               <File Id="Microsoft.TeamFoundation.DeleteTeamProject" Source="$(var.TFSIterationPathServices.TargetDir)\Microsoft.TeamFoundation.DeleteTeamProject.dll" />
               <File Id="Microsoft.TeamFoundation.Diff" Source="$(var.TFSIterationPathServices.TargetDir)\Microsoft.TeamFoundation.Diff.dll" />
               <File Id="Microsoft.TeamFoundation.Discussion.Client" Source="$(var.TFSIterationPathServices.TargetDir)\Microsoft.TeamFoundation.Discussion.Client.dll" />
-              <File Id="Microsoft.TeamFoundation.Discussion.WebApi" Source="$(var.TFSIterationPathServices.TargetDir)\Microsoft.TeamFoundation.Discussion.WebApi.dll" />
+              <File Id="Microsoft.TeamFoundation.DistributedTask.Common.Contracts" Source="$(var.TFSIterationPathServices.TargetDir)\Microsoft.TeamFoundation.DistributedTask.Common.Contracts.dll" />              
               <File Id="Microsoft.TeamFoundation.Git.Client" Source="$(var.TFSIterationPathServices.TargetDir)\Microsoft.TeamFoundation.Git.Client.dll" />
               <File Id="Microsoft.TeamFoundation.Lab.Client" Source="$(var.TFSIterationPathServices.TargetDir)\Microsoft.TeamFoundation.Lab.Client.dll" />
               <File Id="Microsoft.TeamFoundation.Lab.Common" Source="$(var.TFSIterationPathServices.TargetDir)\Microsoft.TeamFoundation.Lab.Common.dll" />
@@ -125,7 +128,7 @@
               <File Id="Microsoft.TeamFoundation.WorkItemTracking.Common" Source="$(var.TFSIterationPathServices.TargetDir)\Microsoft.TeamFoundation.WorkItemTracking.Common.dll" />
               <File Id="Microsoft.TeamFoundation.WorkItemTracking.Proxy" Source="$(var.TFSIterationPathServices.TargetDir)\Microsoft.TeamFoundation.WorkItemTracking.Proxy.dll" />
               <File Id="Microsoft.TeamFoundation.WorkItemTracking.WebApi" Source="$(var.TFSIterationPathServices.TargetDir)\Microsoft.TeamFoundation.WorkItemTracking.WebApi.dll" />
-              <File Id="Microsoft.VisualStudio.Services.Client" Source="$(var.TFSIterationPathServices.TargetDir)\Microsoft.VisualStudio.Services.Client.dll" />
+              <File Id="Microsoft.VisualStudio.Services.Client.Interactive" Source="$(var.TFSIterationPathServices.TargetDir)\Microsoft.VisualStudio.Services.Client.Interactive.dll" />
               <File Id="Microsoft.VisualStudio.Services.Common" Source="$(var.TFSIterationPathServices.TargetDir)\Microsoft.VisualStudio.Services.Common.dll" />
               <File Id="Microsoft.VisualStudio.Services.WebApi" Source="$(var.TFSIterationPathServices.TargetDir)\Microsoft.VisualStudio.Services.WebApi.dll" />
               <File Id="Microsoft.WindowsAzure.Configuration" Source="$(var.TFSIterationPathServices.TargetDir)\Microsoft.WindowsAzure.Configuration.dll" />
@@ -134,13 +137,17 @@
               <File Id="Newtonsoft.Json" Source="$(var.TFSIterationPathServices.TargetDir)\Newtonsoft.Json.dll" />
               <File Id="System.IdentityModel.Tokens.Jwt" Source="$(var.TFSIterationPathServices.TargetDir)\System.IdentityModel.Tokens.Jwt.dll" />
               <File Id="System.Net.Http.Formatting" Source="$(var.TFSIterationPathServices.TargetDir)\System.Net.Http.Formatting.dll" />
+              <File Id="System.Threading.Tasks.Dataflow" Source="$(var.TFSIterationPathServices.TargetDir)\System.Threading.Tasks.Dataflow.dll" />
+              <File Id="System.Web.Http" Source="$(var.TFSIterationPathServices.TargetDir)\System.Web.Http.dll" />
             </Component>
           </Directory>                    
 				  <Directory Id="TFSQueryServices" Name="TFSQueryServices">
             <Component Id="TFSQueryServices.dll" Guid="5801896C-1DB3-4E3B-B81F-DB3639FED8D6">
               <File Source="$(var.TFSQueryServices.TargetPath)" />
               <File Id="_Microsoft.IdentityModel.Clients.ActiveDirectory" Source="$(var.TFSQueryServices.TargetDir)\Microsoft.IdentityModel.Clients.ActiveDirectory.dll" />
-              <File Id="_Microsoft.IdentityModel.Clients.ActiveDirectory.WindowsForms" Source="$(var.TFSQueryServices.TargetDir)\Microsoft.IdentityModel.Clients.ActiveDirectory.WindowsForms.dll" />
+              <File Id="_Microsoft.IdentityModel.Clients.ActiveDirectory.Platform" Source="$(var.TFSQueryServices.TargetDir)\Microsoft.IdentityModel.Clients.ActiveDirectory.Platform.dll" />
+              <File Id="_Microsoft.IdentityModel.Logging" Source="$(var.TFSQueryServices.TargetDir)\Microsoft.IdentityModel.Logging.dll" />
+              <File Id="_Microsoft.IdentityModel.Tokens" Source="$(var.TFSQueryServices.TargetDir)\Microsoft.IdentityModel.Tokens.dll" />
               <File Id="_Microsoft.ServiceBus" Source="$(var.TFSQueryServices.TargetDir)\Microsoft.ServiceBus.dll" />
               <File Id="_Microsoft.TeamFoundation.Build.Client" Source="$(var.TFSQueryServices.TargetDir)\Microsoft.TeamFoundation.Build.Client.dll" />
               <File Id="_Microsoft.TeamFoundation.Build.Common" Source="$(var.TFSQueryServices.TargetDir)\Microsoft.TeamFoundation.Build.Common.dll" />
@@ -149,10 +156,11 @@
               <File Id="_Microsoft.TeamFoundation.Client" Source="$(var.TFSQueryServices.TargetDir)\Microsoft.TeamFoundation.Client.dll" />
               <File Id="_Microsoft.TeamFoundation.Common" Source="$(var.TFSQueryServices.TargetDir)\Microsoft.TeamFoundation.Common.dll" />
               <File Id="_Microsoft.TeamFoundation.Core.WebApi" Source="$(var.TFSQueryServices.TargetDir)\Microsoft.TeamFoundation.Core.WebApi.dll" />
+              <File Id="_Microsoft.TeamFoundation.Dashboards.WebApi" Source="$(var.TFSQueryServices.TargetDir)\Microsoft.TeamFoundation.Dashboards.WebApi.dll" />
               <File Id="_Microsoft.TeamFoundation.DeleteTeamProject" Source="$(var.TFSQueryServices.TargetDir)\Microsoft.TeamFoundation.DeleteTeamProject.dll" />
               <File Id="_Microsoft.TeamFoundation.Diff" Source="$(var.TFSQueryServices.TargetDir)\Microsoft.TeamFoundation.Diff.dll" />
               <File Id="_Microsoft.TeamFoundation.Discussion.Client" Source="$(var.TFSQueryServices.TargetDir)\Microsoft.TeamFoundation.Discussion.Client.dll" />
-              <File Id="_Microsoft.TeamFoundation.Discussion.WebApi" Source="$(var.TFSQueryServices.TargetDir)\Microsoft.TeamFoundation.Discussion.WebApi.dll" />
+              <File Id="_Microsoft.TeamFoundation.DistributedTask.Common.Contracts" Source="$(var.TFSQueryServices.TargetDir)\Microsoft.TeamFoundation.DistributedTask.Common.Contracts.dll" />
               <File Id="_Microsoft.TeamFoundation.Git.Client" Source="$(var.TFSQueryServices.TargetDir)\Microsoft.TeamFoundation.Git.Client.dll" />
               <File Id="_Microsoft.TeamFoundation.Lab.Client" Source="$(var.TFSQueryServices.TargetDir)\Microsoft.TeamFoundation.Lab.Client.dll" />
               <File Id="_Microsoft.TeamFoundation.Lab.Common" Source="$(var.TFSQueryServices.TargetDir)\Microsoft.TeamFoundation.Lab.Common.dll" />
@@ -177,7 +185,7 @@
               <File Id="_Microsoft.TeamFoundation.WorkItemTracking.Common" Source="$(var.TFSQueryServices.TargetDir)\Microsoft.TeamFoundation.WorkItemTracking.Common.dll" />
               <File Id="_Microsoft.TeamFoundation.WorkItemTracking.Proxy" Source="$(var.TFSQueryServices.TargetDir)\Microsoft.TeamFoundation.WorkItemTracking.Proxy.dll" />
               <File Id="_Microsoft.TeamFoundation.WorkItemTracking.WebApi" Source="$(var.TFSQueryServices.TargetDir)\Microsoft.TeamFoundation.WorkItemTracking.WebApi.dll" />
-              <File Id="_Microsoft.VisualStudio.Services.Client" Source="$(var.TFSQueryServices.TargetDir)\Microsoft.VisualStudio.Services.Client.dll" />
+              <File Id="_Microsoft.VisualStudio.Services.Client.Interactive" Source="$(var.TFSQueryServices.TargetDir)\Microsoft.VisualStudio.Services.Client.Interactive.dll" />
               <File Id="_Microsoft.VisualStudio.Services.Common" Source="$(var.TFSQueryServices.TargetDir)\Microsoft.VisualStudio.Services.Common.dll" />
               <File Id="_Microsoft.VisualStudio.Services.WebApi" Source="$(var.TFSQueryServices.TargetDir)\Microsoft.VisualStudio.Services.WebApi.dll" />
               <File Id="_Microsoft.WindowsAzure.Configuration" Source="$(var.TFSQueryServices.TargetDir)\Microsoft.WindowsAzure.Configuration.dll" />
@@ -186,6 +194,8 @@
               <File Id="_Newtonsoft.Json" Source="$(var.TFSQueryServices.TargetDir)\Newtonsoft.Json.dll" />
               <File Id="_System.IdentityModel.Tokens.Jwt" Source="$(var.TFSQueryServices.TargetDir)\System.IdentityModel.Tokens.Jwt.dll" />
               <File Id="_System.Net.Http.Formatting" Source="$(var.TFSQueryServices.TargetDir)\System.Net.Http.Formatting.dll" />
+              <File Id="_System.Threading.Tasks.Dataflow" Source="$(var.TFSQueryServices.TargetDir)\System.Threading.Tasks.Dataflow.dll" />
+              <File Id="_System.Web.Http" Source="$(var.TFSQueryServices.TargetDir)\System.Web.Http.dll" />
             </Component>          
           </Directory>                   
         </Directory>
@@ -195,8 +205,8 @@
     <DirectoryRef Id="ApplicationProgramsFolder">
       <Component Id="ApplicationShortcut" Guid="*">
         <Shortcut Id="ApplicationStartMenuShortcut"
-                  Name="Task Card Creator 7.8"
-                  Description="Task Card Creator 7.8"
+                  Name="Task Card Creator 8.0"
+                  Description="Task Card Creator 8.0"
                   Target="[INSTALLLOCATION]TaskCardCreator.exe"
                   WorkingDirectory="INSTALLLOCATION"/>
         <Shortcut Id="LicenseStartMenuShortcut"
