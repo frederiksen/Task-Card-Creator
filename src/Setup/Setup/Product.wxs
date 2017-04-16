@@ -19,183 +19,183 @@
       <Directory Id="ProgramFilesFolder">
 				<Directory Id="INSTALLLOCATION" Name="Task Card Creator">
           <Component Id="TaskCardCreator.exe" Guid="E99EBE7E-3E4F-4BF5-AF1A-BF8E194EB8E1">
-            <File Id="TaskCardCreator.exe" Name="TaskCardCreator.exe" Source="$(var.TaskCardCreator.TargetPath)" />
-            <File Id="TaskCardCreator.exe.config" Name="TaskCardCreator.exe.config" Source="$(var.TaskCardCreator.TargetDir)\TaskCardCreator.exe.config" />
-            <File Id="ReportInterface.dll" Name="ReportInterface.dll" Source="$(var.ReportInterface.TargetPath)" />
-            <File Id="ReportingFramework.dll" Name="ReportingFramework.dll" Source="$(var.ReportingFramework.TargetPath)" />
-            <File Id="Microsoft.Practices.EnterpriseLibrary.Common.dll" Name="Microsoft.Practices.EnterpriseLibrary.Common.dll" Source="$(var.SolutionDir)\TaskCardCreator\bin\$(var.Configuration)\Microsoft.Practices.EnterpriseLibrary.Common.dll" />
-            <File Id="Microsoft.Practices.EnterpriseLibrary.Logging.dll" Name="Microsoft.Practices.EnterpriseLibrary.Logging.dll" Source="$(var.SolutionDir)\TaskCardCreator\bin\$(var.Configuration)\Microsoft.Practices.EnterpriseLibrary.Logging.dll" />
-            <File Id="GoogleAnalyticsTracker.Core.dll" Name="GoogleAnalyticsTracker.Core.dll" Source="$(var.SolutionDir)\TaskCardCreator\bin\$(var.Configuration)\GoogleAnalyticsTracker.Core.dll" />
-            <File Id="GoogleAnalyticsTracker.Simple.dll" Name="GoogleAnalyticsTracker.Simple.dll" Source="$(var.SolutionDir)\TaskCardCreator\bin\$(var.Configuration)\GoogleAnalyticsTracker.Simple.dll" />
-            <File Id="TaskServerServiceInterface.dll" Name="TaskServerServiceInterface.dll" Source="$(var.TaskServerServiceInterface.TargetPath)" />
-            <File Id="License.rtf" Name="License.rtf" Source="$(var.SolutionDir)\License.rtf" />
+            <File Source="$(var.TaskCardCreator.TargetPath)" />
+            <File Source="$(var.TaskCardCreator.TargetDir)\TaskCardCreator.exe.config" />
+            <File Source="$(var.ReportInterface.TargetPath)" />
+            <File Source="$(var.ReportingFramework.TargetPath)" />
+            <File Source="$(var.SolutionDir)\TaskCardCreator\bin\$(var.Configuration)\Microsoft.Practices.EnterpriseLibrary.Common.dll" />
+            <File Source="$(var.SolutionDir)\TaskCardCreator\bin\$(var.Configuration)\Microsoft.Practices.EnterpriseLibrary.Logging.dll" />
+            <File Source="$(var.SolutionDir)\TaskCardCreator\bin\$(var.Configuration)\GoogleAnalyticsTracker.Core.dll" />
+            <File Source="$(var.SolutionDir)\TaskCardCreator\bin\$(var.Configuration)\GoogleAnalyticsTracker.Simple.dll" />
+            <File Source="$(var.TaskServerServiceInterface.TargetPath)" />
+            <File Source="$(var.SolutionDir)\License.txt" />
           </Component>
 				  <Directory Id="JiraService" Name="JiraService">
             <Component Id="JiraService.dll" Guid="4105CC6A-304F-4025-817C-39D331078C1C">
-              <File Id="JIRAServices.dll" Name="JIRAServices.dll" Source="$(var.JIRAServices.TargetPath)" />
-              <File Id="JiraRestClientDotNet.dll" Name="JiraRestClientDotNet.dll" Source="$(var.JIRAServices.TargetDir)\JiraRestClientDotNet.dll" />
-              <File Id="ServiceStack.Common.dll" Name="ServiceStack.Common.dll" Source="$(var.JIRAServices.TargetDir)\ServiceStack.Common.dll" />
-              <File Id="ServiceStack.Interfaces.dll" Name="ServiceStack.Interfaces.dll" Source="$(var.JIRAServices.TargetDir)\ServiceStack.Interfaces.dll" />
-              <File Id="ServiceStack.Text.dll" Name="ServiceStack.Text.dll" Source="$(var.JIRAServices.TargetDir)\ServiceStack.Text.dll" />
+              <File Source="$(var.JIRAServices.TargetPath)" />
+              <File Source="$(var.JIRAServices.TargetDir)\JiraRestClientDotNet.dll" />
+              <File Source="$(var.JIRAServices.TargetDir)\ServiceStack.Common.dll" />
+              <File Source="$(var.JIRAServices.TargetDir)\ServiceStack.Interfaces.dll" />
+              <File Source="$(var.JIRAServices.TargetDir)\ServiceStack.Text.dll" />
             </Component>
           </Directory>          
           <Directory Id="Generic" Name="Generic">
             <Component Id="Generic.dll" Guid="512D7133-4F10-4657-ACB5-FE3187DDA672">
-              <File Id="Generic.dll" Name="Generic.dll" Source="$(var.Generic.TargetPath)" />
+              <File Source="$(var.Generic.TargetPath)" />
             </Component>
           </Directory>                    
           <Directory Id="MSFforAgile" Name="MSFforAgile">
             <Component Id="MSFforAgile.dll" Guid="E2567A2C-CE84-4C41-96AA-46FEFFCBC065">
-              <File Id="MSFforAgile.dll" Name="MSFforAgile.dll" Source="$(var.MSFforAgile.TargetPath)" />
+              <File Source="$(var.MSFforAgile.TargetPath)" />
             </Component>
           </Directory>          
           <Directory Id="MSFforAgileBasic" Name="MSFforAgileBasic">
             <Component Id="MSFforAgileBasic.dll" Guid="76C03211-C81F-4638-BAC5-8DF670D8400A">
-              <File Id="MSFforAgileBasic.dll" Name="MSFforAgileBasic.dll" Source="$(var.MSFforAgileBasic.TargetPath)" />
+              <File Source="$(var.MSFforAgileBasic.TargetPath)" />
             </Component>
           </Directory>                    
           <Directory Id="ScrumBasic" Name="ScrumBasic">
             <Component Id="ScrumBasic.dll" Guid="0EE11ED8-E021-4F0E-AD91-BD5A3A13B9FB">
-              <File Id="ScrumBasic.dll" Name="ScrumBasic.dll" Source="$(var.ScrumBasic.TargetPath)" />
+              <File Source="$(var.ScrumBasic.TargetPath)" />
             </Component>
           </Directory>          
           <Directory Id="ScrumCompact" Name="ScrumCompact">
             <Component Id="ScrumCompact.dll" Guid="2494CF4B-24C5-4F02-8F06-F09C7FB1AB56">
-              <File Id="ScrumCompact.dll" Name="ScrumCompact.dll" Source="$(var.ScrumCompact.TargetPath)" />
+              <File Source="$(var.ScrumCompact.TargetPath)" />
             </Component>
           </Directory>          
           <Directory Id="ScrumDetailed" Name="ScrumDetailed">
             <Component Id="ScrumDetailed.dll" Guid="E0F3AC21-A33C-490D-821E-582F46F708A3">
-              <File Id="ScrumDetailed.dll" Name="ScrumDetailed.dll" Source="$(var.ScrumDetailed.TargetPath)" />
+              <File Source="$(var.ScrumDetailed.TargetPath)" />
             </Component>
           </Directory>          
           <Directory Id="ScrumDescription" Name="ScrumDescription">
             <Component Id="ScrumDescription.dll" Guid="2F9989A1-EDA5-4992-835C-D509F1E6C4A8">
-              <File Id="ScrumDescription.dll" Name="ScrumDescription.dll" Source="$(var.ScrumDescription.TargetPath)" />
+              <File Source="$(var.ScrumDescription.TargetPath)" />
             </Component>
           </Directory>                    
           <Directory Id="ScrumIndexCard3x5" Name="ScrumIndexCard3x5">
             <Component Id="ScrumIndexCard3x5.dll" Guid="C1DF9AAC-1084-43E7-ABAE-4FB5E32FAD33">
-              <File Id="ScrumIndexCard3x5.dll" Name="ScrumIndexCard3x5.dll" Source="$(var.ScrumIndexCard3x5.TargetPath)" />
+              <File Source="$(var.ScrumIndexCard3x5.TargetPath)" />
             </Component>
           </Directory>          
           <Directory Id="UserDefinedReport" Name="UserDefinedReport">
             <Component Id="UserDefinedReport.dll" Guid="CE1ED1E9-4FF1-442E-ADBC-FB3CD3748602">
-              <File Id="UserDefinedReport.dll" Name="UserDefinedReport.dll" Source="$(var.UserDefinedReport.TargetPath)" />
+              <File Source="$(var.UserDefinedReport.TargetPath)" />
             </Component>
           </Directory>          
 				  <Directory Id="TFSIterationPathServices" Name="TFSIterationPathServices">
             <Component Id="TFSIterationPathServices.dll" Guid="493C879A-D50E-4CDD-AAAC-AE208057C02F">
-              <File Id="TFSIterationPathServices" Source="$(var.TFSIterationPathServices.TargetPath)" />
-              <File Id="Microsoft.IdentityModel.Clients.ActiveDirectory" Source="$(var.TFSIterationPathServices.TargetDir)\Microsoft.IdentityModel.Clients.ActiveDirectory.dll" />
-              <File Id="Microsoft.IdentityModel.Clients.ActiveDirectory.Platform" Source="$(var.TFSIterationPathServices.TargetDir)\Microsoft.IdentityModel.Clients.ActiveDirectory.Platform.dll" />
-              <File Id="Microsoft.IdentityModel.Logging" Source="$(var.TFSIterationPathServices.TargetDir)\Microsoft.IdentityModel.Logging.dll" />
-              <File Id="Microsoft.IdentityModel.Tokens" Source="$(var.TFSIterationPathServices.TargetDir)\Microsoft.IdentityModel.Tokens.dll" />
-              <File Id="Microsoft.ServiceBus" Source="$(var.TFSIterationPathServices.TargetDir)\Microsoft.ServiceBus.dll" />
-              <File Id="Microsoft.TeamFoundation.Build.Client" Source="$(var.TFSIterationPathServices.TargetDir)\Microsoft.TeamFoundation.Build.Client.dll" />
-              <File Id="Microsoft.TeamFoundation.Build.Common" Source="$(var.TFSIterationPathServices.TargetDir)\Microsoft.TeamFoundation.Build.Common.dll" />
-              <File Id="Microsoft.TeamFoundation.Build2.WebApi" Source="$(var.TFSIterationPathServices.TargetDir)\Microsoft.TeamFoundation.Build2.WebApi.dll" />
-              <File Id="Microsoft.TeamFoundation.Chat.WebApi" Source="$(var.TFSIterationPathServices.TargetDir)\Microsoft.TeamFoundation.Chat.WebApi.dll" />
-              <File Id="Microsoft.TeamFoundation.Client" Source="$(var.TFSIterationPathServices.TargetDir)\Microsoft.TeamFoundation.Client.dll" />
-              <File Id="Microsoft.TeamFoundation.Common" Source="$(var.TFSIterationPathServices.TargetDir)\Microsoft.TeamFoundation.Common.dll" />
-              <File Id="Microsoft.TeamFoundation.Core.WebApi" Source="$(var.TFSIterationPathServices.TargetDir)\Microsoft.TeamFoundation.Core.WebApi.dll" />
-              <File Id="Microsoft.TeamFoundation.Dashboards.WebApi" Source="$(var.TFSIterationPathServices.TargetDir)\Microsoft.TeamFoundation.Dashboards.WebApi.dll" />
-              <File Id="Microsoft.TeamFoundation.DeleteTeamProject" Source="$(var.TFSIterationPathServices.TargetDir)\Microsoft.TeamFoundation.DeleteTeamProject.dll" />
-              <File Id="Microsoft.TeamFoundation.Diff" Source="$(var.TFSIterationPathServices.TargetDir)\Microsoft.TeamFoundation.Diff.dll" />
-              <File Id="Microsoft.TeamFoundation.Discussion.Client" Source="$(var.TFSIterationPathServices.TargetDir)\Microsoft.TeamFoundation.Discussion.Client.dll" />
-              <File Id="Microsoft.TeamFoundation.DistributedTask.Common.Contracts" Source="$(var.TFSIterationPathServices.TargetDir)\Microsoft.TeamFoundation.DistributedTask.Common.Contracts.dll" />              
-              <File Id="Microsoft.TeamFoundation.Git.Client" Source="$(var.TFSIterationPathServices.TargetDir)\Microsoft.TeamFoundation.Git.Client.dll" />
-              <File Id="Microsoft.TeamFoundation.Lab.Client" Source="$(var.TFSIterationPathServices.TargetDir)\Microsoft.TeamFoundation.Lab.Client.dll" />
-              <File Id="Microsoft.TeamFoundation.Lab.Common" Source="$(var.TFSIterationPathServices.TargetDir)\Microsoft.TeamFoundation.Lab.Common.dll" />
-              <File Id="Microsoft.TeamFoundation.Lab.TestIntegration.Client" Source="$(var.TFSIterationPathServices.TargetDir)\Microsoft.TeamFoundation.Lab.TestIntegration.Client.dll" />
-              <File Id="Microsoft.TeamFoundation.Lab.WorkflowIntegration.Client" Source="$(var.TFSIterationPathServices.TargetDir)\Microsoft.TeamFoundation.Lab.WorkflowIntegration.Client.dll" />
-              <File Id="Microsoft.TeamFoundation.Policy.WebApi" Source="$(var.TFSIterationPathServices.TargetDir)\Microsoft.TeamFoundation.Policy.WebApi.dll" />
-              <File Id="Microsoft.TeamFoundation.ProjectManagement" Source="$(var.TFSIterationPathServices.TargetDir)\Microsoft.TeamFoundation.ProjectManagement.dll" />
-              <File Id="Microsoft.TeamFoundation.SharePointReporting.Integration" Source="$(var.TFSIterationPathServices.TargetDir)\Microsoft.TeamFoundation.SharePointReporting.Integration.dll" />
-              <File Id="Microsoft.TeamFoundation.SourceControl.WebApi" Source="$(var.TFSIterationPathServices.TargetDir)\Microsoft.TeamFoundation.SourceControl.WebApi.dll" />
-              <File Id="Microsoft.TeamFoundation.Test.WebApi" Source="$(var.TFSIterationPathServices.TargetDir)\Microsoft.TeamFoundation.Test.WebApi.dll" />
-              <File Id="Microsoft.TeamFoundation.TestImpact.Client" Source="$(var.TFSIterationPathServices.TargetDir)\Microsoft.TeamFoundation.TestImpact.Client.dll" />
-              <File Id="Microsoft.TeamFoundation.TestManagement.Client" Source="$(var.TFSIterationPathServices.TargetDir)\Microsoft.TeamFoundation.TestManagement.Client.dll" />
-              <File Id="Microsoft.TeamFoundation.TestManagement.Common" Source="$(var.TFSIterationPathServices.TargetDir)\Microsoft.TeamFoundation.TestManagement.Common.dll" />
-              <File Id="Microsoft.TeamFoundation.TestManagement.WebApi" Source="$(var.TFSIterationPathServices.TargetDir)\Microsoft.TeamFoundation.TestManagement.WebApi.dll" />
-              <File Id="Microsoft.TeamFoundation.VersionControl.Client" Source="$(var.TFSIterationPathServices.TargetDir)\Microsoft.TeamFoundation.VersionControl.Client.dll" />
-              <File Id="Microsoft.TeamFoundation.VersionControl.Common" Source="$(var.TFSIterationPathServices.TargetDir)\Microsoft.TeamFoundation.VersionControl.Common.dll" />
-              <File Id="Microsoft.TeamFoundation.VersionControl.Common.Integration" Source="$(var.TFSIterationPathServices.TargetDir)\Microsoft.TeamFoundation.VersionControl.Common.Integration.dll" />
-              <File Id="Microsoft.TeamFoundation.Work.WebApi" Source="$(var.TFSIterationPathServices.TargetDir)\Microsoft.TeamFoundation.Work.WebApi.dll" />
-              <File Id="Microsoft.TeamFoundation.WorkItemTracking.Client.DataStoreLoader" Source="$(var.TFSIterationPathServices.TargetDir)\Microsoft.TeamFoundation.WorkItemTracking.Client.DataStoreLoader.dll" />
-              <File Id="Microsoft.TeamFoundation.WorkItemTracking.Client" Source="$(var.TFSIterationPathServices.TargetDir)\Microsoft.TeamFoundation.WorkItemTracking.Client.dll" />
-              <File Id="Microsoft.TeamFoundation.WorkItemTracking.Client.QueryLanguage" Source="$(var.TFSIterationPathServices.TargetDir)\Microsoft.TeamFoundation.WorkItemTracking.Client.QueryLanguage.dll" />
-              <File Id="Microsoft.TeamFoundation.WorkItemTracking.Common" Source="$(var.TFSIterationPathServices.TargetDir)\Microsoft.TeamFoundation.WorkItemTracking.Common.dll" />
-              <File Id="Microsoft.TeamFoundation.WorkItemTracking.Proxy" Source="$(var.TFSIterationPathServices.TargetDir)\Microsoft.TeamFoundation.WorkItemTracking.Proxy.dll" />
-              <File Id="Microsoft.TeamFoundation.WorkItemTracking.WebApi" Source="$(var.TFSIterationPathServices.TargetDir)\Microsoft.TeamFoundation.WorkItemTracking.WebApi.dll" />
-              <File Id="Microsoft.VisualStudio.Services.Client.Interactive" Source="$(var.TFSIterationPathServices.TargetDir)\Microsoft.VisualStudio.Services.Client.Interactive.dll" />
-              <File Id="Microsoft.VisualStudio.Services.Common" Source="$(var.TFSIterationPathServices.TargetDir)\Microsoft.VisualStudio.Services.Common.dll" />
-              <File Id="Microsoft.VisualStudio.Services.WebApi" Source="$(var.TFSIterationPathServices.TargetDir)\Microsoft.VisualStudio.Services.WebApi.dll" />
-              <File Id="Microsoft.WindowsAzure.Configuration" Source="$(var.TFSIterationPathServices.TargetDir)\Microsoft.WindowsAzure.Configuration.dll" />
-              <File Id="Microsoft.WITDataStore32" Source="$(var.TFSIterationPathServices.TargetDir)\Microsoft.WITDataStore32.dll" />
-              <File Id="Microsoft.WITDataStore64" Source="$(var.TFSIterationPathServices.TargetDir)\Microsoft.WITDataStore64.dll" />
-              <File Id="Newtonsoft.Json" Source="$(var.TFSIterationPathServices.TargetDir)\Newtonsoft.Json.dll" />
-              <File Id="System.IdentityModel.Tokens.Jwt" Source="$(var.TFSIterationPathServices.TargetDir)\System.IdentityModel.Tokens.Jwt.dll" />
-              <File Id="System.Net.Http.Formatting" Source="$(var.TFSIterationPathServices.TargetDir)\System.Net.Http.Formatting.dll" />
-              <File Id="System.Threading.Tasks.Dataflow" Source="$(var.TFSIterationPathServices.TargetDir)\System.Threading.Tasks.Dataflow.dll" />
-              <File Id="System.Web.Http" Source="$(var.TFSIterationPathServices.TargetDir)\System.Web.Http.dll" />
+              <File Source="$(var.TFSIterationPathServices.TargetPath)" />
+              <File Source="$(var.TFSIterationPathServices.TargetDir)\Microsoft.IdentityModel.Clients.ActiveDirectory.dll" />
+              <File Source="$(var.TFSIterationPathServices.TargetDir)\Microsoft.IdentityModel.Clients.ActiveDirectory.Platform.dll" />
+              <File Source="$(var.TFSIterationPathServices.TargetDir)\Microsoft.IdentityModel.Logging.dll" />
+              <File Source="$(var.TFSIterationPathServices.TargetDir)\Microsoft.IdentityModel.Tokens.dll" />
+              <File Source="$(var.TFSIterationPathServices.TargetDir)\Microsoft.ServiceBus.dll" />
+              <File Source="$(var.TFSIterationPathServices.TargetDir)\Microsoft.TeamFoundation.Build.Client.dll" />
+              <File Source="$(var.TFSIterationPathServices.TargetDir)\Microsoft.TeamFoundation.Build.Common.dll" />
+              <File Source="$(var.TFSIterationPathServices.TargetDir)\Microsoft.TeamFoundation.Build2.WebApi.dll" />
+              <File Source="$(var.TFSIterationPathServices.TargetDir)\Microsoft.TeamFoundation.Chat.WebApi.dll" />
+              <File Source="$(var.TFSIterationPathServices.TargetDir)\Microsoft.TeamFoundation.Client.dll" />
+              <File Source="$(var.TFSIterationPathServices.TargetDir)\Microsoft.TeamFoundation.Common.dll" />
+              <File Source="$(var.TFSIterationPathServices.TargetDir)\Microsoft.TeamFoundation.Core.WebApi.dll" />
+              <File Source="$(var.TFSIterationPathServices.TargetDir)\Microsoft.TeamFoundation.Dashboards.WebApi.dll" />
+              <File Source="$(var.TFSIterationPathServices.TargetDir)\Microsoft.TeamFoundation.DeleteTeamProject.dll" />
+              <File Source="$(var.TFSIterationPathServices.TargetDir)\Microsoft.TeamFoundation.Diff.dll" />
+              <File Source="$(var.TFSIterationPathServices.TargetDir)\Microsoft.TeamFoundation.Discussion.Client.dll" />
+              <File Source="$(var.TFSIterationPathServices.TargetDir)\Microsoft.TeamFoundation.DistributedTask.Common.Contracts.dll" />              
+              <File Source="$(var.TFSIterationPathServices.TargetDir)\Microsoft.TeamFoundation.Git.Client.dll" />
+              <File Source="$(var.TFSIterationPathServices.TargetDir)\Microsoft.TeamFoundation.Lab.Client.dll" />
+              <File Source="$(var.TFSIterationPathServices.TargetDir)\Microsoft.TeamFoundation.Lab.Common.dll" />
+              <File Source="$(var.TFSIterationPathServices.TargetDir)\Microsoft.TeamFoundation.Lab.TestIntegration.Client.dll" />
+              <File Source="$(var.TFSIterationPathServices.TargetDir)\Microsoft.TeamFoundation.Lab.WorkflowIntegration.Client.dll" />
+              <File Source="$(var.TFSIterationPathServices.TargetDir)\Microsoft.TeamFoundation.Policy.WebApi.dll" />
+              <File Source="$(var.TFSIterationPathServices.TargetDir)\Microsoft.TeamFoundation.ProjectManagement.dll" />
+              <File Source="$(var.TFSIterationPathServices.TargetDir)\Microsoft.TeamFoundation.SharePointReporting.Integration.dll" />
+              <File Source="$(var.TFSIterationPathServices.TargetDir)\Microsoft.TeamFoundation.SourceControl.WebApi.dll" />
+              <File Source="$(var.TFSIterationPathServices.TargetDir)\Microsoft.TeamFoundation.Test.WebApi.dll" />
+              <File Source="$(var.TFSIterationPathServices.TargetDir)\Microsoft.TeamFoundation.TestImpact.Client.dll" />
+              <File Source="$(var.TFSIterationPathServices.TargetDir)\Microsoft.TeamFoundation.TestManagement.Client.dll" />
+              <File Source="$(var.TFSIterationPathServices.TargetDir)\Microsoft.TeamFoundation.TestManagement.Common.dll" />
+              <File Source="$(var.TFSIterationPathServices.TargetDir)\Microsoft.TeamFoundation.TestManagement.WebApi.dll" />
+              <File Source="$(var.TFSIterationPathServices.TargetDir)\Microsoft.TeamFoundation.VersionControl.Client.dll" />
+              <File Source="$(var.TFSIterationPathServices.TargetDir)\Microsoft.TeamFoundation.VersionControl.Common.dll" />
+              <File Source="$(var.TFSIterationPathServices.TargetDir)\Microsoft.TeamFoundation.VersionControl.Common.Integration.dll" />
+              <File Source="$(var.TFSIterationPathServices.TargetDir)\Microsoft.TeamFoundation.Work.WebApi.dll" />
+              <File Source="$(var.TFSIterationPathServices.TargetDir)\Microsoft.TeamFoundation.WorkItemTracking.Client.DataStoreLoader.dll" />
+              <File Source="$(var.TFSIterationPathServices.TargetDir)\Microsoft.TeamFoundation.WorkItemTracking.Client.dll" />
+              <File Source="$(var.TFSIterationPathServices.TargetDir)\Microsoft.TeamFoundation.WorkItemTracking.Client.QueryLanguage.dll" />
+              <File Source="$(var.TFSIterationPathServices.TargetDir)\Microsoft.TeamFoundation.WorkItemTracking.Common.dll" />
+              <File Source="$(var.TFSIterationPathServices.TargetDir)\Microsoft.TeamFoundation.WorkItemTracking.Proxy.dll" />
+              <File Source="$(var.TFSIterationPathServices.TargetDir)\Microsoft.TeamFoundation.WorkItemTracking.WebApi.dll" />
+              <File Source="$(var.TFSIterationPathServices.TargetDir)\Microsoft.VisualStudio.Services.Client.Interactive.dll" />
+              <File Source="$(var.TFSIterationPathServices.TargetDir)\Microsoft.VisualStudio.Services.Common.dll" />
+              <File Source="$(var.TFSIterationPathServices.TargetDir)\Microsoft.VisualStudio.Services.WebApi.dll" />
+              <File Source="$(var.TFSIterationPathServices.TargetDir)\Microsoft.WindowsAzure.Configuration.dll" />
+              <File Source="$(var.TFSIterationPathServices.TargetDir)\Microsoft.WITDataStore32.dll" />
+              <File Source="$(var.TFSIterationPathServices.TargetDir)\Microsoft.WITDataStore64.dll" />
+              <File Source="$(var.TFSIterationPathServices.TargetDir)\Newtonsoft.Json.dll" />
+              <File Source="$(var.TFSIterationPathServices.TargetDir)\System.IdentityModel.Tokens.Jwt.dll" />
+              <File Source="$(var.TFSIterationPathServices.TargetDir)\System.Net.Http.Formatting.dll" />
+              <File Source="$(var.TFSIterationPathServices.TargetDir)\System.Threading.Tasks.Dataflow.dll" />
+              <File Source="$(var.TFSIterationPathServices.TargetDir)\System.Web.Http.dll" />
             </Component>
           </Directory>                    
 				  <Directory Id="TFSQueryServices" Name="TFSQueryServices">
             <Component Id="TFSQueryServices.dll" Guid="5801896C-1DB3-4E3B-B81F-DB3639FED8D6">
               <File Source="$(var.TFSQueryServices.TargetPath)" />
-              <File Id="_Microsoft.IdentityModel.Clients.ActiveDirectory" Source="$(var.TFSQueryServices.TargetDir)\Microsoft.IdentityModel.Clients.ActiveDirectory.dll" />
-              <File Id="_Microsoft.IdentityModel.Clients.ActiveDirectory.Platform" Source="$(var.TFSQueryServices.TargetDir)\Microsoft.IdentityModel.Clients.ActiveDirectory.Platform.dll" />
-              <File Id="_Microsoft.IdentityModel.Logging" Source="$(var.TFSQueryServices.TargetDir)\Microsoft.IdentityModel.Logging.dll" />
-              <File Id="_Microsoft.IdentityModel.Tokens" Source="$(var.TFSQueryServices.TargetDir)\Microsoft.IdentityModel.Tokens.dll" />
-              <File Id="_Microsoft.ServiceBus" Source="$(var.TFSQueryServices.TargetDir)\Microsoft.ServiceBus.dll" />
-              <File Id="_Microsoft.TeamFoundation.Build.Client" Source="$(var.TFSQueryServices.TargetDir)\Microsoft.TeamFoundation.Build.Client.dll" />
-              <File Id="_Microsoft.TeamFoundation.Build.Common" Source="$(var.TFSQueryServices.TargetDir)\Microsoft.TeamFoundation.Build.Common.dll" />
-              <File Id="_Microsoft.TeamFoundation.Build2.WebApi" Source="$(var.TFSQueryServices.TargetDir)\Microsoft.TeamFoundation.Build2.WebApi.dll" />
-              <File Id="_Microsoft.TeamFoundation.Chat.WebApi" Source="$(var.TFSQueryServices.TargetDir)\Microsoft.TeamFoundation.Chat.WebApi.dll" />
-              <File Id="_Microsoft.TeamFoundation.Client" Source="$(var.TFSQueryServices.TargetDir)\Microsoft.TeamFoundation.Client.dll" />
-              <File Id="_Microsoft.TeamFoundation.Common" Source="$(var.TFSQueryServices.TargetDir)\Microsoft.TeamFoundation.Common.dll" />
-              <File Id="_Microsoft.TeamFoundation.Core.WebApi" Source="$(var.TFSQueryServices.TargetDir)\Microsoft.TeamFoundation.Core.WebApi.dll" />
-              <File Id="_Microsoft.TeamFoundation.Dashboards.WebApi" Source="$(var.TFSQueryServices.TargetDir)\Microsoft.TeamFoundation.Dashboards.WebApi.dll" />
-              <File Id="_Microsoft.TeamFoundation.DeleteTeamProject" Source="$(var.TFSQueryServices.TargetDir)\Microsoft.TeamFoundation.DeleteTeamProject.dll" />
-              <File Id="_Microsoft.TeamFoundation.Diff" Source="$(var.TFSQueryServices.TargetDir)\Microsoft.TeamFoundation.Diff.dll" />
-              <File Id="_Microsoft.TeamFoundation.Discussion.Client" Source="$(var.TFSQueryServices.TargetDir)\Microsoft.TeamFoundation.Discussion.Client.dll" />
-              <File Id="_Microsoft.TeamFoundation.DistributedTask.Common.Contracts" Source="$(var.TFSQueryServices.TargetDir)\Microsoft.TeamFoundation.DistributedTask.Common.Contracts.dll" />
-              <File Id="_Microsoft.TeamFoundation.Git.Client" Source="$(var.TFSQueryServices.TargetDir)\Microsoft.TeamFoundation.Git.Client.dll" />
-              <File Id="_Microsoft.TeamFoundation.Lab.Client" Source="$(var.TFSQueryServices.TargetDir)\Microsoft.TeamFoundation.Lab.Client.dll" />
-              <File Id="_Microsoft.TeamFoundation.Lab.Common" Source="$(var.TFSQueryServices.TargetDir)\Microsoft.TeamFoundation.Lab.Common.dll" />
-              <File Id="_Microsoft.TeamFoundation.Lab.TestIntegration.Client" Source="$(var.TFSQueryServices.TargetDir)\Microsoft.TeamFoundation.Lab.TestIntegration.Client.dll" />
-              <File Id="_Microsoft.TeamFoundation.Lab.WorkflowIntegration.Client" Source="$(var.TFSQueryServices.TargetDir)\Microsoft.TeamFoundation.Lab.WorkflowIntegration.Client.dll" />
-              <File Id="_Microsoft.TeamFoundation.Policy.WebApi" Source="$(var.TFSQueryServices.TargetDir)\Microsoft.TeamFoundation.Policy.WebApi.dll" />
-              <File Id="_Microsoft.TeamFoundation.ProjectManagement" Source="$(var.TFSQueryServices.TargetDir)\Microsoft.TeamFoundation.ProjectManagement.dll" />
-              <File Id="_Microsoft.TeamFoundation.SharePointReporting.Integration" Source="$(var.TFSQueryServices.TargetDir)\Microsoft.TeamFoundation.SharePointReporting.Integration.dll" />
-              <File Id="_Microsoft.TeamFoundation.SourceControl.WebApi" Source="$(var.TFSQueryServices.TargetDir)\Microsoft.TeamFoundation.SourceControl.WebApi.dll" />
-              <File Id="_Microsoft.TeamFoundation.Test.WebApi" Source="$(var.TFSQueryServices.TargetDir)\Microsoft.TeamFoundation.Test.WebApi.dll" />
-              <File Id="_Microsoft.TeamFoundation.TestImpact.Client" Source="$(var.TFSQueryServices.TargetDir)\Microsoft.TeamFoundation.TestImpact.Client.dll" />
-              <File Id="_Microsoft.TeamFoundation.TestManagement.Client" Source="$(var.TFSQueryServices.TargetDir)\Microsoft.TeamFoundation.TestManagement.Client.dll" />
-              <File Id="_Microsoft.TeamFoundation.TestManagement.Common" Source="$(var.TFSQueryServices.TargetDir)\Microsoft.TeamFoundation.TestManagement.Common.dll" />
-              <File Id="_Microsoft.TeamFoundation.TestManagement.WebApi" Source="$(var.TFSQueryServices.TargetDir)\Microsoft.TeamFoundation.TestManagement.WebApi.dll" />
-              <File Id="_Microsoft.TeamFoundation.VersionControl.Client" Source="$(var.TFSQueryServices.TargetDir)\Microsoft.TeamFoundation.VersionControl.Client.dll" />
-              <File Id="_Microsoft.TeamFoundation.VersionControl.Common" Source="$(var.TFSQueryServices.TargetDir)\Microsoft.TeamFoundation.VersionControl.Common.dll" />
-              <File Id="_Microsoft.TeamFoundation.VersionControl.Common.Integration" Source="$(var.TFSQueryServices.TargetDir)\Microsoft.TeamFoundation.VersionControl.Common.Integration.dll" />
-              <File Id="_Microsoft.TeamFoundation.Work.WebApi" Source="$(var.TFSQueryServices.TargetDir)\Microsoft.TeamFoundation.Work.WebApi.dll" />
-              <File Id="_Microsoft.TeamFoundation.WorkItemTracking.Client.DataStoreLoader" Source="$(var.TFSQueryServices.TargetDir)\Microsoft.TeamFoundation.WorkItemTracking.Client.DataStoreLoader.dll" />
-              <File Id="_Microsoft.TeamFoundation.WorkItemTracking.Client" Source="$(var.TFSQueryServices.TargetDir)\Microsoft.TeamFoundation.WorkItemTracking.Client.dll" />
-              <File Id="_Microsoft.TeamFoundation.WorkItemTracking.Client.QueryLanguage" Source="$(var.TFSQueryServices.TargetDir)\Microsoft.TeamFoundation.WorkItemTracking.Client.QueryLanguage.dll" />
-              <File Id="_Microsoft.TeamFoundation.WorkItemTracking.Common" Source="$(var.TFSQueryServices.TargetDir)\Microsoft.TeamFoundation.WorkItemTracking.Common.dll" />
-              <File Id="_Microsoft.TeamFoundation.WorkItemTracking.Proxy" Source="$(var.TFSQueryServices.TargetDir)\Microsoft.TeamFoundation.WorkItemTracking.Proxy.dll" />
-              <File Id="_Microsoft.TeamFoundation.WorkItemTracking.WebApi" Source="$(var.TFSQueryServices.TargetDir)\Microsoft.TeamFoundation.WorkItemTracking.WebApi.dll" />
-              <File Id="_Microsoft.VisualStudio.Services.Client.Interactive" Source="$(var.TFSQueryServices.TargetDir)\Microsoft.VisualStudio.Services.Client.Interactive.dll" />
-              <File Id="_Microsoft.VisualStudio.Services.Common" Source="$(var.TFSQueryServices.TargetDir)\Microsoft.VisualStudio.Services.Common.dll" />
-              <File Id="_Microsoft.VisualStudio.Services.WebApi" Source="$(var.TFSQueryServices.TargetDir)\Microsoft.VisualStudio.Services.WebApi.dll" />
-              <File Id="_Microsoft.WindowsAzure.Configuration" Source="$(var.TFSQueryServices.TargetDir)\Microsoft.WindowsAzure.Configuration.dll" />
-              <File Id="_Microsoft.WITDataStore32" Source="$(var.TFSQueryServices.TargetDir)\Microsoft.WITDataStore32.dll" />
-              <File Id="_Microsoft.WITDataStore64" Source="$(var.TFSQueryServices.TargetDir)\Microsoft.WITDataStore64.dll" />
-              <File Id="_Newtonsoft.Json" Source="$(var.TFSQueryServices.TargetDir)\Newtonsoft.Json.dll" />
-              <File Id="_System.IdentityModel.Tokens.Jwt" Source="$(var.TFSQueryServices.TargetDir)\System.IdentityModel.Tokens.Jwt.dll" />
-              <File Id="_System.Net.Http.Formatting" Source="$(var.TFSQueryServices.TargetDir)\System.Net.Http.Formatting.dll" />
-              <File Id="_System.Threading.Tasks.Dataflow" Source="$(var.TFSQueryServices.TargetDir)\System.Threading.Tasks.Dataflow.dll" />
-              <File Id="_System.Web.Http" Source="$(var.TFSQueryServices.TargetDir)\System.Web.Http.dll" />
+              <File Id="TFSQueryServices_01" Source="$(var.TFSQueryServices.TargetDir)\Microsoft.IdentityModel.Clients.ActiveDirectory.dll" />
+              <File Id="TFSQueryServices_02" Source="$(var.TFSQueryServices.TargetDir)\Microsoft.IdentityModel.Clients.ActiveDirectory.Platform.dll" />
+              <File Id="TFSQueryServices_03" Source="$(var.TFSQueryServices.TargetDir)\Microsoft.IdentityModel.Logging.dll" />
+              <File Id="TFSQueryServices_04" Source="$(var.TFSQueryServices.TargetDir)\Microsoft.IdentityModel.Tokens.dll" />
+              <File Id="TFSQueryServices_05" Source="$(var.TFSQueryServices.TargetDir)\Microsoft.ServiceBus.dll" />
+              <File Id="TFSQueryServices_06" Source="$(var.TFSQueryServices.TargetDir)\Microsoft.TeamFoundation.Build.Client.dll" />
+              <File Id="TFSQueryServices_07" Source="$(var.TFSQueryServices.TargetDir)\Microsoft.TeamFoundation.Build.Common.dll" />
+              <File Id="TFSQueryServices_08" Source="$(var.TFSQueryServices.TargetDir)\Microsoft.TeamFoundation.Build2.WebApi.dll" />
+              <File Id="TFSQueryServices_09" Source="$(var.TFSQueryServices.TargetDir)\Microsoft.TeamFoundation.Chat.WebApi.dll" />
+              <File Id="TFSQueryServices_10" Source="$(var.TFSQueryServices.TargetDir)\Microsoft.TeamFoundation.Client.dll" />
+              <File Id="TFSQueryServices_11" Source="$(var.TFSQueryServices.TargetDir)\Microsoft.TeamFoundation.Common.dll" />
+              <File Id="TFSQueryServices_12" Source="$(var.TFSQueryServices.TargetDir)\Microsoft.TeamFoundation.Core.WebApi.dll" />
+              <File Id="TFSQueryServices_13" Source="$(var.TFSQueryServices.TargetDir)\Microsoft.TeamFoundation.Dashboards.WebApi.dll" />
+              <File Id="TFSQueryServices_14" Source="$(var.TFSQueryServices.TargetDir)\Microsoft.TeamFoundation.DeleteTeamProject.dll" />
+              <File Id="TFSQueryServices_15" Source="$(var.TFSQueryServices.TargetDir)\Microsoft.TeamFoundation.Diff.dll" />
+              <File Id="TFSQueryServices_16" Source="$(var.TFSQueryServices.TargetDir)\Microsoft.TeamFoundation.Discussion.Client.dll" />
+              <File Id="TFSQueryServices_17" Source="$(var.TFSQueryServices.TargetDir)\Microsoft.TeamFoundation.DistributedTask.Common.Contracts.dll" />
+              <File Id="TFSQueryServices_18" Source="$(var.TFSQueryServices.TargetDir)\Microsoft.TeamFoundation.Git.Client.dll" />
+              <File Id="TFSQueryServices_19" Source="$(var.TFSQueryServices.TargetDir)\Microsoft.TeamFoundation.Lab.Client.dll" />
+              <File Id="TFSQueryServices_20" Source="$(var.TFSQueryServices.TargetDir)\Microsoft.TeamFoundation.Lab.Common.dll" />
+              <File Id="TFSQueryServices_21" Source="$(var.TFSQueryServices.TargetDir)\Microsoft.TeamFoundation.Lab.TestIntegration.Client.dll" />
+              <File Id="TFSQueryServices_22" Source="$(var.TFSQueryServices.TargetDir)\Microsoft.TeamFoundation.Lab.WorkflowIntegration.Client.dll" />
+              <File Id="TFSQueryServices_23" Source="$(var.TFSQueryServices.TargetDir)\Microsoft.TeamFoundation.Policy.WebApi.dll" />
+              <File Id="TFSQueryServices_24" Source="$(var.TFSQueryServices.TargetDir)\Microsoft.TeamFoundation.ProjectManagement.dll" />
+              <File Id="TFSQueryServices_25" Source="$(var.TFSQueryServices.TargetDir)\Microsoft.TeamFoundation.SharePointReporting.Integration.dll" />
+              <File Id="TFSQueryServices_26" Source="$(var.TFSQueryServices.TargetDir)\Microsoft.TeamFoundation.SourceControl.WebApi.dll" />
+              <File Id="TFSQueryServices_27" Source="$(var.TFSQueryServices.TargetDir)\Microsoft.TeamFoundation.Test.WebApi.dll" />
+              <File Id="TFSQueryServices_28" Source="$(var.TFSQueryServices.TargetDir)\Microsoft.TeamFoundation.TestImpact.Client.dll" />
+              <File Id="TFSQueryServices_29" Source="$(var.TFSQueryServices.TargetDir)\Microsoft.TeamFoundation.TestManagement.Client.dll" />
+              <File Id="TFSQueryServices_30" Source="$(var.TFSQueryServices.TargetDir)\Microsoft.TeamFoundation.TestManagement.Common.dll" />
+              <File Id="TFSQueryServices_31" Source="$(var.TFSQueryServices.TargetDir)\Microsoft.TeamFoundation.TestManagement.WebApi.dll" />
+              <File Id="TFSQueryServices_32" Source="$(var.TFSQueryServices.TargetDir)\Microsoft.TeamFoundation.VersionControl.Client.dll" />
+              <File Id="TFSQueryServices_33" Source="$(var.TFSQueryServices.TargetDir)\Microsoft.TeamFoundation.VersionControl.Common.dll" />
+              <File Id="TFSQueryServices_34" Source="$(var.TFSQueryServices.TargetDir)\Microsoft.TeamFoundation.VersionControl.Common.Integration.dll" />
+              <File Id="TFSQueryServices_35" Source="$(var.TFSQueryServices.TargetDir)\Microsoft.TeamFoundation.Work.WebApi.dll" />
+              <File Id="TFSQueryServices_36" Source="$(var.TFSQueryServices.TargetDir)\Microsoft.TeamFoundation.WorkItemTracking.Client.DataStoreLoader.dll" />
+              <File Id="TFSQueryServices_37" Source="$(var.TFSQueryServices.TargetDir)\Microsoft.TeamFoundation.WorkItemTracking.Client.dll" />
+              <File Id="TFSQueryServices_38" Source="$(var.TFSQueryServices.TargetDir)\Microsoft.TeamFoundation.WorkItemTracking.Client.QueryLanguage.dll" />
+              <File Id="TFSQueryServices_39" Source="$(var.TFSQueryServices.TargetDir)\Microsoft.TeamFoundation.WorkItemTracking.Common.dll" />
+              <File Id="TFSQueryServices_40" Source="$(var.TFSQueryServices.TargetDir)\Microsoft.TeamFoundation.WorkItemTracking.Proxy.dll" />
+              <File Id="TFSQueryServices_41" Source="$(var.TFSQueryServices.TargetDir)\Microsoft.TeamFoundation.WorkItemTracking.WebApi.dll" />
+              <File Id="TFSQueryServices_42" Source="$(var.TFSQueryServices.TargetDir)\Microsoft.VisualStudio.Services.Client.Interactive.dll" />
+              <File Id="TFSQueryServices_43" Source="$(var.TFSQueryServices.TargetDir)\Microsoft.VisualStudio.Services.Common.dll" />
+              <File Id="TFSQueryServices_44" Source="$(var.TFSQueryServices.TargetDir)\Microsoft.VisualStudio.Services.WebApi.dll" />
+              <File Id="TFSQueryServices_45" Source="$(var.TFSQueryServices.TargetDir)\Microsoft.WindowsAzure.Configuration.dll" />
+              <File Id="TFSQueryServices_46" Source="$(var.TFSQueryServices.TargetDir)\Microsoft.WITDataStore32.dll" />
+              <File Id="TFSQueryServices_47" Source="$(var.TFSQueryServices.TargetDir)\Microsoft.WITDataStore64.dll" />
+              <File Id="TFSQueryServices_48" Source="$(var.TFSQueryServices.TargetDir)\Newtonsoft.Json.dll" />
+              <File Id="TFSQueryServices_49" Source="$(var.TFSQueryServices.TargetDir)\System.IdentityModel.Tokens.Jwt.dll" />
+              <File Id="TFSQueryServices_50" Source="$(var.TFSQueryServices.TargetDir)\System.Net.Http.Formatting.dll" />
+              <File Id="TFSQueryServices_51" Source="$(var.TFSQueryServices.TargetDir)\System.Threading.Tasks.Dataflow.dll" />
+              <File Id="TFSQueryServices_52" Source="$(var.TFSQueryServices.TargetDir)\System.Web.Http.dll" />
             </Component>          
           </Directory>                   
         </Directory>
