@@ -1,5 +1,5 @@
 ﻿// This source is subject to Microsoft Public License (Ms-PL).
-// Please see http://taskcardcreator.codeplex.com for details.
+// Please see https://github.com/frederiksen/Task-Card-Creator for details.
 // All other rights reserved.
 
 using System.Collections.ObjectModel;

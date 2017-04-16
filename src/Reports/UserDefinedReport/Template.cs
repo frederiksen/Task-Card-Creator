@@ -1,5 +1,5 @@
 ﻿// This source is subject to Microsoft Public License (Ms-PL).
-// Please see http://taskcardcreator.codeplex.com for details.
+// Please see https://github.com/frederiksen/Task-Card-Creator for details.
 // All other rights reserved.
 
 using System;
@@ -170,7 +170,7 @@ namespace UserDefinedReport
           var howtoBlock = new TextBlock() { Text = "How to create a User Defined Report:", Margin = new Thickness(5), TextWrapping = TextWrapping.Wrap };
           rows.Add(howtoBlock);
 
-          var guideUrlBlock = new TextBlock() { Text = "https://taskcardcreator.codeplex.com/wikipage?title=Guide:%20Creating%20a%20User%20Defined%20Report", Margin = new Thickness(5), TextWrapping = TextWrapping.Wrap };
+          var guideUrlBlock = new TextBlock() { Text = "https://github.com/frederiksen/Task-Card-Creator", Margin = new Thickness(5), TextWrapping = TextWrapping.Wrap };
           rows.Add(guideUrlBlock);
         }
       }
