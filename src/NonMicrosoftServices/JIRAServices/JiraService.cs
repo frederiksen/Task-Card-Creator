@@ -9,7 +9,7 @@ using TaskServerServiceInterface;
 namespace JIRAServices
 {
   [Export(typeof(ITaskServerService))]
-  public class Jira : ITaskServerService
+  public class JiraService : ITaskServerService
   {
     public string Name => "Atlassian JIRA";
     public string Description => "Experimental implementation";

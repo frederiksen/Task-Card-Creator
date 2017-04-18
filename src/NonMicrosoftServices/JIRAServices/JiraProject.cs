@@ -30,7 +30,7 @@ namespace JIRAServices
         var l = new List<ReportItem>();
         foreach (var issue in uc.Issues)
         {
-          var ri = new ReportItem() { Id = issue.Key, Title = issue.Description, Type = "JIRA Issue" };
+          var ri = new ReportItem { Id = issue.Key.Value, Title = issue.Description, Type = "JIRA Issue" };
           l.Add(ri);
         }
         return l;
