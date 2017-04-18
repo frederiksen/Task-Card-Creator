@@ -38,18 +38,7 @@ namespace JIRAServices
                 OnPropertyChanged("SelectedReport");
             }
         }
-        public IEnumerable<Issue> Issues
-        {
-            get
-            {
-                if (searchResult != null)
-                {
-                    return searchResult.ToArray();
-                }
-
-                return new List<Issue>();
-            }
-        }
+        public ObservableCollection<Issue> Issues { get; set; }
 
         public ObservableCollection<int> Projects { get; set; }
 
@@ -148,6 +137,7 @@ namespace JIRAServices
             ProjectUrl = "https://jira.atlassian.com";
             Jql = "project = DEMO";
             Reports = new ObservableCollection<IReport>(supportedReports);
+            Issues = new ObservableCollection<Issue>();
             SelectedReport = Reports.First();
 
             InitializeComponent();
@@ -164,6 +154,7 @@ namespace JIRAServices
         private void LoadButtonClick(object sender, System.Windows.RoutedEventArgs e)
         {
             // Load in a seperate thread
+            Issues.Clear();
             Status = "Loading...";
             Task.Factory.StartNew(() =>
             {
@@ -188,6 +179,12 @@ namespace JIRAServices
                   else
                   {
                       Status = string.Format("Done. Read {0} issues", searchResult.Count());
+                  }
+
+                  
+                  foreach (var issue in this.searchResult)
+                  {
+                      Issues.Add(issue);
                   }
               }, TaskScheduler.FromCurrentSynchronizationContext());
         }
