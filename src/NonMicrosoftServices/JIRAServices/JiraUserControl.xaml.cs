@@ -10,6 +10,7 @@ using System.Linq;
 using System.Runtime.CompilerServices;
 using System.Threading.Tasks;
 using System.Windows.Controls;
+using System.Windows.Navigation;
 using Atlassian.Jira;
 using Atlassian.Jira.Remote;
 using ReportInterface;
@@ -39,6 +40,8 @@ namespace JIRAServices
             }
         }
         public ObservableCollection<Issue> Issues { get; set; }
+
+        public IEnumerable<Issue> SelectedIssues => this.listView.SelectedItems.Cast<Issue>();
 
         public ObservableCollection<int> Projects { get; set; }
 
@@ -187,6 +190,12 @@ namespace JIRAServices
                       Issues.Add(issue);
                   }
               }, TaskScheduler.FromCurrentSynchronizationContext());
+        }
+
+        private void HyperlinkRequestNavigate(object sender, RequestNavigateEventArgs e)
+        {
+            System.Diagnostics.Process.Start(new System.Diagnostics.ProcessStartInfo(e.Uri.AbsoluteUri));
+            e.Handled = true;
         }
     }
 }

@@ -4,7 +4,7 @@
              xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
              xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
              xmlns:workItemReportInterface="clr-namespace:ReportInterface;assembly=ReportInterface"
-             mc:Ignorable="d" d:DesignWidth="300" Height="363.867">
+             mc:Ignorable="d" d:DesignWidth="300" Height="476.002">
     <UserControl.Resources>
         <DataTemplate DataType="{x:Type workItemReportInterface:IReport}" x:Key="ReportTemplate">
             <StackPanel Orientation="Horizontal" Margin="2">
@@ -12,49 +12,74 @@
             </StackPanel>
         </DataTemplate>
     </UserControl.Resources>
-    <StackPanel Margin="0,0,0,-106">
-        <TextBlock Margin="10,10,10,0">Report template:</TextBlock>
-        <CheckBox Margin="10,10,10,0" Content="Show all" IsChecked="{Binding ShowAll}"></CheckBox>
-        <ListBox Margin="10,10,10,0" Height="100" ItemsSource="{Binding Reports}" SelectedItem="{Binding SelectedReport}" ItemTemplate="{StaticResource ReportTemplate}"></ListBox>
+    <Grid Margin="10">
+        <Grid.RowDefinitions>
+            <RowDefinition Height="Auto" />
+            <RowDefinition Height="Auto" />
+            <RowDefinition Height="Auto" />
+            <RowDefinition Height="2*" />
+            <RowDefinition Height="Auto" />
+            <RowDefinition Height="Auto" />
+            <RowDefinition Height="Auto" />
+            <RowDefinition Height="Auto" />
+            <RowDefinition Height="Auto" />
+            <RowDefinition Height="Auto" />
+            <RowDefinition Height="Auto" />
+            <RowDefinition Height="2*" />
+        </Grid.RowDefinitions>
 
-        <StackPanel Orientation="Horizontal">
+        <DockPanel Margin="5, 5, 0, 5" Grid.Column="0" LastChildFill="True">
+            <TextBlock DockPanel.Dock="Left" FontWeight="Bold">Report Template:</TextBlock>
+            <TextBlock HorizontalAlignment="Right" TextTrimming="CharacterEllipsis">
+                <Hyperlink NavigateUri="https://github.com/frederiksen/Task-Card-Creator" RequestNavigate="HyperlinkRequestNavigate">Learn more...</Hyperlink>
+            </TextBlock>
+        </DockPanel>
+
+        <CheckBox Grid.Row="2" Margin="10,10,10,0" Content="Show all" IsChecked="{Binding ShowAll}"></CheckBox>
+        <ListBox Grid.Row="3" Margin="10,10,10,0" ItemsSource="{Binding Reports}" SelectedItem="{Binding SelectedReport}" ItemTemplate="{StaticResource ReportTemplate}"></ListBox>
+
+        <TextBlock Grid.Row="4" Margin="5, 5, 0, 5" FontWeight="Bold">Jira Query:</TextBlock>
+        <StackPanel Grid.Row="5" Orientation="Horizontal">
             <TextBlock Margin="10,10,10,0" Width="50">Url:</TextBlock>
             <TextBox Margin="10,10,10,0" Width="200" Text="{Binding ProjectUrl}"></TextBox>
         </StackPanel>
-
-        <StackPanel Orientation="Horizontal">
+        <StackPanel Grid.Row="6" Orientation="Horizontal">
             <TextBlock Margin="10,10,10,0" Width="50">Login:</TextBlock>
             <TextBox Margin="10,10,10,0" Width="75" Text="{Binding User}"></TextBox>
             <TextBox Margin="10,10,10,0" Width="75" Text="{Binding Password}"></TextBox>
         </StackPanel>
 
-        <StackPanel Orientation="Horizontal">
+        <StackPanel Grid.Row="7" Orientation="Horizontal">
             <TextBlock Margin="10,10,10,0" Width="50">Jql:</TextBlock>
             <TextBox Margin="10,10,10,0" Width="200" Text="{Binding Jql}"></TextBox>
         </StackPanel>
 
-        <Button HorizontalAlignment="Left" Margin="10,10,10,0" Width="150" Click="LoadButtonClick">Load issues</Button>
+        <Button Grid.Row="8" HorizontalAlignment="Left" Margin="10,10,10,0" Width="150" Click="LoadButtonClick">Load issues</Button>
 
-        <ListView Margin="5, 5, 0, 5" ItemsSource="{Binding Path=Issues}" Name="listView" HorizontalAlignment="Stretch" ScrollViewer.VerticalScrollBarVisibility="Visible">
-            <ListView.View>
-                <GridView>
-                    <GridViewColumn Width="50" Header="Select">
-                        <GridViewColumn.CellTemplate>
-                            <DataTemplate>
-                                <StackPanel>
-                                    <CheckBox IsChecked="{Binding RelativeSource={RelativeSource FindAncestor, AncestorType={x:Type ListViewItem}}, Path=IsSelected}"/>
-                                </StackPanel>
-                            </DataTemplate>
-                        </GridViewColumn.CellTemplate>
-                    </GridViewColumn>
-                    <GridViewColumn Width="50" Header="Key" DisplayMemberBinding="{Binding Key}"  />
-                    <GridViewColumn Width="230" Header="Summary" DisplayMemberBinding="{Binding Summary}" />
-                    <GridViewColumn Width="80" Header="Status" DisplayMemberBinding="{Binding Status}" />
-                </GridView>
-            </ListView.View>
-        </ListView>
-
-        <TextBlock Margin="10,10,10,0">Status:</TextBlock>
-        <TextBlock Margin="10,10,10,0" Text="{Binding Status}"></TextBlock>
-    </StackPanel>
+        <TextBlock Grid.Row="9" Margin="5, 5, 0, 5" FontWeight="Bold">Jira Query:</TextBlock>
+        <StackPanel Grid.Row="10" Orientation="Horizontal">
+            <TextBlock Margin="10,10,10,0">Status:</TextBlock>
+            <TextBlock Margin="10,10,10,0" Text="{Binding Status}"></TextBlock>
+        </StackPanel>
+        <Grid Grid.Row="11">
+            <ListView Margin="5,0,0,10" ItemsSource="{Binding Path=Issues}" Name="listView" HorizontalAlignment="Stretch" ScrollViewer.VerticalScrollBarVisibility="Visible">
+                <ListView.View>
+                    <GridView>
+                        <GridViewColumn Width="50" Header="Select">
+                            <GridViewColumn.CellTemplate>
+                                <DataTemplate>
+                                    <StackPanel>
+                                        <CheckBox IsChecked="{Binding RelativeSource={RelativeSource FindAncestor, AncestorType={x:Type ListViewItem}}, Path=IsSelected}"/>
+                                    </StackPanel>
+                                </DataTemplate>
+                            </GridViewColumn.CellTemplate>
+                        </GridViewColumn>
+                        <GridViewColumn Width="50" Header="Key" DisplayMemberBinding="{Binding Key}"  />
+                        <GridViewColumn Width="230" Header="Summary" DisplayMemberBinding="{Binding Summary}" />
+                        <GridViewColumn Width="80" Header="Status" DisplayMemberBinding="{Binding Status}" />
+                    </GridView>
+                </ListView.View>
+            </ListView>
+        </Grid>
+    </Grid>
 </UserControl>

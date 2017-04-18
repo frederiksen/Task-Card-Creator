@@ -28,7 +28,7 @@ namespace JIRAServices
       get
       {
         var l = new List<ReportItem>();
-        foreach (var issue in uc.Issues)
+        foreach (var issue in uc.SelectedIssues)
         {
           var ri = new ReportItem { Id = issue.Key.Value, Title = issue.Description, Type = "JIRA Issue" };
           l.Add(ri);
