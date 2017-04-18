@@ -13,6 +13,7 @@ using System.Windows.Controls;
 using System.Windows.Navigation;
 using Atlassian.Jira;
 using Atlassian.Jira.Remote;
+using JIRAServices.Properties;
 using ReportInterface;
 
 namespace JIRAServices
@@ -45,46 +46,32 @@ namespace JIRAServices
 
         public ObservableCollection<int> Projects { get; set; }
 
-        private string projectUrl;
         public string ProjectUrl
         {
-            get { return projectUrl; }
+            get { return Settings.Default.JiraService_Url; }
             set
             {
-                projectUrl = value;
+                Settings.Default.JiraService_Url = value;
                 OnPropertyChanged("ProjectUrl");
             }
         }
 
-        private string user;
         public string User
         {
-            get { return user; }
+            get { return Settings.Default.JiraService_User; }
             set
             {
-                user = value;
+                Settings.Default.JiraService_User = value;
                 OnPropertyChanged("User");
             }
         }
 
-        private string password;
-        public string Password
-        {
-            get { return password; }
-            set
-            {
-                password = value;
-                OnPropertyChanged("Password");
-            }
-        }
-
-        private string jql;
         public string Jql
         {
-            get { return jql; }
+            get { return Settings.Default.JiraService_Jql; }
             set
             {
-                jql = value;
+                Settings.Default.JiraService_Jql = value;
                 OnPropertyChanged("Jql");
             }
         }
@@ -137,8 +124,6 @@ namespace JIRAServices
             this.supportedReports = supportedReports;
             this.allReports = allReports;
 
-            ProjectUrl = "https://jira.atlassian.com";
-            Jql = "project = DEMO";
             Reports = new ObservableCollection<IReport>(supportedReports);
             Issues = new ObservableCollection<Issue>();
             SelectedReport = Reports.First();
@@ -157,18 +142,21 @@ namespace JIRAServices
         private void LoadButtonClick(object sender, System.Windows.RoutedEventArgs e)
         {
             // Load in a seperate thread
+            Settings.Default.Save();
             Issues.Clear();
             Status = "Loading...";
+
+
             Task.Factory.StartNew(() =>
             {
                 Jira jiraClient;
-                if (string.IsNullOrEmpty(User) && string.IsNullOrEmpty(Password))
+                if (string.IsNullOrEmpty(User) && string.IsNullOrEmpty(passwordBox.Password))
                 {
                     jiraClient = Jira.CreateRestClient(ProjectUrl);
                 }
                 else
                 {
-                    jiraClient = Jira.CreateRestClient(ProjectUrl, User, Password);
+                    jiraClient = Jira.CreateRestClient(ProjectUrl, User, passwordBox.Password);
                 }
 
                 searchResult = jiraClient.Issues.GetIssuesFromJqlAsync(Jql).GetAwaiter().GetResult();

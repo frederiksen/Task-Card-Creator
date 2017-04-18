@@ -1,0 +1,15 @@
+﻿<?xml version='1.0' encoding='utf-8'?>
+<SettingsFile xmlns="http://schemas.microsoft.com/VisualStudio/2004/01/settings" CurrentProfile="(Default)" GeneratedClassNamespace="JIRAServices" GeneratedClassName="Settings">
+  <Profiles />
+  <Settings>
+    <Setting Name="JiraService_Url" Type="System.String" Scope="User">
+      <Value Profile="(Default)">https://jira.atlassian.com</Value>
+    </Setting>
+    <Setting Name="JiraService_User" Type="System.String" Scope="User">
+      <Value Profile="(Default)" />
+    </Setting>
+    <Setting Name="JiraService_Jql" Type="System.String" Scope="User">
+      <Value Profile="(Default)">project = DEMO</Value>
+    </Setting>
+  </Settings>
+</SettingsFile>

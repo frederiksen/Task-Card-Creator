@@ -46,7 +46,7 @@
         <StackPanel Grid.Row="6" Orientation="Horizontal">
             <TextBlock Margin="10,10,10,0" Width="50">Login:</TextBlock>
             <TextBox Margin="10,10,10,0" Width="75" Text="{Binding User}"></TextBox>
-            <TextBox Margin="10,10,10,0" Width="75" Text="{Binding Password}"></TextBox>
+            <PasswordBox Margin="10,10,10,0" Width="75" x:Name="passwordBox"></PasswordBox>
         </StackPanel>
 
         <StackPanel Grid.Row="7" Orientation="Horizontal">
