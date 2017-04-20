@@ -1,5 +1,5 @@
 ﻿<?xml version='1.0' encoding='utf-8'?>
-<SettingsFile xmlns="http://schemas.microsoft.com/VisualStudio/2004/01/settings" CurrentProfile="(Default)" GeneratedClassNamespace="JIRAServices" GeneratedClassName="Settings">
+<SettingsFile xmlns="http://schemas.microsoft.com/VisualStudio/2004/01/settings" CurrentProfile="(Default)" GeneratedClassNamespace="JIRAServices.Properties" GeneratedClassName="Settings">
   <Profiles />
   <Settings>
     <Setting Name="JiraService_Url" Type="System.String" Scope="User">
@@ -10,6 +10,9 @@
     </Setting>
     <Setting Name="JiraService_Jql" Type="System.String" Scope="User">
       <Value Profile="(Default)">project = DEMO</Value>
+    </Setting>
+    <Setting Name="JiraService_Paging_ItemsPerPage" Type="System.Int32" Scope="User">
+      <Value Profile="(Default)">50</Value>
     </Setting>
   </Settings>
 </SettingsFile>

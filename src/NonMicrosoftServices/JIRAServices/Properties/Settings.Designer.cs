@@ -58,5 +58,17 @@ namespace JIRAServices.Properties {
                 this["JiraService_Jql"] = value;
             }
         }
+        
+        [global::System.Configuration.UserScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.DefaultSettingValueAttribute("50")]
+        public int JiraService_Paging_ItemsPerPage {
+            get {
+                return ((int)(this["JiraService_Paging_ItemsPerPage"]));
+            }
+            set {
+                this["JiraService_Paging_ItemsPerPage"] = value;
+            }
+        }
     }
 }

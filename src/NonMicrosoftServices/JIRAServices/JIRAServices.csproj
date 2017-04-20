@@ -61,6 +61,7 @@
     <Reference Include="WindowsBase" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="InverseBooleanConverter.cs" />
     <Compile Include="JiraService.cs" />
     <Compile Include="JiraProject.cs" />
     <Compile Include="JiraUserControl.xaml.cs">
