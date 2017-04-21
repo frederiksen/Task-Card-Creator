@@ -276,7 +276,7 @@ namespace JIRAServices
             {
                 int currentPage = (this.searchResult.StartAt / this.searchResult.ItemsPerPage) + 1;
 
-                this.LoadIssues(Math.Min(1, currentPage - 1));
+                this.LoadIssues(Math.Max(1, currentPage - 1));
             }
         }
 
@@ -287,7 +287,7 @@ namespace JIRAServices
                 int currentPage = (this.searchResult.StartAt / this.searchResult.ItemsPerPage) + 1;
                 int totalPages = (this.searchResult.TotalItems / this.searchResult.ItemsPerPage) + 1;
 
-                this.LoadIssues(Math.Max(Math.Max(1, totalPages), currentPage + 1));
+                this.LoadIssues(Math.Min(currentPage + 1, totalPages));
             }
         }
 
