@@ -34,7 +34,6 @@
             <Component Id="JiraService.dll" Guid="4105CC6A-304F-4025-817C-39D331078C1C">
               <File Source="$(var.JIRAServices.TargetPath)" />
               <File Source="$(var.JIRAServices.TargetDir)\Atlassian.Jira.dll" />
-              <File Source="$(var.JIRAServices.TargetDir)\Newtonsoft.Json.dll" />
               <File Source="$(var.JIRAServices.TargetDir)\RestSharp.dll" />
             </Component>
           </Directory>          
