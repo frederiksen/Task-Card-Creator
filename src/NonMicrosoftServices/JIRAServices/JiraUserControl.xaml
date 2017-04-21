@@ -14,7 +14,7 @@
         </DataTemplate>
         <local:InverseBooleanConverter x:Key="InverseBooleanConverter" />
     </UserControl.Resources>
-    <Grid Margin="10">
+    <Grid Margin="10" HorizontalAlignment="Stretch">
         <Grid.RowDefinitions>
             <RowDefinition Height="Auto" />
             <RowDefinition Height="Auto" />
@@ -26,8 +26,9 @@
             <RowDefinition Height="Auto" />
             <RowDefinition Height="Auto" />
             <RowDefinition Height="Auto" />
-            <RowDefinition Height="Auto" />
             <RowDefinition Height="2*" />
+            <RowDefinition Height="Auto" />
+            <RowDefinition Height="Auto" />
         </Grid.RowDefinitions>
 
         <DockPanel Margin="5, 5, 0, 5" Grid.Column="0" LastChildFill="True">
@@ -59,15 +60,7 @@
         <Button Grid.Row="8" HorizontalAlignment="Left" Margin="10,10,10,0" Width="150" Click="LoadButtonClick">Load issues</Button>
 
         <TextBlock Grid.Row="9" Margin="5, 5, 0, 5" FontWeight="Bold">Issues:</TextBlock>
-        <StackPanel Grid.Row="10" Margin="5, 5, 0, 5" Orientation="Horizontal" HorizontalAlignment="Center">
-            <Button Height="23" Name="buttonFirst" IsEnabled="{Binding IsNavigatingBackEnabled}" Click="ButtonFirst_OnClick" Width="30" Content="&lt;&lt;" />
-            <Button Height="23" Name="buttonPrev" IsEnabled="{Binding IsNavigatingBackEnabled}" Click="ButtonPrev_OnClick" Width="30" Content="&lt;"/>
-            <Label Content="{Binding PageInfo}" HorizontalContentAlignment="Center" Height="30" Width="100" />
-            <Button Height="23" IsEnabled="{Binding IsNavigatingNextEnabled}" Name="buttonNext" Click="ButtonNext_OnClick" Width="30" Content="&gt;" />
-            <Button Height="23" IsEnabled="{Binding IsNavigatingNextEnabled}" Name="buttonLast" Click="ButtonLast_OnClick"  Width="30" Content="&gt;&gt;" />
-            <ComboBox Margin="10,0,0,0" x:Name="comboboxNumberOfRecords" ItemsSource="{Binding AvailableItemsPerPage}" SelectedItem="{Binding ItemsPerPage}" IsEnabled="{Binding IsLoading, Converter={StaticResource InverseBooleanConverter}}" SelectionChanged="ComboboxNumberOfRecords_OnSelectionChanged" Width="120" SelectedIndex="0" />
-        </StackPanel>
-        <Grid Grid.Row="11">
+        <Grid Grid.Row="10">
             <ListView Margin="5,0,0,10" ItemsSource="{Binding Path=Issues}" Name="listView" HorizontalAlignment="Stretch" ScrollViewer.VerticalScrollBarVisibility="Visible">
                 <ListView.View>
                     <GridView>
@@ -87,5 +80,13 @@
                 </ListView.View>
             </ListView>
         </Grid>
+        <StackPanel Grid.Row="11" Margin="5, 5, 0, 5" Orientation="Horizontal" HorizontalAlignment="Center">
+            <Button Height="23" Name="buttonFirst" IsEnabled="{Binding IsNavigatingBackEnabled}" Click="ButtonFirst_OnClick" Width="30" Content="&lt;&lt;" />
+            <Button Height="23" Name="buttonPrev" IsEnabled="{Binding IsNavigatingBackEnabled}" Click="ButtonPrev_OnClick" Width="30" Content="&lt;"/>
+            <Label Content="{Binding PageInfo}" HorizontalContentAlignment="Center" Height="30" Width="100" />
+            <Button Height="23" IsEnabled="{Binding IsNavigatingNextEnabled}" Name="buttonNext" Click="ButtonNext_OnClick" Width="30" Content="&gt;" />
+            <Button Height="23" IsEnabled="{Binding IsNavigatingNextEnabled}" Name="buttonLast" Click="ButtonLast_OnClick"  Width="30" Content="&gt;&gt;" />
+            <ComboBox Margin="10,0,0,0" x:Name="comboboxNumberOfRecords" ItemsSource="{Binding AvailableItemsPerPage}" SelectedItem="{Binding ItemsPerPage}" IsEnabled="{Binding IsLoading, Converter={StaticResource InverseBooleanConverter}}" SelectionChanged="ComboboxNumberOfRecords_OnSelectionChanged" Width="120" SelectedIndex="0" />
+        </StackPanel>
     </Grid>
 </UserControl>
