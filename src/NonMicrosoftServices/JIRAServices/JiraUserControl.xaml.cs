@@ -251,6 +251,8 @@ namespace JIRAServices
                         {
                             this.Issues.Add(issue);
                         }
+
+                        this.listView.SelectAll();
                     }
                 }, TaskScheduler.FromCurrentSynchronizationContext());
         }
