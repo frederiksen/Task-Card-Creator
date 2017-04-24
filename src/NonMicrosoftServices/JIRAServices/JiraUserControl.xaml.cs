@@ -178,7 +178,6 @@ namespace JIRAServices
             }
         }
 
-
         public JiraUserControl(IEnumerable<IReport> supportedReports, IEnumerable<IReport> allReports)
         {
             DataContext = this;

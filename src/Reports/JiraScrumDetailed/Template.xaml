@@ -1,0 +1,261 @@
+﻿<!--
+// This source is subject to Microsoft Public License (Ms-PL).
+// Please see https://github.com/frederiksen/Task-Card-Creator for details.
+// All other rights reserved.
+-->
+<framework:ReportFromTemplate x:Class="JiraScrumDetailed.Template"
+            xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+            xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+            xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+            xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+            xmlns:framework="clr-namespace:ReportingFramework;assembly=ReportingFramework"
+            xmlns:scrumDetailed="clr-namespace:JiraScrumDetailed"
+            xmlns:converters="clr-namespace:JiraScrumDetailed.Converters"
+            mc:Ignorable="d">
+
+    <framework:ReportFromTemplate.Resources>
+        <!-- 
+          Converters
+    -->
+        <converters:RankConverter x:Key="rankConverter"/>
+        <converters:RemainingWorkConverter x:Key="remainingWorkConverter"/>
+        <converters:EffortConverter x:Key="effortConverter"/>
+        <converters:PriorityConverter x:Key="priorityConverter"/>
+        <converters:SprintConverter x:Key="sprintConverter"/>
+        <converters:ComponentsConverter x:Key="componentsConverter"/>
+        <converters:UnknownTypeConverter x:Key="unknownTypeConverter"/>
+
+
+        <!-- 
+          This template defines how each page is rendered.
+    -->
+        <ControlTemplate x:Key="Report.Frame" TargetType="ContentControl">
+            <Grid Margin="50" Grid.IsSharedSizeScope="True">
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="Auto" />
+                    <RowDefinition Height="*" />
+                    <RowDefinition Height="Auto" />
+                </Grid.RowDefinitions>
+
+                <!-- Page Header -->
+                <Border Grid.Row="0" BorderThickness="0,0,0,1" Padding="0,0,0,10" BorderBrush="#999999" DockPanel.Dock="Top">
+                    <Grid>
+                        <Grid.ColumnDefinitions>
+                            <ColumnDefinition Width="*" />
+                            <ColumnDefinition Width="Auto" />
+                        </Grid.ColumnDefinitions>
+                        <TextBlock Text="Task Card Creator" FontWeight="Bold" FontSize="12pt" />
+                        <TextBlock Grid.Column="1" Text="{Binding Path=ReportDate}" VerticalAlignment="Bottom" />
+                    </Grid>
+                </Border>
+
+                <!-- Page Body -->
+                <Border Grid.Row="1" Margin="0,5,0,5">
+                    <DockPanel>
+                        <!-- Records -->
+                        <ContentPresenter />
+                    </DockPanel>
+                </Border>
+
+                <!-- Page Footer -->
+                <Border Grid.Row="2" BorderThickness="0,1,0,0" Padding="0,10,0,0" BorderBrush="#999999" DockPanel.Dock="Bottom">
+                    <TextBlock Text="{Binding Path=PageNumber, StringFormat='Page {0}'}" HorizontalAlignment="Center" FontWeight="Bold" />
+                </Border>
+            </Grid>
+        </ControlTemplate>
+
+        <DataTemplate DataType="{x:Type scrumDetailed:TaskCardRow}">
+            <Grid Margin="10">
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="Auto" />
+                    <RowDefinition Height="Auto" />
+                </Grid.RowDefinitions>
+                <Border Grid.Row="0" Background="#FFDF7F" Margin="0" Width="300" BorderBrush="#FFC000"  BorderThickness="2,2,2,0" CornerRadius="16,16,0,0">
+                    <DockPanel  Margin="10" >
+                        <TextBlock DockPanel.Dock="Left" HorizontalAlignment="Left" Text="{Binding Path=WorkItem.Id, StringFormat='Task {0}'}" FontSize="13pt" FontWeight="Bold" />
+                        <StackPanel Orientation="Vertical">
+                            <DockPanel HorizontalAlignment="Right">
+                                <TextBlock DockPanel.Dock="Left" HorizontalAlignment="Right" Text="Priority: " FontSize="8pt"/>
+                                <TextBlock DockPanel.Dock="Right" HorizontalAlignment="Left" Text="{Binding Path=WorkItem, Converter={StaticResource rankConverter}}" FontSize="8pt" />
+                            </DockPanel>
+                            <DockPanel HorizontalAlignment="Right">
+                                <TextBlock DockPanel.Dock="Left" HorizontalAlignment="Right" Text="Parent: " FontSize="8pt"/>
+                                <TextBlock DockPanel.Dock="Right" HorizontalAlignment="Left" Text="{Binding Path=WorkItem.ParentId}" FontSize="8pt" />
+                            </DockPanel>
+                        </StackPanel>
+                    </DockPanel>
+                </Border>
+                <Border Grid.Row="1" Margin="0" Width="300"  BorderBrush="#FFC000"  BorderThickness="2,0,2,2" CornerRadius="0,0,16,16">
+                    <StackPanel>
+                        <TextBlock Margin="10,5,10,0" Text="{Binding Path=WorkItem.Title}" TextWrapping="Wrap" Height="50" FontSize="13pt" TextTrimming="CharacterEllipsis"/>
+                        <TextBlock Margin="10,0" Text="{Binding Path=WorkItem.Description}" TextWrapping="Wrap" Height="110" FontSize="10pt" TextTrimming="CharacterEllipsis"/>
+                        <StackPanel Margin="10,0" Orientation="Horizontal">
+                            <DockPanel>
+                                <TextBlock DockPanel.Dock="Left" HorizontalAlignment="Left" Text="Estimate: " FontSize="14pt" />
+                                <TextBlock Text="{Binding Path=WorkItem, Converter={StaticResource remainingWorkConverter}}" FontSize="14pt" />
+                                <TextBlock DockPanel.Dock="Right" HorizontalAlignment="Right"  Text="Assigned To:" FontSize="14pt" Margin="70,0,10,0" />
+                            </DockPanel>
+                        </StackPanel>
+                        <StackPanel Margin="10,5" Orientation="Horizontal">
+                            <DockPanel Margin="0,0,5,0">
+                                <TextBlock DockPanel.Dock="Left" HorizontalAlignment="Left" Text="{Binding Path=WorkItem, Converter={StaticResource sprintConverter}}" FontSize="11pt" />
+                            </DockPanel>
+                        </StackPanel>
+                    </StackPanel>
+                </Border>
+            </Grid>
+        </DataTemplate>
+
+        <DataTemplate DataType="{x:Type scrumDetailed:StoryCardRow}">
+            <Grid Margin="10">
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="Auto" />
+                    <RowDefinition Height="Auto" />
+                </Grid.RowDefinitions>
+                <Border Grid.Row="0" Background="#B9CDE5" Margin="0" Width="300" BorderBrush="#385D8A"  BorderThickness="2,2,2,0" CornerRadius="16,16,0,0">
+                    <DockPanel  Margin="10" >
+                        <TextBlock DockPanel.Dock="Left" HorizontalAlignment="Left" Text="{Binding Path=WorkItem.Id, StringFormat='Backlog Item {0}'}" FontSize="13pt" FontWeight="Bold" />
+                        <StackPanel Orientation="Vertical">
+                            <DockPanel HorizontalAlignment="Right">
+                                <TextBlock DockPanel.Dock="Left" HorizontalAlignment="Right" Text="Priority: " FontSize="8pt"/>
+                                <TextBlock DockPanel.Dock="Right" HorizontalAlignment="Left" Text="{Binding Path=WorkItem, Converter={StaticResource priorityConverter}}" FontSize="8pt" />
+                            </DockPanel>
+                            <DockPanel HorizontalAlignment="Right">
+                                <TextBlock DockPanel.Dock="Left" HorizontalAlignment="Right" Text="Parent: " FontSize="8pt"/>
+                                <TextBlock DockPanel.Dock="Right" HorizontalAlignment="Left" Text="{Binding Path=WorkItem.ParentId}" FontSize="8pt" />
+                            </DockPanel>
+                        </StackPanel>
+                    </DockPanel>
+                </Border>
+                <Border Grid.Row="1" Margin="0" Width="300"  BorderBrush="#385D8A"  BorderThickness="2,0,2,2" CornerRadius="0,0,16,16">
+                    <StackPanel>
+                        <TextBlock Margin="10,5,10,0" Text="{Binding Path=WorkItem.Title}" TextWrapping="Wrap" Height="50" FontSize="13pt" />
+                        <TextBlock Margin="10,0" Text="{Binding Path=WorkItem.Description}" TextWrapping="Wrap" Height="110" FontSize="10pt" TextTrimming="CharacterEllipsis"/>
+                        <StackPanel Margin="10,0" Orientation="Horizontal">
+                            <TextBlock Text="{Binding Path=WorkItem, Converter={StaticResource effortConverter}}" FontSize="14pt" />
+                            <TextBlock Text=" points" FontSize="14pt" />
+                        </StackPanel>
+                        <StackPanel Margin="10,5" Orientation="Horizontal">
+                            <DockPanel Margin="0,0,5,0">
+                                <TextBlock DockPanel.Dock="Left" HorizontalAlignment="Left" Text="{Binding Path=WorkItem, Converter={StaticResource sprintConverter}}" FontSize="11pt" />
+                            </DockPanel>
+                        </StackPanel>
+                    </StackPanel>
+                </Border>
+            </Grid>
+        </DataTemplate>
+
+        <DataTemplate DataType="{x:Type scrumDetailed:BugCardRow}">
+            <Grid Margin="10">
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="Auto" />
+                    <RowDefinition Height="Auto" />
+                </Grid.RowDefinitions>
+                <Border Grid.Row="0" Background="#FF7F7F" Margin="0" Width="300" BorderBrush="#C00000"  BorderThickness="2,2,2,0" CornerRadius="16,16,0,0">
+                    <DockPanel  Margin="10" >
+                        <TextBlock DockPanel.Dock="Left" HorizontalAlignment="Left" Text="{Binding Path=WorkItem.Id, StringFormat='Bug {0}'}" FontSize="13pt" FontWeight="Bold" />
+                        <StackPanel Orientation="Vertical">
+                            <DockPanel HorizontalAlignment="Right">
+                                <TextBlock DockPanel.Dock="Left" HorizontalAlignment="Right" Text="Priority: " FontSize="8pt"/>
+                                <TextBlock DockPanel.Dock="Right" HorizontalAlignment="Left" Text="{Binding Path=WorkItem, Converter={StaticResource priorityConverter}}" FontSize="8pt" />
+                            </DockPanel>
+                            <DockPanel HorizontalAlignment="Right">
+                                <TextBlock DockPanel.Dock="Left" HorizontalAlignment="Right" Text="Parent: " FontSize="8pt"/>
+                                <TextBlock DockPanel.Dock="Right" HorizontalAlignment="Left" Text="{Binding Path=WorkItem.ParentId}" FontSize="8pt" />
+                            </DockPanel>
+                        </StackPanel>
+                    </DockPanel>
+                </Border>
+                <Border Grid.Row="1" Margin="0" Width="300"  BorderBrush="#C00000"  BorderThickness="2,0,2,2" CornerRadius="0,0,16,16">
+                    <StackPanel>
+                        <TextBlock Margin="10,5,10,0" Text="{Binding Path=WorkItem.Title}" TextWrapping="Wrap" Height="50" FontSize="13pt"/>
+                        <TextBlock Margin="10,0" Text="{Binding Path=WorkItem.Description}" TextWrapping="Wrap" Height="110" FontSize="10pt" TextTrimming="CharacterEllipsis"/>
+                        <StackPanel Margin="10,0" Orientation="Horizontal">
+                            <DockPanel>
+                                <TextBlock DockPanel.Dock="Left" HorizontalAlignment="Left" Text="Estimate: " FontSize="14pt" />
+                                <TextBlock Text="{Binding Path=WorkItem, Converter={StaticResource effortConverter}}" FontSize="14pt" />
+                                <TextBlock DockPanel.Dock="Right" HorizontalAlignment="Right"  Text="Assigned To:" FontSize="14pt" Margin="70,0,10,0" />
+                            </DockPanel>
+                        </StackPanel>
+                        <StackPanel Margin="10,5" Orientation="Horizontal">
+                            <DockPanel Margin="0,0,5,0">
+                                <TextBlock DockPanel.Dock="Left" HorizontalAlignment="Left" Text="{Binding Path=WorkItem, Converter={StaticResource sprintConverter}}" FontSize="11pt" />
+                            </DockPanel>
+                        </StackPanel>
+                    </StackPanel>
+                </Border>
+            </Grid>
+        </DataTemplate>
+
+        <DataTemplate DataType="{x:Type scrumDetailed:EpicCardRow}">
+            <Grid Margin="10">
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="Auto" />
+                    <RowDefinition Height="Auto" />
+                </Grid.RowDefinitions>
+                <Border Grid.Row="0" Background="DarkSeaGreen"  Margin="0" Width="300" BorderBrush="DarkGreen"  BorderThickness="2,2,2,0" CornerRadius="16,16,0,0">
+                    <DockPanel  Margin="10" >
+                        <TextBlock DockPanel.Dock="Left" HorizontalAlignment="Left" Text="{Binding Path=WorkItem.Id, StringFormat='Epic {0}'}" FontSize="13pt" FontWeight="Bold" />
+                        <StackPanel Orientation="Vertical">
+                            <DockPanel HorizontalAlignment="Right">
+                                <TextBlock DockPanel.Dock="Left" HorizontalAlignment="Right" Text="Priority: " FontSize="8pt"/>
+                                <TextBlock DockPanel.Dock="Right" HorizontalAlignment="Left" Text="{Binding Path=WorkItem, Converter={StaticResource priorityConverter}}" FontSize="8pt" />
+                            </DockPanel>
+                            <DockPanel HorizontalAlignment="Right">
+                                <TextBlock DockPanel.Dock="Left" HorizontalAlignment="Right" Text="Parent: " FontSize="8pt"/>
+                                <TextBlock DockPanel.Dock="Right" HorizontalAlignment="Left" Text="{Binding Path=WorkItem.ParentId}" FontSize="8pt" />
+                            </DockPanel>
+                        </StackPanel>
+                    </DockPanel>
+                </Border>
+                <Border Grid.Row="1" Margin="0" Width="300"  BorderBrush="DarkGreen"  BorderThickness="2,0,2,2" CornerRadius="0,0,16,16">
+                    <StackPanel>
+                        <TextBlock Margin="10,5,10,0" Text="{Binding Path=WorkItem.Title}" TextWrapping="Wrap" Height="50" FontSize="13pt" />
+                        <TextBlock Margin="10,0" Text="{Binding Path=WorkItem.Description}" TextWrapping="Wrap" Height="110" FontSize="10pt" TextTrimming="CharacterEllipsis"/>
+                        <StackPanel Orientation="Horizontal">
+                            <StackPanel HorizontalAlignment="Left" Orientation="Horizontal">
+                                <TextBlock Text="Assigned To:" FontSize="14pt" HorizontalAlignment="Right" Margin="10,0,0,0" />
+                            </StackPanel>
+                            <StackPanel HorizontalAlignment="Right" Orientation="Horizontal" Margin="60,0" />
+                        </StackPanel>
+                        <StackPanel Margin="10,5" Orientation="Horizontal">
+                            <DockPanel Margin="0,0,5,0">
+                                <TextBlock DockPanel.Dock="Left" HorizontalAlignment="Left" Text="{Binding Path=WorkItem, Converter={StaticResource componentsConverter}}" FontSize="11pt" />
+                            </DockPanel>
+                        </StackPanel>
+                    </StackPanel>
+                </Border>
+            </Grid>
+        </DataTemplate>
+
+        <DataTemplate DataType="{x:Type scrumDetailed:UnknownCardRow}">
+            <Grid Margin="10">
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="Auto" />
+                    <RowDefinition Height="Auto" />
+                </Grid.RowDefinitions>
+                <Border Grid.Row="0" Background="LightGray"  Margin="0" Width="300" BorderBrush="Black"  BorderThickness="2,2,2,0" CornerRadius="16,16,0,0">
+                    <StackPanel>
+                        <TextBlock Margin="10" DockPanel.Dock="Left" HorizontalAlignment="Left" Text="{Binding Path=WorkItem, Converter={StaticResource unknownTypeConverter}}" FontSize="13pt" FontWeight="Bold" />
+                    </StackPanel>
+                </Border>
+                <Border Grid.Row="1" Margin="0" Width="300"  BorderBrush="Black"  BorderThickness="2,0,2,2" CornerRadius="0,0,16,16">
+                    <StackPanel>
+                        <TextBlock Margin="10,5,10,0" Text="{Binding Path=WorkItem.Title}" TextWrapping="Wrap" Height="50" FontSize="13pt" />
+                        <TextBlock Margin="10,0" Text="{Binding Path=WorkItem.Description}" TextWrapping="Wrap" Height="110" FontSize="10pt" TextTrimming="CharacterEllipsis"/>
+                        <StackPanel Margin="10,0" Orientation="Horizontal">
+                            <TextBlock Text="State: " FontSize="14pt" />
+                            <TextBlock Text="{Binding Path=WorkItem.State}" FontSize="14pt" />
+                        </StackPanel>
+                        <StackPanel Margin="10,5" Orientation="Horizontal">
+                            <DockPanel Margin="0,0,5,0">
+                                <TextBlock DockPanel.Dock="Left" HorizontalAlignment="Left" Text="{Binding Path=WorkItem, Converter={StaticResource sprintConverter}}" FontSize="11pt" />
+                            </DockPanel>
+                        </StackPanel>
+                    </StackPanel>
+                </Border>
+            </Grid>
+        </DataTemplate>
+
+    </framework:ReportFromTemplate.Resources>
+</framework:ReportFromTemplate>
