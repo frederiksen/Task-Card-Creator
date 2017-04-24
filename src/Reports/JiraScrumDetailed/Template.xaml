@@ -76,7 +76,7 @@
                         <StackPanel Orientation="Vertical">
                             <DockPanel HorizontalAlignment="Right">
                                 <TextBlock DockPanel.Dock="Left" HorizontalAlignment="Right" Text="Priority: " FontSize="8pt"/>
-                                <TextBlock DockPanel.Dock="Right" HorizontalAlignment="Left" Text="{Binding Path=WorkItem, Converter={StaticResource rankConverter}}" FontSize="8pt" />
+                                <TextBlock DockPanel.Dock="Right" HorizontalAlignment="Left" Text="{Binding Path=WorkItem, Converter={StaticResource priorityConverter}}" FontSize="8pt" />
                             </DockPanel>
                             <DockPanel HorizontalAlignment="Right">
                                 <TextBlock DockPanel.Dock="Left" HorizontalAlignment="Right" Text="Parent: " FontSize="8pt"/>
