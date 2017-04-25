@@ -1,7 +1,7 @@
 ﻿
 Microsoft Visual Studio Solution File, Format Version 12.00
-# Visual Studio 14
-VisualStudioVersion = 14.0.25420.1
+# Visual Studio 15
+VisualStudioVersion = 15.0.26403.7
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "TaskCardCreator", "TaskCardCreator\TaskCardCreator.csproj", "{CA38775A-8E6E-462F-8CB9-0E868F5483EC}"
 EndProject
@@ -76,6 +76,12 @@ EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "JiraScrumDetailed", "Reports\JiraScrumDetailed\JiraScrumDetailed.csproj", "{8DB9EFDF-0527-4AF4-A8DD-32B1D29D9C93}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "JiraScrumIndexCard3x5", "Reports\JiraScrumIndexCard3x5\JiraScrumIndexCard3x5.csproj", "{6FE05F0F-7526-4AA1-A2E7-400D06FB20AD}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Setup", "Setup", "{84D56FD0-7AF4-4A2C-AB46-33AB62EA4E16}"
+EndProject
+Project("{930C7802-8A8C-48F9-8165-68863BCCD9DD}") = "Setup", "Setup\Setup\Setup.wixproj", "{0E6DCC42-5702-4B40-9580-9366B0C0E3B7}"
+EndProject
+Project("{930C7802-8A8C-48F9-8165-68863BCCD9DD}") = "Bootstrapper", "Setup\Bootstrapper\Bootstrapper.wixproj", "{0A6EB0C9-563F-47AC-A726-8176636D1169}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -321,6 +327,26 @@ Global
 		{6FE05F0F-7526-4AA1-A2E7-400D06FB20AD}.Release|Mixed Platforms.Build.0 = Release|Any CPU
 		{6FE05F0F-7526-4AA1-A2E7-400D06FB20AD}.Release|x86.ActiveCfg = Release|Any CPU
 		{6FE05F0F-7526-4AA1-A2E7-400D06FB20AD}.Release|x86.Build.0 = Release|Any CPU
+		{0E6DCC42-5702-4B40-9580-9366B0C0E3B7}.Debug|Any CPU.ActiveCfg = Debug|x86
+		{0E6DCC42-5702-4B40-9580-9366B0C0E3B7}.Debug|Mixed Platforms.ActiveCfg = Debug|x86
+		{0E6DCC42-5702-4B40-9580-9366B0C0E3B7}.Debug|Mixed Platforms.Build.0 = Debug|x86
+		{0E6DCC42-5702-4B40-9580-9366B0C0E3B7}.Debug|x86.ActiveCfg = Debug|x86
+		{0E6DCC42-5702-4B40-9580-9366B0C0E3B7}.Debug|x86.Build.0 = Debug|x86
+		{0E6DCC42-5702-4B40-9580-9366B0C0E3B7}.Release|Any CPU.ActiveCfg = Release|x86
+		{0E6DCC42-5702-4B40-9580-9366B0C0E3B7}.Release|Mixed Platforms.ActiveCfg = Release|x86
+		{0E6DCC42-5702-4B40-9580-9366B0C0E3B7}.Release|Mixed Platforms.Build.0 = Release|x86
+		{0E6DCC42-5702-4B40-9580-9366B0C0E3B7}.Release|x86.ActiveCfg = Release|x86
+		{0E6DCC42-5702-4B40-9580-9366B0C0E3B7}.Release|x86.Build.0 = Release|x86
+		{0A6EB0C9-563F-47AC-A726-8176636D1169}.Debug|Any CPU.ActiveCfg = Debug|x86
+		{0A6EB0C9-563F-47AC-A726-8176636D1169}.Debug|Mixed Platforms.ActiveCfg = Debug|x86
+		{0A6EB0C9-563F-47AC-A726-8176636D1169}.Debug|Mixed Platforms.Build.0 = Debug|x86
+		{0A6EB0C9-563F-47AC-A726-8176636D1169}.Debug|x86.ActiveCfg = Debug|x86
+		{0A6EB0C9-563F-47AC-A726-8176636D1169}.Debug|x86.Build.0 = Debug|x86
+		{0A6EB0C9-563F-47AC-A726-8176636D1169}.Release|Any CPU.ActiveCfg = Release|x86
+		{0A6EB0C9-563F-47AC-A726-8176636D1169}.Release|Mixed Platforms.ActiveCfg = Release|x86
+		{0A6EB0C9-563F-47AC-A726-8176636D1169}.Release|Mixed Platforms.Build.0 = Release|x86
+		{0A6EB0C9-563F-47AC-A726-8176636D1169}.Release|x86.ActiveCfg = Release|x86
+		{0A6EB0C9-563F-47AC-A726-8176636D1169}.Release|x86.Build.0 = Release|x86
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
@@ -344,9 +370,11 @@ Global
 		{37B667F7-2BAF-4A09-9EFF-2DA30640E83B} = {D3CEF4FB-E0BA-4025-B41A-47D08F04AD38}
 		{8DB9EFDF-0527-4AF4-A8DD-32B1D29D9C93} = {D3CEF4FB-E0BA-4025-B41A-47D08F04AD38}
 		{6FE05F0F-7526-4AA1-A2E7-400D06FB20AD} = {D3CEF4FB-E0BA-4025-B41A-47D08F04AD38}
+		{0E6DCC42-5702-4B40-9580-9366B0C0E3B7} = {84D56FD0-7AF4-4A2C-AB46-33AB62EA4E16}
+		{0A6EB0C9-563F-47AC-A726-8176636D1169} = {84D56FD0-7AF4-4A2C-AB46-33AB62EA4E16}
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
-		EnterpriseLibraryConfigurationToolBinariesPath = packages\Unity.2.1.505.0\lib\NET35;packages\Unity.Interception.2.1.505.0\lib\NET35;packages\EnterpriseLibrary.Common.5.0.505.0\lib\NET35;packages\EnterpriseLibrary.Logging.5.0.505.1\lib\NET35
 		EnterpriseLibraryConfigurationToolBinariesPathV6 = packages\EnterpriseLibrary.Common.6.0.1304.0\lib\NET45;packages\EnterpriseLibrary.Logging.6.0.1304.0\lib\NET45
+		EnterpriseLibraryConfigurationToolBinariesPath = packages\Unity.2.1.505.0\lib\NET35;packages\Unity.Interception.2.1.505.0\lib\NET35;packages\EnterpriseLibrary.Common.5.0.505.0\lib\NET35;packages\EnterpriseLibrary.Logging.5.0.505.1\lib\NET35
 	EndGlobalSection
 EndGlobal
