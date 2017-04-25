@@ -1,0 +1,172 @@
+﻿<!--
+// This source is subject to Microsoft Public License (Ms-PL).
+// Please see https://github.com/frederiksen/Task-Card-Creator for details.
+// All other rights reserved.
+-->
+<framework:ReportFromTemplate 
+  x:Class="JiraScrumCompact.Template"
+  xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+  xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+  xmlns:framework="clr-namespace:ReportingFramework;assembly=ReportingFramework"
+  xmlns:scrumCompact="clr-namespace:JiraScrumCompact" >
+    <framework:ReportFromTemplate.Resources>
+
+        <!-- 
+          This template defines how each page is rendered.
+    -->
+        <ControlTemplate x:Key="Report.Frame" TargetType="ContentControl">
+            <Grid Margin="50" Grid.IsSharedSizeScope="True">
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="Auto" />
+                    <RowDefinition Height="*" />
+                    <RowDefinition Height="Auto" />
+                </Grid.RowDefinitions>
+
+                <!-- Page Header -->
+                <Border Grid.Row="0" BorderThickness="0,0,0,1" Padding="0,0,0,10" BorderBrush="#999999" DockPanel.Dock="Top">
+                    <Grid>
+                        <Grid.ColumnDefinitions>
+                            <ColumnDefinition Width="*" />
+                            <ColumnDefinition Width="Auto" />
+                        </Grid.ColumnDefinitions>
+                        <TextBlock Text="Task Card Creator" FontWeight="Bold" FontSize="12pt" />
+                        <TextBlock Grid.Column="1" Text="{Binding Path=ReportDate}" VerticalAlignment="Bottom" />
+                    </Grid>
+                </Border>
+
+                <!-- Page Body -->
+                <Border Grid.Row="1" Margin="0,5,0,5">
+                    <DockPanel>
+                        <!-- Records -->
+                        <ContentPresenter />
+                    </DockPanel>
+                </Border>
+
+                <!-- Page Footer -->
+                <Border Grid.Row="2" BorderThickness="0,1,0,0" Padding="0,10,0,0" BorderBrush="#999999" DockPanel.Dock="Bottom">
+                    <TextBlock Text="{Binding Path=PageNumber, StringFormat='Page {0}'}" HorizontalAlignment="Center" FontWeight="Bold" />
+                </Border>
+            </Grid>
+        </ControlTemplate>
+
+        <DataTemplate DataType="{x:Type scrumCompact:TaskCardRow}">
+            <Grid Margin="10">
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="Auto" />
+                    <RowDefinition Height="Auto" />
+                </Grid.RowDefinitions>
+                <Border Grid.Row="0" Background="#FFDF7F" Margin="0" Width="150" BorderBrush="#FFC000"  BorderThickness="2,2,2,0" CornerRadius="16,16,0,0">
+                    <StackPanel>
+                        <TextBlock  Margin="10" Text="Task" FontSize="13pt" FontWeight="Bold"/>
+                    </StackPanel>
+                </Border>
+                <Border Grid.Row="1" Margin="0" Width="150"  BorderBrush="#FFC000"  BorderThickness="2,0,2,2" CornerRadius="0,0,16,16">
+                    <StackPanel>
+                        <TextBlock Margin="10" Text="{Binding Path=WorkItem.Title}" TextWrapping="Wrap" Height="75" FontSize="10pt" TextTrimming="CharacterEllipsis"/>
+                        <StackPanel Margin="10,10,10,10" Orientation="Horizontal">
+                            <TextBlock Text="Id=" FontSize="7pt" TextTrimming="CharacterEllipsis"/>
+                            <TextBlock Text="{Binding Path=WorkItem.Id}" FontSize="7pt" TextTrimming="CharacterEllipsis"/>
+                            <TextBlock Text=", Parent=" FontSize="7pt" TextTrimming="CharacterEllipsis"/>
+                            <TextBlock Text="{Binding Path=WorkItem.ParentId}" FontSize="7pt" TextTrimming="CharacterEllipsis"/>
+                        </StackPanel>
+                    </StackPanel>
+                </Border>
+            </Grid>
+        </DataTemplate>
+
+        <DataTemplate DataType="{x:Type scrumCompact:StoryCardRow}">
+            <Grid Margin="10">
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="Auto" />
+                    <RowDefinition Height="Auto" />
+                </Grid.RowDefinitions>
+                <Border Grid.Row="0" Background="#B9CDE5" Margin="0" Width="150" BorderBrush="#385D8A"  BorderThickness="2,2,2,0" CornerRadius="16,16,0,0">
+                    <StackPanel>
+                        <TextBlock  Margin="10" Text="User Story" FontSize="13pt" FontWeight="Bold"/>
+                    </StackPanel>
+                </Border>
+                <Border Grid.Row="1" Margin="0" Width="150"  BorderBrush="#385D8A"  BorderThickness="2,0,2,2" CornerRadius="0,0,16,16">
+                    <StackPanel>
+                        <TextBlock Margin="10" Text="{Binding Path=WorkItem.Title}" TextWrapping="Wrap" Height="75" FontSize="10pt" TextTrimming="CharacterEllipsis"/>
+                        <StackPanel Margin="10,10,10,10" Orientation="Horizontal">
+                            <TextBlock Text="Id=" FontSize="7pt" />
+                            <TextBlock Text="{Binding Path=WorkItem.Id}" FontSize="7pt" />
+                            <TextBlock Text=", Parent=" FontSize="7pt" TextTrimming="CharacterEllipsis"/>
+                            <TextBlock Text="{Binding Path=WorkItem.ParentId}" FontSize="7pt" TextTrimming="CharacterEllipsis"/>
+                        </StackPanel>
+                    </StackPanel>
+                </Border>
+            </Grid>
+        </DataTemplate>
+
+        <DataTemplate DataType="{x:Type scrumCompact:BugCardRow}">
+            <Grid Margin="10">
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="Auto" />
+                    <RowDefinition Height="Auto" />
+                </Grid.RowDefinitions>
+                <Border Grid.Row="0" Background="#FF7F7F" Margin="0" Width="150" BorderBrush="#C00000"  BorderThickness="2,2,2,0" CornerRadius="16,16,0,0">
+                    <StackPanel>
+                        <TextBlock  Margin="10" Text="Bug" FontSize="13pt" FontWeight="Bold"/>
+                    </StackPanel>
+                </Border>
+                <Border Grid.Row="1" Margin="0" Width="150"  BorderBrush="#C00000"  BorderThickness="2,0,2,2" CornerRadius="0,0,16,16">
+                    <StackPanel>
+                        <TextBlock Margin="10" Text="{Binding Path=WorkItem.Title}" TextWrapping="Wrap" Height="75" FontSize="10pt" TextTrimming="CharacterEllipsis"/>
+                        <StackPanel Margin="10,10,10,10" Orientation="Horizontal">
+                            <TextBlock Text="Id=" FontSize="7pt" />
+                            <TextBlock Text="{Binding Path=WorkItem.Id}" FontSize="7pt" />
+                        </StackPanel>
+                    </StackPanel>
+                </Border>
+            </Grid>
+        </DataTemplate>
+
+        <DataTemplate DataType="{x:Type scrumCompact:EpicCardRow}">
+            <Grid Margin="10">
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="Auto" />
+                    <RowDefinition Height="Auto" />
+                </Grid.RowDefinitions>
+                <Border Grid.Row="0" Background="DarkSeaGreen"  Margin="0" Width="150" BorderBrush="DarkGreen"  BorderThickness="2,2,2,0" CornerRadius="16,16,0,0">
+                    <StackPanel>
+                        <TextBlock  Margin="10" Text="Epic" FontSize="13pt" FontWeight="Bold"/>
+                    </StackPanel>
+                </Border>
+                <Border Grid.Row="1" Margin="0" Width="150"  BorderBrush="DarkGreen"  BorderThickness="2,0,2,2" CornerRadius="0,0,16,16">
+                    <StackPanel>
+                        <TextBlock Margin="10" Text="{Binding Path=WorkItem.Title}" TextWrapping="Wrap" Height="75" FontSize="10pt" TextTrimming="CharacterEllipsis"/>
+                        <StackPanel Margin="10,10,10,10" Orientation="Horizontal">
+                            <TextBlock Text="Id=" FontSize="7pt" />
+                            <TextBlock Text="{Binding Path=WorkItem.Id}" FontSize="7pt" />
+                        </StackPanel>
+                    </StackPanel>
+                </Border>
+            </Grid>
+        </DataTemplate>
+
+        <DataTemplate DataType="{x:Type scrumCompact:UnknownCardRow}">
+            <Grid Margin="10">
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="Auto" />
+                    <RowDefinition Height="Auto" />
+                </Grid.RowDefinitions>
+                <Border Grid.Row="0" Background="LightGray"  Margin="0" Width="150" BorderBrush="Black"  BorderThickness="2,2,2,0" CornerRadius="16,16,0,0">
+                    <StackPanel>
+                        <TextBlock  Margin="10" Text="{Binding Path=WorkItem.Type}" FontSize="13pt" FontWeight="Bold"/>
+                    </StackPanel>
+                </Border>
+                <Border Grid.Row="1" Margin="0" Width="150"  BorderBrush="Black"  BorderThickness="2,0,2,2" CornerRadius="0,0,16,16">
+                    <StackPanel>
+                        <TextBlock Margin="10" Text="{Binding Path=WorkItem.Title}" TextWrapping="Wrap" Height="75" FontSize="10pt" TextTrimming="CharacterEllipsis"/>
+                        <StackPanel Margin="10,10,10,10" Orientation="Horizontal">
+                            <TextBlock Text="Id=" FontSize="7pt" />
+                            <TextBlock Text="{Binding Path=WorkItem.Id}" FontSize="7pt" />
+                        </StackPanel>
+                    </StackPanel>
+                </Border>
+            </Grid>
+        </DataTemplate>
+
+    </framework:ReportFromTemplate.Resources>
+</framework:ReportFromTemplate>

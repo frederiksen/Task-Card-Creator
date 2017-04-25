@@ -1,21 +1,23 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
 <Project ToolsVersion="12.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
-  <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
   <PropertyGroup>
     <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
     <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
-    <ProjectGuid>{25DF92D4-F0B1-40B8-AF5E-44CF9E0CA953}</ProjectGuid>
+    <ProductVersion>8.0.30703</ProductVersion>
+    <SchemaVersion>2.0</SchemaVersion>
+    <ProjectGuid>{6FE05F0F-7526-4AA1-A2E7-400D06FB20AD}</ProjectGuid>
     <OutputType>Library</OutputType>
     <AppDesignerFolder>Properties</AppDesignerFolder>
-    <RootNamespace>JIRAServices</RootNamespace>
-    <AssemblyName>JIRAServices</AssemblyName>
+    <RootNamespace>JiraScrumIndexCard3x5</RootNamespace>
+    <AssemblyName>JiraScrumIndexCard3x5</AssemblyName>
     <TargetFrameworkVersion>v4.6.1</TargetFrameworkVersion>
     <FileAlignment>512</FileAlignment>
     <SccProjectName>SAK</SccProjectName>
     <SccLocalPath>SAK</SccLocalPath>
     <SccAuxPath>SAK</SccAuxPath>
     <SccProvider>SAK</SccProvider>
-    <TargetFrameworkProfile />
+    <TargetFrameworkProfile>
+    </TargetFrameworkProfile>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
     <DebugSymbols>true</DebugSymbols>
@@ -25,6 +27,7 @@
     <DefineConstants>DEBUG;TRACE</DefineConstants>
     <ErrorReport>prompt</ErrorReport>
     <WarningLevel>4</WarningLevel>
+    <Prefer32Bit>false</Prefer32Bit>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
     <DebugType>pdbonly</DebugType>
@@ -33,26 +36,15 @@
     <DefineConstants>TRACE</DefineConstants>
     <ErrorReport>prompt</ErrorReport>
     <WarningLevel>4</WarningLevel>
+    <Prefer32Bit>false</Prefer32Bit>
   </PropertyGroup>
   <ItemGroup>
-    <Reference Include="Atlassian.Jira, Version=1.0.0.0, Culture=neutral, processorArchitecture=MSIL">
-      <HintPath>..\..\packages\Atlassian.SDK.9.2.4\lib\Atlassian.Jira.dll</HintPath>
-      <Private>True</Private>
-    </Reference>
-    <Reference Include="Newtonsoft.Json, Version=9.0.0.0, Culture=neutral, PublicKeyToken=30ad4fe6b2a6aeed, processorArchitecture=MSIL">
-      <HintPath>..\..\packages\Newtonsoft.Json.9.0.1\lib\net45\Newtonsoft.Json.dll</HintPath>
-      <Private>True</Private>
-    </Reference>
     <Reference Include="PresentationCore" />
     <Reference Include="PresentationFramework" />
-    <Reference Include="RestSharp, Version=105.2.3.0, Culture=neutral, processorArchitecture=MSIL">
-      <HintPath>..\..\packages\RestSharp.105.2.3\lib\net46\RestSharp.dll</HintPath>
-      <Private>True</Private>
-    </Reference>
     <Reference Include="System" />
     <Reference Include="System.ComponentModel.Composition" />
     <Reference Include="System.Core" />
-    <Reference Include="System.Web" />
+    <Reference Include="System.Drawing" />
     <Reference Include="System.Xaml" />
     <Reference Include="System.Xml.Linq" />
     <Reference Include="System.Data.DataSetExtensions" />
@@ -62,48 +54,37 @@
     <Reference Include="WindowsBase" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="StringExtensions.cs" />
-    <Compile Include="InverseBooleanConverter.cs" />
-    <Compile Include="JiraService.cs" />
-    <Compile Include="JiraProject.cs" />
-    <Compile Include="JiraUserControl.xaml.cs">
-      <DependentUpon>JiraUserControl.xaml</DependentUpon>
+    <Compile Include="Converters\ComponentsConverter.cs" />
+    <Compile Include="Converters\FeatureTypeConverter.cs" />
+    <Compile Include="Converters\TShirtSizingConverter.cs" />
+    <Compile Include="Converters\SprintConverter.cs" />
+    <Compile Include="Template.xaml.cs">
+      <DependentUpon>Template.xaml</DependentUpon>
     </Compile>
+    <Compile Include="NonProductBacklogItemCardRow.cs" />
+    <Compile Include="StoryCardRow.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <Compile Include="Properties\Settings.Designer.cs">
-      <AutoGen>True</AutoGen>
-      <DesignTimeSharedInput>True</DesignTimeSharedInput>
-      <DependentUpon>Settings.settings</DependentUpon>
-    </Compile>
   </ItemGroup>
   <ItemGroup>
+    <ProjectReference Include="..\..\ReportingFramework\ReportingFramework.csproj">
+      <Project>{F963C71E-2A1F-4C0A-8C21-F27B87A726EA}</Project>
+      <Name>ReportingFramework</Name>
+    </ProjectReference>
     <ProjectReference Include="..\..\ReportInterface\ReportInterface.csproj">
-      <Project>{6ccc49f4-424d-4864-9e61-04d2ad8fc3f6}</Project>
+      <Project>{6CCC49F4-424D-4864-9E61-04D2AD8FC3F6}</Project>
       <Name>ReportInterface</Name>
     </ProjectReference>
-    <ProjectReference Include="..\..\TaskServerServiceInterface\TaskServerServiceInterface.csproj">
-      <Project>{8F858D2A-8036-405A-9657-E2DC0F8EE198}</Project>
-      <Name>TaskServerServiceInterface</Name>
-    </ProjectReference>
   </ItemGroup>
   <ItemGroup>
-    <Page Include="JiraUserControl.xaml">
-      <SubType>Designer</SubType>
+    <Page Include="Template.xaml">
       <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
     </Page>
-  </ItemGroup>
-  <ItemGroup>
-    <None Include="app.config" />
-    <None Include="packages.config" />
-    <None Include="Properties\Settings.settings">
-      <Generator>SettingsSingleFileGenerator</Generator>
-      <LastGenOutput>Settings.Designer.cs</LastGenOutput>
-    </None>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <Import Project="$(MSBuildBinPath)\Microsoft.WinFX.targets" />
   <PropertyGroup>
-    <PostBuildEvent>xcopy /r /y "$(TargetDir)*.dll" "$(SolutionDir)\TaskCardCreator\bin\$(ConfigurationName)\JIRAServices\"</PostBuildEvent>
+    <PostBuildEvent>xcopy /r /y "$(TargetPath)" "$(SolutionDir)\TaskCardCreator\bin\$(ConfigurationName)\JiraScrumIndexCard3x5\"</PostBuildEvent>
   </PropertyGroup>
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
        Other similar extension points exist, see Microsoft.Common.targets.

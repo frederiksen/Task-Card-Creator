@@ -30,13 +30,11 @@
             <File Source="$(var.TaskServerServiceInterface.TargetPath)" />
             <File Source="$(var.SolutionDir)\License.txt" />
           </Component>
-				  <Directory Id="JiraService" Name="JiraService">
+		<Directory Id="JiraService" Name="JiraService">
             <Component Id="JiraService.dll" Guid="4105CC6A-304F-4025-817C-39D331078C1C">
               <File Source="$(var.JIRAServices.TargetPath)" />
-              <File Source="$(var.JIRAServices.TargetDir)\JiraRestClientDotNet.dll" />
-              <File Source="$(var.JIRAServices.TargetDir)\ServiceStack.Common.dll" />
-              <File Source="$(var.JIRAServices.TargetDir)\ServiceStack.Interfaces.dll" />
-              <File Source="$(var.JIRAServices.TargetDir)\ServiceStack.Text.dll" />
+              <File Source="$(var.JIRAServices.TargetDir)\Atlassian.Jira.dll" />
+              <File Source="$(var.JIRAServices.TargetDir)\RestSharp.dll" />
             </Component>
           </Directory>          
           <Directory Id="Generic" Name="Generic">

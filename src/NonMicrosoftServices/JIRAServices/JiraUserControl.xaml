@@ -3,41 +3,90 @@
              xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
              xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
              xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+             xmlns:local="clr-namespace:JIRAServices"
              xmlns:workItemReportInterface="clr-namespace:ReportInterface;assembly=ReportInterface"
-             mc:Ignorable="d" 
-             d:DesignHeight="300" d:DesignWidth="300">
-  <UserControl.Resources>
-    <DataTemplate DataType="{x:Type workItemReportInterface:IReport}" x:Key="ReportTemplate">
-      <StackPanel Orientation="Horizontal" Margin="2">
-        <TextBlock Text="{Binding Path=Description}" />
-      </StackPanel>
-    </DataTemplate>
-  </UserControl.Resources>
-  <StackPanel>
-    <TextBlock Margin="10,10,10,0">Report template:</TextBlock>
-    <CheckBox Margin="10,10,10,0" Content="Show all" IsChecked="{Binding ShowAll}"></CheckBox>
-    <ListBox Margin="10,10,10,0" Height="100" ItemsSource="{Binding Reports}" SelectedItem="{Binding SelectedReport}" ItemTemplate="{StaticResource ReportTemplate}"></ListBox>
+             mc:Ignorable="d" d:DesignWidth="300" Height="476.002">
+    <UserControl.Resources>
+        <DataTemplate DataType="{x:Type workItemReportInterface:IReport}" x:Key="ReportTemplate">
+            <StackPanel Orientation="Horizontal" Margin="2">
+                <TextBlock Text="{Binding Path=Description}" />
+            </StackPanel>
+        </DataTemplate>
+        <local:InverseBooleanConverter x:Key="InverseBooleanConverter" />
+    </UserControl.Resources>
+    <Grid Margin="10" HorizontalAlignment="Stretch">
+        <Grid.RowDefinitions>
+            <RowDefinition Height="Auto" />
+            <RowDefinition Height="Auto" />
+            <RowDefinition Height="Auto" />
+            <RowDefinition Height="2*" />
+            <RowDefinition Height="Auto" />
+            <RowDefinition Height="Auto" />
+            <RowDefinition Height="Auto" />
+            <RowDefinition Height="Auto" />
+            <RowDefinition Height="Auto" />
+            <RowDefinition Height="Auto" />
+            <RowDefinition Height="2*" />
+            <RowDefinition Height="Auto" />
+            <RowDefinition Height="Auto" />
+        </Grid.RowDefinitions>
 
-    <StackPanel Orientation="Horizontal">
-      <TextBlock Margin="10,10,10,0" Width="50">Url:</TextBlock>
-      <TextBox Margin="10,10,10,0" Width="200" Text="{Binding ProjectUrl}"></TextBox>
-    </StackPanel>
+        <DockPanel Margin="5, 5, 0, 5" Grid.Column="0" LastChildFill="True">
+            <TextBlock DockPanel.Dock="Left" FontWeight="Bold">Report Template:</TextBlock>
+            <TextBlock HorizontalAlignment="Right" TextTrimming="CharacterEllipsis">
+                <Hyperlink NavigateUri="https://github.com/frederiksen/Task-Card-Creator" RequestNavigate="HyperlinkRequestNavigate">Learn more...</Hyperlink>
+            </TextBlock>
+        </DockPanel>
 
-    <StackPanel Orientation="Horizontal">
-      <TextBlock Margin="10,10,10,0" Width="50">Login:</TextBlock>
-      <TextBox Margin="10,10,10,0" Width="75" Text="{Binding User}"></TextBox>
-      <TextBox Margin="10,10,10,0" Width="75" Text="{Binding Password}"></TextBox>
-    </StackPanel>
+        <CheckBox Grid.Row="2" Margin="10,10,10,0" Content="Show all" IsChecked="{Binding ShowAll}"></CheckBox>
+        <ListBox Grid.Row="3" Margin="10,10,10,0" ItemsSource="{Binding Reports}" SelectedItem="{Binding SelectedReport}" ItemTemplate="{StaticResource ReportTemplate}"></ListBox>
 
-    <StackPanel Orientation="Horizontal">
-      <TextBlock Margin="10,10,10,0" Width="50">Jql:</TextBlock>
-      <TextBox Margin="10,10,10,0" Width="200" Text="{Binding Jql}"></TextBox>
-    </StackPanel>
+        <TextBlock Grid.Row="4" Margin="5, 5, 0, 5" FontWeight="Bold">Jira Query:</TextBlock>
+        <StackPanel Grid.Row="5" Orientation="Horizontal">
+            <TextBlock Margin="10,10,10,0" Width="50">Url:</TextBlock>
+            <TextBox Margin="10,10,10,0" Width="200" Text="{Binding ProjectUrl}"></TextBox>
+        </StackPanel>
+        <StackPanel Grid.Row="6" Orientation="Horizontal">
+            <TextBlock Margin="10,10,10,0" Width="50">Login:</TextBlock>
+            <TextBox Margin="10,10,10,0" Width="75" Text="{Binding User}"></TextBox>
+            <PasswordBox Margin="10,10,10,0" Width="75" x:Name="passwordBox"></PasswordBox>
+        </StackPanel>
 
-    <Button HorizontalAlignment="Left" Margin="10,10,10,0" Width="150" Click="LoadButtonClick">Load issues</Button>
-    
-    
-    <TextBlock Margin="10,10,10,0">Status:</TextBlock>
-    <TextBlock Margin="10,10,10,0" Text="{Binding Status}"></TextBlock>
-  </StackPanel>
+        <StackPanel Grid.Row="7" Orientation="Horizontal">
+            <TextBlock Margin="10,10,10,0" Width="50">Jql:</TextBlock>
+            <TextBox Margin="10,10,10,0" Width="200" Text="{Binding Jql}"></TextBox>
+        </StackPanel>
+
+        <Button Grid.Row="8" HorizontalAlignment="Left" Margin="10,10,10,0" Width="150" Click="LoadButtonClick">Load issues</Button>
+
+        <TextBlock Grid.Row="9" Margin="5, 5, 0, 5" FontWeight="Bold">Issues:</TextBlock>
+        <Grid Grid.Row="10">
+            <ListView Margin="5,0,0,10" ItemsSource="{Binding Path=Issues}" Name="listView" HorizontalAlignment="Stretch" ScrollViewer.VerticalScrollBarVisibility="Visible">
+                <ListView.View>
+                    <GridView>
+                        <GridViewColumn Width="50" Header="Select">
+                            <GridViewColumn.CellTemplate>
+                                <DataTemplate>
+                                    <StackPanel>
+                                        <CheckBox IsChecked="{Binding RelativeSource={RelativeSource FindAncestor, AncestorType={x:Type ListViewItem}}, Path=IsSelected}"/>
+                                    </StackPanel>
+                                </DataTemplate>
+                            </GridViewColumn.CellTemplate>
+                        </GridViewColumn>
+                        <GridViewColumn Width="50" Header="Key" DisplayMemberBinding="{Binding Key}"  />
+                        <GridViewColumn Width="230" Header="Summary" DisplayMemberBinding="{Binding Summary}" />
+                        <GridViewColumn Width="80" Header="Status" DisplayMemberBinding="{Binding Status}" />
+                    </GridView>
+                </ListView.View>
+            </ListView>
+        </Grid>
+        <StackPanel Grid.Row="11" Margin="5, 5, 0, 5" Orientation="Horizontal" HorizontalAlignment="Center">
+            <Button Height="23" Name="buttonFirst" IsEnabled="{Binding IsNavigatingBackEnabled}" Click="ButtonFirst_OnClick" Width="30" Content="&lt;&lt;" />
+            <Button Height="23" Name="buttonPrev" IsEnabled="{Binding IsNavigatingBackEnabled}" Click="ButtonPrev_OnClick" Width="30" Content="&lt;"/>
+            <Label Content="{Binding PageInfo}" HorizontalContentAlignment="Center" Height="30" Width="100" />
+            <Button Height="23" IsEnabled="{Binding IsNavigatingNextEnabled}" Name="buttonNext" Click="ButtonNext_OnClick" Width="30" Content="&gt;" />
+            <Button Height="23" IsEnabled="{Binding IsNavigatingNextEnabled}" Name="buttonLast" Click="ButtonLast_OnClick"  Width="30" Content="&gt;&gt;" />
+            <ComboBox Margin="10,0,0,0" x:Name="comboboxNumberOfRecords" ItemsSource="{Binding AvailableItemsPerPage}" SelectedItem="{Binding ItemsPerPage}" IsEnabled="{Binding IsLoading, Converter={StaticResource InverseBooleanConverter}}" SelectionChanged="ComboboxNumberOfRecords_OnSelectionChanged" Width="120" SelectedIndex="0" />
+        </StackPanel>
+    </Grid>
 </UserControl>
