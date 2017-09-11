@@ -9,7 +9,7 @@
       <Value Profile="(Default)" />
     </Setting>
     <Setting Name="JiraService_Jql" Type="System.String" Scope="User">
-      <Value Profile="(Default)">project = DEMO</Value>
+      <Value Profile="(Default)">project = FE</Value>
     </Setting>
     <Setting Name="JiraService_Paging_ItemsPerPage" Type="System.Int32" Scope="User">
       <Value Profile="(Default)">50</Value>
