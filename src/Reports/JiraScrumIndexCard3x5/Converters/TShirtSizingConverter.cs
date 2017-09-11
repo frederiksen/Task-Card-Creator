@@ -1,4 +1,4 @@
-﻿// This source is subject to Microsoft Public License (Ms-PL).
+﻿// This source is subject to the MIT License.
 // Please see https://github.com/frederiksen/Task-Card-Creator for details.
 // All other rights reserved.
 
