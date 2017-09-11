@@ -11,7 +11,7 @@
         LogoFile="res/banner.png"
         ThemeFile="res/ClassicTheme.xml"
         LocalizationFile="res/ClassicTheme.wxl"
-        LicenseUrl="https://raw.githubusercontent.com/frederiksen/Task-Card-Creator/master/src/License.txt" />
+        LicenseUrl="https://github.com/frederiksen/Task-Card-Creator/blob/master/LICENSE" />
     </BootstrapperApplicationRef>
     <Variable Name="LaunchTarget" Value="[ProgramFilesFolder]\Task Card Creator\TaskCardCreator.exe"/>
 		<Chain>

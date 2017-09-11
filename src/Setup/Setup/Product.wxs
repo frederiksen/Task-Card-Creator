@@ -28,7 +28,6 @@
             <File Source="$(var.SolutionDir)\TaskCardCreator\bin\$(var.Configuration)\GoogleAnalyticsTracker.Core.dll" />
             <File Source="$(var.SolutionDir)\TaskCardCreator\bin\$(var.Configuration)\GoogleAnalyticsTracker.Simple.dll" />
             <File Source="$(var.TaskServerServiceInterface.TargetPath)" />
-            <File Source="$(var.SolutionDir)\License.txt" />
           </Component>
 		<Directory Id="JiraService" Name="JiraService">
             <Component Id="JiraService.dll" Guid="4105CC6A-304F-4025-817C-39D331078C1C">
