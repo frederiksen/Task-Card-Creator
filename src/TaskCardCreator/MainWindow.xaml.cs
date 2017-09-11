@@ -35,7 +35,7 @@ namespace TaskCardCreator
     private IEnumerable<IReport> reports;
 
     [ImportMany(typeof(ITaskServerService))]
-    private IEnumerable<ITaskServerService> teamFoundationServerServices;
+    private IEnumerable<ITaskServerService> serviceProviders;
 
     private Dictionary<TabItem, ITaskProject> projects = new Dictionary<TabItem, ITaskProject>();
 
@@ -84,7 +84,7 @@ namespace TaskCardCreator
       Logger.Write("Entering SelectProjectButtonClick method");
 
       var dlg = new TaskServiceProviderWindow { Owner = this };
-      foreach (var s in teamFoundationServerServices)
+      foreach (var s in serviceProviders)
       {
         dlg.TaskServerServices.Add(s);
         if (s.IsInstalled && dlg.SelectedTaskServerService == null)
