@@ -135,23 +135,24 @@ namespace UserDefinedReport
 
                     if (xaml != null)
                     {
-                        var idTextBlock = xaml.FindName("Id") as TextBlock;
-                        if (idTextBlock != null) idTextBlock.Text = string.Format("{0}", workItem.Id).DashIfEmpty();
+                        var mainFieldsMapping = new Dictionary<string, string>()
+                        {
+                            {"Id", workItem.Id},
+                            {"ParentId", workItem.ParentId},
+                            {"Title", workItem.Title},
+                            {"Type", workItem.Type},
+                            {"State", workItem.State},
+                            {"Description", workItem.Description},
+                        };
 
-                        var parentIdTextBlock = xaml.FindName("ParentId") as TextBlock;
-                        if (parentIdTextBlock != null) parentIdTextBlock.Text = string.Format("{0}", workItem.ParentId).DashIfEmpty();
-
-                        var titleTextBlock = xaml.FindName("Title") as TextBlock;
-                        if (titleTextBlock != null) titleTextBlock.Text = string.Format("{0}", workItem.Title).DashIfEmpty();
-
-                        var typeTextBlock = xaml.FindName("Type") as TextBlock;
-                        if (typeTextBlock != null) typeTextBlock.Text = string.Format("{0}", workItem.Type).DashIfEmpty();
-
-                        var stateTextBlock = xaml.FindName("State") as TextBlock;
-                        if (stateTextBlock != null) stateTextBlock.Text = string.Format("{0}", workItem.State).DashIfEmpty();
-
-                        var descriptionTextBlock = xaml.FindName("Description") as TextBlock;
-                        if (descriptionTextBlock != null) descriptionTextBlock.Text = string.Format("{0}", workItem.Description).DashIfEmpty();
+                        foreach (var fieldMapping in mainFieldsMapping)
+                        {
+                            var textBlock = xaml.FindName(fieldMapping.Key) as TextBlock;
+                            if (textBlock != null)
+                            {
+                                textBlock.Text = $"{fieldMapping.Value}".DashIfEmpty();
+                            }
+                        }
 
                         foreach (var field in workItem.Fields)
                         {
