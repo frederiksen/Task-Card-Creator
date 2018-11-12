@@ -247,7 +247,7 @@ namespace TaskCardCreator
 
                     doc.FitToMaxPagesAcross(1);
 
-                    var newReportTab = new TabItem { Header = string.Format("Report #{0}", reportNumber), Content = doc };
+                    var newReportTab = new TabItem { Header = string.Format("Report #{0}:{1}", reportNumber, reportTemplate.Description), Content = doc };
                     reportNumber++;
                     TabControl.Items.Insert(1, newReportTab);
                     TabControl.SelectedItem = newReportTab; 
