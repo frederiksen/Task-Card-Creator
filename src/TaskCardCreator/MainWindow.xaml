@@ -61,7 +61,11 @@
                                KeyTipService.KeyTip="P"
                                ToolTipTitle="Print"
                                ToolTipDescription="Send report to a printer"/>
-        </RibbonGroup>
+            <RibbonButton Name="DeleteButton" LargeImageSource="Resources\Delete.png" IsEnabled="False" Label="Delete" Click="DeleteButtonClick" 
+                    KeyTipService.KeyTip="D"
+                    ToolTipTitle="DeleteReport"
+                    ToolTipDescription="Close Report Tab"/>
+                </RibbonGroup>
         <RibbonGroup Header="View" >
           <RibbonButton Name="ZoomIn" LargeImageSource="Resources\Plus.png" Label="Zoom in" Click="ZoomInButtonClick" 
                                KeyTipService.KeyTip="I"

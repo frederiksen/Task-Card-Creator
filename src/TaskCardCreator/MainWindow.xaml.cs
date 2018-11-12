@@ -31,6 +31,7 @@ namespace TaskCardCreator
     public partial class MainWindow : RibbonWindow
     {
         private int reportNumber = 1;
+        private int queryNumber = 1;
 
         [ImportMany(typeof(IReport))]
         private IEnumerable<IReport> reports;
@@ -112,8 +113,8 @@ namespace TaskCardCreator
 
                         // Create tab
                         var uc = project.CreateUserControl(supportedReports, reports);
-                        var tab = new TabItem { Header = string.Format("Report #{0}", reportNumber), Content = uc };
-                        reportNumber++;
+                        var tab = new TabItem { Header = string.Format("Query #{0}", queryNumber), Content = uc };
+                        queryNumber++;
                         TabControl.Items.Insert(1, tab);
                         TabControl.SelectedItem = tab;
 
@@ -177,6 +178,7 @@ namespace TaskCardCreator
                 var doc = tab.Content as DocumentViewer;
                 CreateButton.IsEnabled = (doc == null);
                 PrintButton.IsEnabled = (doc != null);
+                DeleteButton.IsEnabled = (doc != null || tab.Header.ToString().Contains("Query"));
                 ZoomIn.IsEnabled = (doc != null);
                 ZoomOut.IsEnabled = (doc != null);
             }
@@ -244,10 +246,25 @@ namespace TaskCardCreator
                     }
 
                     doc.FitToMaxPagesAcross(1);
-                    tab.Content = doc;
+
+                    var newReportTab = new TabItem { Header = string.Format("Report #{0}:{1}", reportNumber, reportTemplate.Description), Content = doc };
+                    reportNumber++;
+                    TabControl.Items.Insert(1, newReportTab);
+                    TabControl.SelectedItem = newReportTab; 
+                    projects[newReportTab] = project; 
 
                     TabSelectionChanged(null, null);
                 }
+            }
+        }
+
+        private void DeleteButtonClick(object sender, RoutedEventArgs e)
+        { 
+            Logger.Write("Closing Tab selected"); 
+            var tab = TabControl.SelectedItem as TabItem;
+            if (tab != null)
+            {
+                TabControl.Items.Remove(tab);
             }
         }
 
@@ -260,6 +277,7 @@ namespace TaskCardCreator
                 docViewer.Print();
             }
         }
+
 
         private void ZoomInButtonClick(object sender, RoutedEventArgs e)
         {
