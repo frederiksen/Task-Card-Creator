@@ -16,7 +16,7 @@ namespace TFSIterationPathServices
   [Export(typeof(ITaskServerService))]
   public class Tfs : ITaskServerService
   {
-    public string Name => "Team Foundation Server or Visual Studio Team Services";
+    public string Name => "Team Foundation Server or Azure DevOps";
 
     public string ShortDescription => "Using iteration paths and teams";
 
