@@ -5,7 +5,7 @@
 // All other rights reserved.
 -->
 <Wix xmlns="http://schemas.microsoft.com/wix/2006/wi" xmlns:bal="http://schemas.microsoft.com/wix/BalExtension">
-	<Bundle Name="Task Card Creator 8.0" Version="8.0.0.0" Manufacturer="mrtn" UpgradeCode="0a6eb0c9-563f-47ac-a726-8176636d1169" IconSourceFile="res/TaskCardCreator.ico">
+	<Bundle Name="Task Card Creator 8.1" Version="8.1.0.0" Manufacturer="mrtn" UpgradeCode="0a6eb0c9-563f-47ac-a726-8176636d1169" IconSourceFile="res/TaskCardCreator.ico">
     <BootstrapperApplicationRef Id="WixStandardBootstrapperApplication.HyperlinkLicense" >
       <bal:WixStandardBootstrapperApplication
         LogoFile="res/banner.png"

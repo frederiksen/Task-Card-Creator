@@ -338,7 +338,7 @@ namespace TaskCardCreator
                     return string.Empty;
                 }
             });
-            if (!string.IsNullOrEmpty(result) && result != "Task Card Creator 8.0")
+            if (!string.IsNullOrEmpty(result) && result != "Task Card Creator 8.1")
             {
                 var text = new TextBlock() { Margin = new Thickness(15), Text = "There is a new version available for download: " + result };
                 IntroTab.Content = text;

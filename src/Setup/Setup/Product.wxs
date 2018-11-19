@@ -5,7 +5,7 @@
 // All other rights reserved.
 -->
 <Wix xmlns="http://schemas.microsoft.com/wix/2006/wi">
-	<Product Id="*" Name="Task Card Creator" Language="1033" Version="8.0.0.0" Manufacturer="mrtn" UpgradeCode="d0170198-6c4d-477d-955e-2be40034a0bb">
+	<Product Id="*" Name="Task Card Creator" Language="1033" Version="8.1.0.0" Manufacturer="mrtn" UpgradeCode="d0170198-6c4d-477d-955e-2be40034a0bb">
 		<Package InstallerVersion="200" Compressed="yes" InstallScope="perMachine"/>
 
 		<Media Id="1" Cabinet="media.cab" EmbedCab="yes" CompressionLevel="high" />
@@ -202,8 +202,8 @@
     <DirectoryRef Id="ApplicationProgramsFolder">
       <Component Id="ApplicationShortcut" Guid="*">
         <Shortcut Id="ApplicationStartMenuShortcut"
-                  Name="Task Card Creator 8.0"
-                  Description="Task Card Creator 8.0"
+                  Name="Task Card Creator 8.1"
+                  Description="Task Card Creator 8.1"
                   Target="[INSTALLLOCATION]TaskCardCreator.exe"
                   WorkingDirectory="INSTALLLOCATION"/>
         <Shortcut Id="LicenseStartMenuShortcut"
