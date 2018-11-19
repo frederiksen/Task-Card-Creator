@@ -88,7 +88,9 @@
           <DropShadowEffect />
         </TabControl.Effect>
         <TabItem Name="IntroTab" Header="Introduction">
-                    <WebBrowser Source="https://github.com/frederiksen/Task-Card-Creator"></WebBrowser>          
+                    <TextBlock Margin="5" TextWrapping="Wrap">
+                        Small tool for printing task cards used for a Scrum board. Your physical Scrum board will look fantastic. Supports Team Foundation Server and Azure DevOps.
+                    </TextBlock>
         </TabItem>
 
       </TabControl>
