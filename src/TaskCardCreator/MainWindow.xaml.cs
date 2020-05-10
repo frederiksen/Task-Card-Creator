@@ -58,11 +58,9 @@ namespace TaskCardCreator
 
             // Adds all the parts found in all assemblies in subfolders
             var exePath = Path.GetDirectoryName(Assembly.GetExecutingAssembly().Location);
-            foreach (var path in Directory.EnumerateDirectories(exePath, "*", SearchOption.TopDirectoryOnly))
-            {
-                AppDomain.CurrentDomain.AppendPrivatePath(path);
-                catalog.Catalogs.Add(new DirectoryCatalog(path));
-            }
+
+
+            catalog.Catalogs.Add(new DirectoryCatalog(exePath, "*.dll"));
 
             // Create the CompositionContainer with the parts in the catalog
             var container = new CompositionContainer(catalog);
