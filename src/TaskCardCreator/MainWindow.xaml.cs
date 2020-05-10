@@ -15,7 +15,6 @@ using System.Threading.Tasks;
 using System.Windows;
 using System.Windows.Controls;
 using System.Windows.Xps.Packaging;
-using GoogleAnalyticsTracker.Simple;
 using Microsoft.Practices.EnterpriseLibrary.Logging;
 using System.Diagnostics;
 using ReportInterface;
@@ -41,18 +40,11 @@ namespace TaskCardCreator
 
         private Dictionary<TabItem, ITaskProject> projects = new Dictionary<TabItem, ITaskProject>();
 
-        private readonly SimpleTracker simpleTracker = new SimpleTracker("UA-55415144-2", "taskcardcreator.codeplex.com");
-
         public MainWindow()
         {
             LoadReports();
 
             InitializeComponent();
-
-            simpleTracker.TrackPageViewAsync("Task Card Creator", "");
-            var version = Assembly.GetEntryAssembly().GetName().Version;
-
-            simpleTracker.TrackEventAsync("Version", version.ToString());
 
             this.SourceInitialized += (x, y) => this.HideMinimizeAndMaximizeButtons();
 
@@ -99,8 +91,6 @@ namespace TaskCardCreator
                 var taskServerService = dlg.SelectedTaskServerService;
                 if (taskServerService != null)
                 {
-                    simpleTracker.TrackEventAsync("Service", taskServerService.Name);
-
                     var project = taskServerService.ConnectToProject(this);
 
                     if (project != null)
@@ -216,10 +206,8 @@ namespace TaskCardCreator
                     var project = projects[selectedItem];
 
                     reportTemplate = project.SelectedReport;
-                    simpleTracker.TrackEventAsync("Report", reportTemplate.Description);
 
                     workItems = project.WorkItems;
-                    simpleTracker.TrackEventAsync("Workitems", workItems.Count().ToString());
 
                     var ms = new MemoryStream();
                     var pkg = Package.Open(ms, FileMode.Create, FileAccess.ReadWrite);
