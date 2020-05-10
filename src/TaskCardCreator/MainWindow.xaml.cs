@@ -47,8 +47,6 @@ namespace TaskCardCreator
             InitializeComponent();
 
             this.SourceInitialized += (x, y) => this.HideMinimizeAndMaximizeButtons();
-
-            CheckForNewVersion();
         }
 
         private void LoadReports()
@@ -284,52 +282,6 @@ namespace TaskCardCreator
             if (docViewer != null)
             {
                 docViewer.DecreaseZoom();
-            }
-        }
-
-        private async void CheckForNewVersion()
-        {
-            var result = await Task.Run(async () =>
-            {
-                try
-                {
-                    var client = new HttpClient();
-                    var getStringTask = client.GetStringAsync("https://github.com/frederiksen/Task-Card-Creator/releases.atom");
-                    var contents = await getStringTask;
-
-                    DateTime latestReleaseDateTime = new DateTime(1980, 1, 1);
-                    string latestTitle = string.Empty;
-
-                    var xml = new XmlDocument();
-                    xml.LoadXml(contents);
-
-                    var nsmgr = new XmlNamespaceManager(xml.NameTable);
-                    nsmgr.AddNamespace("msb", "http://www.w3.org/2005/Atom");
-
-                    var releases = xml.SelectNodes("/msb:feed/msb:entry", nsmgr);
-
-                    foreach(XmlNode release in releases)
-                    {
-                        var updated = release["updated"].InnerText;
-                        var updatedTime = DateTime.Parse(updated);
-                        if (updatedTime > latestReleaseDateTime)
-                        {
-                            latestReleaseDateTime = updatedTime;
-                            latestTitle = release["title"].InnerText;
-                        }
-                    }
-
-                    return latestTitle;
-                }
-                catch (Exception)
-                {
-                    return string.Empty;
-                }
-            });
-            if (!string.IsNullOrEmpty(result) && result != "Task Card Creator 8.1")
-            {
-                var text = new TextBlock() { Margin = new Thickness(15), Text = "There is a new version available for download: " + result };
-                IntroTab.Content = text;
             }
         }
     }
