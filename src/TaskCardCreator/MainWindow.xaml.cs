@@ -59,8 +59,8 @@ namespace TaskCardCreator
             // Adds all the parts found in all assemblies in subfolders
             var exePath = Path.GetDirectoryName(Assembly.GetExecutingAssembly().Location);
 
-
-            catalog.Catalogs.Add(new DirectoryCatalog(exePath, "*.dll"));
+            catalog.Catalogs.Add(new DirectoryCatalog(exePath, "*services.dll"));
+            catalog.Catalogs.Add(new DirectoryCatalog(exePath, "*_report.dll"));
 
             // Create the CompositionContainer with the parts in the catalog
             var container = new CompositionContainer(catalog);
