@@ -10,44 +10,20 @@ EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Reports", "Reports", "{D3CEF4FB-E0BA-4025-B41A-47D08F04AD38}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Generic", "Reports\Generic\Generic.csproj", "{1FAE6178-33C9-43A8-9C79-3DBA934F8E30}"
-	ProjectSection(ProjectDependencies) = postProject
-		{CA38775A-8E6E-462F-8CB9-0E868F5483EC} = {CA38775A-8E6E-462F-8CB9-0E868F5483EC}
-	EndProjectSection
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MSFforAgile", "Reports\MSFforAgile\MSFforAgile.csproj", "{09152C41-95A8-46C7-BDB2-88C7396D50CE}"
-	ProjectSection(ProjectDependencies) = postProject
-		{CA38775A-8E6E-462F-8CB9-0E868F5483EC} = {CA38775A-8E6E-462F-8CB9-0E868F5483EC}
-	EndProjectSection
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MSFforAgileBasic", "Reports\MSFforAgileBasic\MSFforAgileBasic.csproj", "{18605E74-7FB7-4ED3-8305-AEFA0D16D050}"
-	ProjectSection(ProjectDependencies) = postProject
-		{CA38775A-8E6E-462F-8CB9-0E868F5483EC} = {CA38775A-8E6E-462F-8CB9-0E868F5483EC}
-	EndProjectSection
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ScrumBasic", "Reports\ScrumBasic\ScrumBasic.csproj", "{F8C68260-2741-4273-8E6E-42051F16B64F}"
-	ProjectSection(ProjectDependencies) = postProject
-		{CA38775A-8E6E-462F-8CB9-0E868F5483EC} = {CA38775A-8E6E-462F-8CB9-0E868F5483EC}
-	EndProjectSection
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ScrumCompact", "Reports\ScrumCompact\ScrumCompact.csproj", "{AE583B64-B78A-4AEA-B65D-BF178BB2C705}"
-	ProjectSection(ProjectDependencies) = postProject
-		{CA38775A-8E6E-462F-8CB9-0E868F5483EC} = {CA38775A-8E6E-462F-8CB9-0E868F5483EC}
-	EndProjectSection
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ScrumDescription", "Reports\ScrumDescription\ScrumDescription.csproj", "{7DBB5CEE-8F82-4B1A-8C95-A44D2BF5F9AF}"
-	ProjectSection(ProjectDependencies) = postProject
-		{CA38775A-8E6E-462F-8CB9-0E868F5483EC} = {CA38775A-8E6E-462F-8CB9-0E868F5483EC}
-	EndProjectSection
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ScrumDetailed", "Reports\ScrumDetailed\ScrumDetailed.csproj", "{56ACC5BE-AB9E-47B1-A91E-C42C75C58809}"
-	ProjectSection(ProjectDependencies) = postProject
-		{CA38775A-8E6E-462F-8CB9-0E868F5483EC} = {CA38775A-8E6E-462F-8CB9-0E868F5483EC}
-	EndProjectSection
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ScrumIndexCard3x5", "Reports\ScrumIndexCard3x5\ScrumIndexCard3x5.csproj", "{9669EF4C-246F-42B3-9B9E-1281ABE8136E}"
-	ProjectSection(ProjectDependencies) = postProject
-		{CA38775A-8E6E-462F-8CB9-0E868F5483EC} = {CA38775A-8E6E-462F-8CB9-0E868F5483EC}
-	EndProjectSection
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "TeamFoundationServerServices", "TeamFoundationServerServices", "{281B63FF-F259-46FC-AC37-269C10C05178}"
 EndProject
@@ -626,8 +602,8 @@ Global
 		{04C0094D-AFEE-433E-A092-318D337B7EB6} = {84D56FD0-7AF4-4A2C-AB46-33AB62EA4E16}
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
-		EnterpriseLibraryConfigurationToolBinariesPath = packages\Unity.2.1.505.0\lib\NET35;packages\Unity.Interception.2.1.505.0\lib\NET35;packages\EnterpriseLibrary.Common.5.0.505.0\lib\NET35;packages\EnterpriseLibrary.Logging.5.0.505.1\lib\NET35
-		EnterpriseLibraryConfigurationToolBinariesPathV6 = packages\EnterpriseLibrary.Common.6.0.1304.0\lib\NET45;packages\EnterpriseLibrary.Logging.6.0.1304.0\lib\NET45
 		SolutionGuid = {61479CDE-CF21-4240-8DDF-49A1D00549AA}
+		EnterpriseLibraryConfigurationToolBinariesPathV6 = packages\EnterpriseLibrary.Common.6.0.1304.0\lib\NET45;packages\EnterpriseLibrary.Logging.6.0.1304.0\lib\NET45
+		EnterpriseLibraryConfigurationToolBinariesPath = packages\Unity.2.1.505.0\lib\NET35;packages\Unity.Interception.2.1.505.0\lib\NET35;packages\EnterpriseLibrary.Common.5.0.505.0\lib\NET35;packages\EnterpriseLibrary.Logging.5.0.505.1\lib\NET35
 	EndGlobalSection
 EndGlobal
