@@ -9,7 +9,7 @@
     <OutputType>Library</OutputType>
     <AppDesignerFolder>Properties</AppDesignerFolder>
     <RootNamespace>JiraScrumIndexCard3x5</RootNamespace>
-    <AssemblyName>JiraScrumIndexCard3x5</AssemblyName>
+    <AssemblyName>JiraScrumIndexCard3x5_report</AssemblyName>
     <TargetFrameworkVersion>v4.6.2</TargetFrameworkVersion>
     <FileAlignment>512</FileAlignment>
     <SccProjectName>SAK</SccProjectName>
