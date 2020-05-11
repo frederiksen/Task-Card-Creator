@@ -45,10 +45,6 @@
                                KeyTipService.KeyTip="B"
                                ToolTipTitle="Found a bug?"
                                ToolTipDescription="Allows you to submit a bug"/>
-          <RibbonButton SmallImageSource="Resources\Update.png" 
-                               Label="Check for updates" Click="CheckForUpdatesButtonClick" KeyTipService.KeyTip="C"
-                               ToolTipTitle="Check for updates"
-                               ToolTipDescription="Allows you to check for a newer version"/>
         </RibbonGroup>
       </RibbonTab>
       <RibbonTab Name="TaskCardTab" Header="Report" ContextualTabGroupHeader="Project" KeyTipService.KeyTip="R">
