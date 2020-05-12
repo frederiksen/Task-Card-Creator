@@ -1,6 +1,9 @@
 # Task Card Creator
 Small tool for printing task cards used for a Scrum board. Your physical Scrum board will look fantastic. Supports Team Foundation Server and Azure DevOps.
 
+# Microsoft Store
+https://www.microsoft.com/p/task-card-creator/9p7d0pvsnzf0
+
 # AppVeyor
 [![Build status](https://ci.appveyor.com/api/projects/status/g1kb82nis02kc07c?svg=true)](https://ci.appveyor.com/project/frederiksen/task-card-creator)
 
