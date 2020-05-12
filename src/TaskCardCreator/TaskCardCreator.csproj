@@ -10,7 +10,7 @@
     <AppDesignerFolder>Properties</AppDesignerFolder>
     <RootNamespace>TaskCardCreator</RootNamespace>
     <AssemblyName>TaskCardCreator</AssemblyName>
-    <TargetFrameworkVersion>v4.6.1</TargetFrameworkVersion>
+    <TargetFrameworkVersion>v4.6.2</TargetFrameworkVersion>
     <TargetFrameworkProfile>
     </TargetFrameworkProfile>
     <FileAlignment>512</FileAlignment>
@@ -46,12 +46,6 @@
     <ApplicationIcon>Resources\TaskCardCreator.ico</ApplicationIcon>
   </PropertyGroup>
   <ItemGroup>
-    <Reference Include="GoogleAnalyticsTracker.Core">
-      <HintPath>..\packages\GoogleAnalyticsTracker.Core.3.0.22\lib\portable-net45+win+wp80\GoogleAnalyticsTracker.Core.dll</HintPath>
-    </Reference>
-    <Reference Include="GoogleAnalyticsTracker.Simple">
-      <HintPath>..\packages\GoogleAnalyticsTracker.Simple.3.0.22\lib\net45\GoogleAnalyticsTracker.Simple.dll</HintPath>
-    </Reference>
     <Reference Include="Microsoft.Practices.EnterpriseLibrary.Common, Version=6.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
       <SpecificVersion>False</SpecificVersion>
       <HintPath>..\packages\EnterpriseLibrary.Common.6.0.1304.0\lib\NET45\Microsoft.Practices.EnterpriseLibrary.Common.dll</HintPath>

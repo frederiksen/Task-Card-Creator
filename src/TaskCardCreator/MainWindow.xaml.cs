@@ -15,7 +15,6 @@ using System.Threading.Tasks;
 using System.Windows;
 using System.Windows.Controls;
 using System.Windows.Xps.Packaging;
-using GoogleAnalyticsTracker.Simple;
 using Microsoft.Practices.EnterpriseLibrary.Logging;
 using System.Diagnostics;
 using ReportInterface;
@@ -41,22 +40,13 @@ namespace TaskCardCreator
 
         private Dictionary<TabItem, ITaskProject> projects = new Dictionary<TabItem, ITaskProject>();
 
-        private readonly SimpleTracker simpleTracker = new SimpleTracker("UA-55415144-2", "taskcardcreator.codeplex.com");
-
         public MainWindow()
         {
             LoadReports();
 
             InitializeComponent();
 
-            simpleTracker.TrackPageViewAsync("Task Card Creator", "");
-            var version = Assembly.GetEntryAssembly().GetName().Version;
-
-            simpleTracker.TrackEventAsync("Version", version.ToString());
-
             this.SourceInitialized += (x, y) => this.HideMinimizeAndMaximizeButtons();
-
-            CheckForNewVersion();
         }
 
         private void LoadReports()
@@ -68,11 +58,9 @@ namespace TaskCardCreator
 
             // Adds all the parts found in all assemblies in subfolders
             var exePath = Path.GetDirectoryName(Assembly.GetExecutingAssembly().Location);
-            foreach (var path in Directory.EnumerateDirectories(exePath, "*", SearchOption.TopDirectoryOnly))
-            {
-                AppDomain.CurrentDomain.AppendPrivatePath(path);
-                catalog.Catalogs.Add(new DirectoryCatalog(path));
-            }
+
+            catalog.Catalogs.Add(new DirectoryCatalog(exePath, "*services.dll"));
+            catalog.Catalogs.Add(new DirectoryCatalog(exePath, "*_report.dll"));
 
             // Create the CompositionContainer with the parts in the catalog
             var container = new CompositionContainer(catalog);
@@ -99,8 +87,6 @@ namespace TaskCardCreator
                 var taskServerService = dlg.SelectedTaskServerService;
                 if (taskServerService != null)
                 {
-                    simpleTracker.TrackEventAsync("Service", taskServerService.Name);
-
                     var project = taskServerService.ConnectToProject(this);
 
                     if (project != null)
@@ -216,10 +202,8 @@ namespace TaskCardCreator
                     var project = projects[selectedItem];
 
                     reportTemplate = project.SelectedReport;
-                    simpleTracker.TrackEventAsync("Report", reportTemplate.Description);
 
                     workItems = project.WorkItems;
-                    simpleTracker.TrackEventAsync("Workitems", workItems.Count().ToString());
 
                     var ms = new MemoryStream();
                     var pkg = Package.Open(ms, FileMode.Create, FileAccess.ReadWrite);
@@ -296,52 +280,6 @@ namespace TaskCardCreator
             if (docViewer != null)
             {
                 docViewer.DecreaseZoom();
-            }
-        }
-
-        private async void CheckForNewVersion()
-        {
-            var result = await Task.Run(async () =>
-            {
-                try
-                {
-                    var client = new HttpClient();
-                    var getStringTask = client.GetStringAsync("https://github.com/frederiksen/Task-Card-Creator/releases.atom");
-                    var contents = await getStringTask;
-
-                    DateTime latestReleaseDateTime = new DateTime(1980, 1, 1);
-                    string latestTitle = string.Empty;
-
-                    var xml = new XmlDocument();
-                    xml.LoadXml(contents);
-
-                    var nsmgr = new XmlNamespaceManager(xml.NameTable);
-                    nsmgr.AddNamespace("msb", "http://www.w3.org/2005/Atom");
-
-                    var releases = xml.SelectNodes("/msb:feed/msb:entry", nsmgr);
-
-                    foreach(XmlNode release in releases)
-                    {
-                        var updated = release["updated"].InnerText;
-                        var updatedTime = DateTime.Parse(updated);
-                        if (updatedTime > latestReleaseDateTime)
-                        {
-                            latestReleaseDateTime = updatedTime;
-                            latestTitle = release["title"].InnerText;
-                        }
-                    }
-
-                    return latestTitle;
-                }
-                catch (Exception)
-                {
-                    return string.Empty;
-                }
-            });
-            if (!string.IsNullOrEmpty(result) && result != "Task Card Creator 8.1")
-            {
-                var text = new TextBlock() { Margin = new Thickness(15), Text = "There is a new version available for download: " + result };
-                IntroTab.Content = text;
             }
         }
     }
