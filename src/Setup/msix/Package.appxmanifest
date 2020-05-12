@@ -7,8 +7,8 @@
   IgnorableNamespaces="uap rescap">
 
   <Identity
-    Name="a923d4dd-befd-4a84-9264-b1735d1922c6"
-    Publisher="CN=mrtnf"
+    Name="MyFunkyApps.com.TaskCardCreator"
+    Publisher="CN=8989CA06-3123-4F60-AD70-0EF4AA24AD20"
     Version="8.2.0.0" />
 
   <Properties>
